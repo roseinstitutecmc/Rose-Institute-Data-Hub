@@ -1,0 +1,11 @@
+---
+title: "Test2"
+---
+
+This is a Quarto website. This is basically just a test to see how useable Quarto is.
+
+![](images/roseimage.jfif)
+
+here's a [link](https://roseinstitute.org/)
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
