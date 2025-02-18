@@ -9,10 +9,9 @@ website:
         text: Home
       - about.qmd
       - href: other.qmd
-        text: Otherr
+        text: Other
       - href: map.qmd
-        text: map
-      - href: graph.qmd
+
         text: graph without codecell
 
 format:
