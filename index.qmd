@@ -1,5 +1,5 @@
 ---
-title: "Test2"
+title: "Index"
 ---
 
 This is a Quarto website. This is basically just a test to see how useable Quarto is.

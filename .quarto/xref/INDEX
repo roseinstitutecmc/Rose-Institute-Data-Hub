@@ -10,5 +10,14 @@
   },
   "map.qmd": {
     "map.html": "866bdc8c"
+  },
+  "testmap.qmd": {
+    "testmap.html": "268d6cd6"
+  },
+  "newtest.qmd": {
+    "newtest.html": "53624229"
+  },
+  "2-25test.qmd": {
+    "2-25test.html": "f6f2fb72"
   }
 }

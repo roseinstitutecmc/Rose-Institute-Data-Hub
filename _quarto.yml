@@ -13,6 +13,15 @@ website:
       - href: map.qmd
 
         text: graph without codecell
+      - href: testmap.qmd
+        text: testttt
+      - href: newtest.qmd
+        text: newtest
+      - href: 2-25test.qmd
+
+        text: 2-25
+
+
 
 format:
   html:
