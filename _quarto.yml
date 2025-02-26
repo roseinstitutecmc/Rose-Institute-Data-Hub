@@ -20,6 +20,9 @@ website:
       - href: 2-25test.qmd
 
         text: 2-25
+      - href: 2-25 map.qmd
+
+        text: 2-25 map
 
 
 

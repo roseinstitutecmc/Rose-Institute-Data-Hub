@@ -103,5 +103,47 @@
     "title": "Title",
     "section": "",
     "text": "This should hopefully have an interactive map generated with Python and with code from Stackoverflow. Well, no, actually it seems to give you a code block. It seems you need to use shiny to have some sort of non code block."
+  },
+  {
+    "objectID": "2-25test.html",
+    "href": "2-25test.html",
+    "title": "2-25",
+    "section": "",
+    "text": "from ipyleaflet import Map, Marker, basemaps, basemap_to_tiles\nm = Map(\n  basemap=basemap_to_tiles(\n    basemaps.NASAGIBS.ModisTerraTrueColorCR, \"2017-04-08\"\n  ),\n  center=(52.204793, 360.121558),\n  zoom=4\n)\nm.add_layer(Marker(location=(52.204793, 360.121558)))\nm"
+  },
+  {
+    "objectID": "2-25 map.html",
+    "href": "2-25 map.html",
+    "title": "Reporting on the bill length of penguins",
+    "section": "",
+    "text": "Prepare yourself for a life-changing article about penguins…"
+  },
+  {
+    "objectID": "2-25 map.html#abstract",
+    "href": "2-25 map.html#abstract",
+    "title": "Reporting on the bill length of penguins",
+    "section": "",
+    "text": "Prepare yourself for a life-changing article about penguins…"
+  },
+  {
+    "objectID": "2-25 map.html#introduction",
+    "href": "2-25 map.html#introduction",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Introduction",
+    "text": "Introduction\nPenguins are a family (Spheniscidae) of aquatic flightless birds that live primarily in the Southern Hemisphere. Their diet consists of:\n\nKrill\nFish\nSquid\nMore fish\n\nThere are 18 species of penguin, including:\n\nMacaroni penguin (Eudyptes chrysolophus)\nChinstrap penguin (Pygoscelis antarcticus)\nGentoo penguin (Pygoscelis papua)"
+  },
+  {
+    "objectID": "2-25 map.html#methods",
+    "href": "2-25 map.html#methods",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Methods",
+    "text": "Methods\nTo determine whether a higher body mass implies a longer bill, we loaded a penguins dataset using pandas:\n\nimport pandas as pd\n\ndata = pd.read_csv(\n    'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'\n)\ndata.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "2-25 map.html#results",
+    "href": "2-25 map.html#results",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Results",
+    "text": "Results\nThe figure below shows the bill length plotted as a function of the body mass for three species across a 3-year period.\n\n\n        \n        \n        \nBill length as a function of body mass\n\n\n                            \n                                            \n\n\n\n\nAccording to our data, the average bill length is 43.9 mm."
   }
 ]
