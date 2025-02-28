@@ -1,17 +1,101 @@
 [
   {
-    "objectID": "other.html",
-    "href": "other.html",
-    "title": "Other",
+    "objectID": "testmap.html",
+    "href": "testmap.html",
+    "title": "Title",
     "section": "",
-    "text": "Here is another page"
+    "text": "This should hopefully have an interactive map generated with Python and with code from Stackoverflow. Well, no, actually it seems to give you a code block. It seems you need to use shiny to have some sort of non code block."
+  },
+  {
+    "objectID": "testmap.html#description",
+    "href": "testmap.html#description",
+    "title": "Title",
+    "section": "",
+    "text": "This should hopefully have an interactive map generated with Python and with code from Stackoverflow. Well, no, actually it seems to give you a code block. It seems you need to use shiny to have some sort of non code block."
+  },
+  {
+    "objectID": "newtest.html",
+    "href": "newtest.html",
+    "title": "Reporting on the bill length of penguins",
+    "section": "",
+    "text": "Copied everything from this [guy] (https://www.jumpingrivers.com/blog/quarto-for-python-users/)"
+  },
+  {
+    "objectID": "newtest.html#abstract",
+    "href": "newtest.html#abstract",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Abstract",
+    "text": "Abstract\nPrepare yourself for a life-changing article about penguins…"
+  },
+  {
+    "objectID": "newtest.html#introduction",
+    "href": "newtest.html#introduction",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Introduction",
+    "text": "Introduction\nPenguins are a family (Spheniscidae) of aquatic flightless birds that live primarily in the Southern Hemisphere. Their diet consists of:\n\nKrill\nFish\nSquid\nMore fish\n\nThere are 18 species of penguin, including:\n\nMacaroni penguin (Eudyptes chrysolophus)\nChinstrap penguin (Pygoscelis antarcticus)\nGentoo penguin (Pygoscelis papua)"
+  },
+  {
+    "objectID": "newtest.html#methods",
+    "href": "newtest.html#methods",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Methods",
+    "text": "Methods\nTo determine whether a higher body mass implies a longer bill, we loaded a penguins dataset using pandas:\n\nimport pandas as pd\n\ndata = pd.read_csv(\n    'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'\n)\ndata.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "newtest.html#results",
+    "href": "newtest.html#results",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Results",
+    "text": "Results\nThe figure below shows the bill length plotted as a function of the body mass for three species across a 3-year period.\n\n\n        \n        \n        \nBill length as a function of body mass\n\n\n                            \n                                            \n\n\n\n\nAccording to our data, the average bill length is 43.9 mm."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Test2",
+    "title": "Index",
     "section": "",
     "text": "This is a Quarto website. This is basically just a test to see how useable Quarto is.\n\nhere’s a link\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "2-25test.html",
+    "href": "2-25test.html",
+    "title": "2-25",
+    "section": "",
+    "text": "from ipyleaflet import Map, Marker, basemaps, basemap_to_tiles\nm = Map(\n  basemap=basemap_to_tiles(\n    basemaps.NASAGIBS.ModisTerraTrueColorCR, \"2017-04-08\"\n  ),\n  center=(52.204793, 360.121558),\n  zoom=4\n)\nm.add_layer(Marker(location=(52.204793, 360.121558)))\nm"
+  },
+  {
+    "objectID": "2-25 map.html",
+    "href": "2-25 map.html",
+    "title": "Reporting on the bill length of penguins",
+    "section": "",
+    "text": "Prepare yourself for a life-changing article about penguins…"
+  },
+  {
+    "objectID": "2-25 map.html#abstract",
+    "href": "2-25 map.html#abstract",
+    "title": "Reporting on the bill length of penguins",
+    "section": "",
+    "text": "Prepare yourself for a life-changing article about penguins…"
+  },
+  {
+    "objectID": "2-25 map.html#introduction",
+    "href": "2-25 map.html#introduction",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Introduction",
+    "text": "Introduction\nPenguins are a family (Spheniscidae) of aquatic flightless birds that live primarily in the Southern Hemisphere. Their diet consists of:\n\nKrill\nFish\nSquid\nMore fish\n\nThere are 18 species of penguin, including:\n\nMacaroni penguin (Eudyptes chrysolophus)\nChinstrap penguin (Pygoscelis antarcticus)\nGentoo penguin (Pygoscelis papua)"
+  },
+  {
+    "objectID": "2-25 map.html#methods",
+    "href": "2-25 map.html#methods",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Methods",
+    "text": "Methods\nTo determine whether a higher body mass implies a longer bill, we loaded a penguins dataset using pandas:\n\nimport pandas as pd\n\ndata = pd.read_csv(\n    'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'\n)\ndata.head()\n\n\n\n\n\n\n\n\nspecies\nisland\nbill_length_mm\nbill_depth_mm\nflipper_length_mm\nbody_mass_g\nsex\nyear\n\n\n\n\n0\nAdelie\nTorgersen\n39.1\n18.7\n181.0\n3750.0\nmale\n2007\n\n\n1\nAdelie\nTorgersen\n39.5\n17.4\n186.0\n3800.0\nfemale\n2007\n\n\n2\nAdelie\nTorgersen\n40.3\n18.0\n195.0\n3250.0\nfemale\n2007\n\n\n3\nAdelie\nTorgersen\nNaN\nNaN\nNaN\nNaN\nNaN\n2007\n\n\n4\nAdelie\nTorgersen\n36.7\n19.3\n193.0\n3450.0\nfemale\n2007"
+  },
+  {
+    "objectID": "2-25 map.html#results",
+    "href": "2-25 map.html#results",
+    "title": "Reporting on the bill length of penguins",
+    "section": "Results",
+    "text": "Results\nThe figure below shows the bill length plotted as a function of the body mass for three species across a 3-year period.\n\n\n        \n        \n        \nBill length as a function of body mass\n\n\n                            \n                                            \n\n\n\n\nAccording to our data, the average bill length is 43.9 mm."
   },
   {
     "objectID": "about.html",
@@ -40,5 +124,26 @@
     "title": "Title",
     "section": "Map",
     "text": "Map\n\nimport pandas as pd\nimport plotly.express as px\n\ndf = pd.DataFrame({'datetime': {0: '2018-09-29 00:00:00', 1: '2018-07-28 00:00:00', 2: '2018-07-29 00:00:00', 3: '2018-07-29 00:00:00', 4: '2018-08-01 00:00:00', 5: '2018-08-01 00:00:00', 6: '2018-08-01 00:00:00', 7: '2018-08-05 00:00:00', 8: '2018-09-06 00:00:00', 9: '2018-09-07 00:00:00', 10: '2018-09-07 00:00:00', 11: '2018-09-08 00:00:00', 12: '2018-09-08 00:00:00', 13: '2018-09-08 00:00:00', 14: '2018-10-08 00:00:00', 15: '2018-10-10 00:00:00', 16: '2018-10-10 00:00:00', 17: '2018-10-11 00:00:00', 18: '2018-10-11 00:00:00', 19: '2018-10-11 00:00:00'},\n 'lat': {0: 40.6908284, 1: 40.693601, 2: 40.6951317, 3: 40.6967261, 4: 40.697593, 5: 40.6987141, 6: 40.7186497, 7: 40.7187772, 8: 40.7196151, 9: 40.7196865, 10: 40.7187408, 11: 40.7189716, 12: 40.7214273, 13: 40.7226571, 14: 40.7236955, 15: 40.7247207, 16: 40.7221074, 17: 40.7445859, 18: 40.7476252, 19: 40.7476451},\n 'lon': {0: -73.9336094, 1: -73.9350917, 2: -73.9351778, 3: -73.9355315, 4: -73.9366737, 5: -73.9393797, 6: -74.0011939, 7: -74.0010918, 8: -73.9887851, 9: -74.0035125, 10: -74.0250842, 11: -74.0299202, 12: -74.029886, 13: -74.027542, 14: -74.0290157, 15: -74.0291541, 16: -74.0220728, 17: -73.9442636, 18: -73.9641326, 19: -73.9533039},\n 'count': {0: 1, 1: 2, 2: 5, 3: 1, 4: 6, 5: 1, 6: 3, 7: 2, 8: 1, 9: 7, 10: 3, 11: 3, 12: 1, 13: 2, 14: 1, 15: 1, 16: 2, 17: 1, 18: 1, 19: 1}})\nfig = px.scatter_geo(df, \n                     lat='lat', \n                     lon='lon', \n                     scope='usa',\n                     color=\"count\", \n                     size='count',\n                     projection=\"albers usa\", \n                     animation_frame=\"datetime\", \n                     title='Your title')\nfig.update(layout_coloraxis_showscale=False)\nfig.show()"
+  },
+  {
+    "objectID": "other.html",
+    "href": "other.html",
+    "title": "Testmap?",
+    "section": "",
+    "text": "Here is another page"
+  },
+  {
+    "objectID": "other.html#test",
+    "href": "other.html#test",
+    "title": "Testmap?",
+    "section": "",
+    "text": "Here is another page"
+  },
+  {
+    "objectID": "other.html#section-2",
+    "href": "other.html#section-2",
+    "title": "Testmap?",
+    "section": "Section 2",
+    "text": "Section 2\nThis should hopefully be a section"
   }
 ]

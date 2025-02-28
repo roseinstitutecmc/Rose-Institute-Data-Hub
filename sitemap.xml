@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://roseinstitutecmc.github.io/Test2/other.html</loc>
-    <lastmod>2025-02-18T22:25:20.747Z</lastmod>
+    <loc>https://roseinstitutecmc.github.io/Test2/testmap.html</loc>
+    <lastmod>2025-02-23T21:02:36.945Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roseinstitutecmc.github.io/Test2/newtest.html</loc>
+    <lastmod>2025-02-26T03:35:10.962Z</lastmod>
   </url>
   <url>
     <loc>https://roseinstitutecmc.github.io/Test2/index.html</loc>
-    <lastmod>2025-02-18T22:25:20.742Z</lastmod>
+    <lastmod>2025-02-26T02:23:00.024Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roseinstitutecmc.github.io/Test2/2-25test.html</loc>
+    <lastmod>2025-02-26T02:55:31.538Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roseinstitutecmc.github.io/Test2/2-25 map.html</loc>
+    <lastmod>2025-02-26T03:34:50.413Z</lastmod>
   </url>
   <url>
     <loc>https://roseinstitutecmc.github.io/Test2/about.html</loc>
@@ -15,5 +27,9 @@
   <url>
     <loc>https://roseinstitutecmc.github.io/Test2/map.html</loc>
     <lastmod>2025-02-18T22:25:20.746Z</lastmod>
+  </url>
+  <url>
+    <loc>https://roseinstitutecmc.github.io/Test2/other.html</loc>
+    <lastmod>2025-02-26T02:23:11.438Z</lastmod>
   </url>
 </urlset>
