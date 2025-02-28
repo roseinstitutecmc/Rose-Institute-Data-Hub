@@ -60,14 +60,14 @@
     "href": "newtest.html",
     "title": "Reporting on the bill length of penguins",
     "section": "",
-    "text": "Prepare yourself for a life-changing article about penguins…"
+    "text": "Copied everything from this [guy] (https://www.jumpingrivers.com/blog/quarto-for-python-users/)"
   },
   {
     "objectID": "newtest.html#abstract",
     "href": "newtest.html#abstract",
     "title": "Reporting on the bill length of penguins",
-    "section": "",
-    "text": "Prepare yourself for a life-changing article about penguins…"
+    "section": "Abstract",
+    "text": "Abstract\nPrepare yourself for a life-changing article about penguins…"
   },
   {
     "objectID": "newtest.html#introduction",
