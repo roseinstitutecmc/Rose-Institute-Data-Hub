@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="someone">
-<meta name="dcterms.date" content="2024-02-12">
+<meta name="author" content="Joseph M. Bessette and J. Andrew Sinclair">
+<meta name="dcterms.date" content="2022-12-14">
 
-<title>Title – Test2</title>
+<title>How Many Americans Support the Death Penalty? – Test2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,10 +22,44 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -68,6 +102,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -76,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -95,32 +135,32 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./other.html"> 
+    <a class="nav-link" href="./section.html"> 
 <span class="menu-text">Test of Sections</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./map.html"> 
-<span class="menu-text">graph without codecell</span></a>
+<span class="menu-text">Map in Progress</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./testmap.html" aria-current="page"> 
-<span class="menu-text">testttt</span></a>
+    <a class="nav-link" href="./penguin_test.html"> 
+<span class="menu-text">Penguin Graphs in Progress</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./newtest.html"> 
-<span class="menu-text">newtest</span></a>
+    <a class="nav-link" href="./workingmap.html"> 
+<span class="menu-text">Working Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./2-25test.html"> 
-<span class="menu-text">2-25</span></a>
+    <a class="nav-link" href="./exact_penguin.html"> 
+<span class="menu-text">Exact Copy of Penguin Site</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./2-25 map.html"> 
-<span class="menu-text">2-25 map</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./reportDraft.html"> 
+    <a class="nav-link active" href="./reportDraft.html" aria-current="page"> 
 <span class="menu-text">Draft of Bessett-Sinclair Report</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./render_test.html"> 
+<span class="menu-text">Render Test</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -130,58 +170,134 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">How Many Americans Support the Death Penalty?</h1>
+            <p class="subtitle lead">Results of National Surveys in 2019 and 2020</p>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Joseph M. Bessette and J. Andrew Sinclair </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">December 14, 2022</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description">Description</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Title</h1>
+
+
+
+
+<p>Do Americans favor the death penalty for the crime of murder? According to Gallup and the Pew Research Center, two major polling organizations that regularly ask Americans this question and whose findings are widely publicized, public support ranges between 55% (Gallup, September-October, 2020) and 60% (Pew, April 2021).2 These findings are generally accepted as an accurate gauge of current public attitudes: a clear majority in favor of the death penalty for murder but well below the modern peak of 78-80% in the mid-1990s.</p>
+<p>Both Gallup and Pew ask a very generic question. Gallup asks, “Are you in favor of the death penalty for a person convicted of murder?” Although Pew gives more options to measure level of support or opposition, its question is otherwise nearly identical: “Do you strongly favor, favor, oppose or strongly oppose the death penalty for persons convicted of murder?” Most other polling organizations that have measured public opinion in the United States on the death penalty in recent decades have asked essentially the same question. One problem is that these questions do not distinguish between most murders – or, what we might call the “typical” or ”average” murder — and the specific kinds of aggravated murders that make a killer eligible for the death penalty in the 27 American states with capital punishment. Someone, for example, might oppose the death penalty for most murders but support it for, say, raping and murdering a child, or killing people by setting off a bomb in a public place, or killing someone after intentionally torturing the victim. How should such a person respond when asked whether he or she favors the death penalty for “a person convicted of murder”? This person might answer “no” to the generic question — and thus be counted as a death penalty opponent — even though he or she would support executing some murderers. A second problem is that the question does not allow respondents to distinguish between an abstract preference for the death penalty in some circumstances and the retention or adoption of the death penalty as actual public policy. Someone who approves of the death penalty in principle might answer “no” to the generic question because they interpret the question as asking about whether their state should have the death penalty – a policy they might oppose because of concerns about cost, mistakes, or discrimination.</p>
+<p>Although polling organizations occasionally ask Americans whether they support the death penalty for a particular offender — such as Timothy McVeigh, who killed 168 in the 1995 bombing of the federal building in Oklahoma City and who was executed in 2001 (Gallup reported that 81% approved) — we can find no record in the past three decades of a national survey that polled Americans on their support for the death penalty for a variety of specific types of aggravated murder. To fill this gap in our knowledge of American public opinion on capital punishment, we devised a series of questions on the death penalty that were included in two national surveys (on several distinct topics) of approximately 5000 registered voters. The surveys were conducted online by YouGov in June of 2019.5</p>
+<div id="2c672e0d" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="vs">r"C:\Users\Maya\Documents\RoseData\Quarto\Test2\Partial1.csv"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Political ideology</th>
+<th data-quarto-table-cell-role="th">Support for most or all types of murder</th>
+<th data-quarto-table-cell-role="th">Support only for the most aggravated murders</th>
+<th data-quarto-table-cell-role="th">Oppose for most or all types of murder</th>
+<th data-quarto-table-cell-role="th">Unnamed: 4</th>
+<th data-quarto-table-cell-role="th">Unnamed: 5</th>
+<th data-quarto-table-cell-role="th">Unnamed: 6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Very liberal</td>
+<td>14%</td>
+<td>29%</td>
+<td>56%</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Liberal</td>
+<td>19%</td>
+<td>44%</td>
+<td>37%</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Moderate</td>
+<td>35%</td>
+<td>44%</td>
+<td>22%</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Conservative</td>
+<td>52%</td>
+<td>38%</td>
+<td>10%</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Very\nconservative</td>
+<td>65%</td>
+<td>26%</td>
+<td>9%</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
 </div>
+</div>
+</div>
+<p>As a note, I took it out for October, since the data must be tidy, else it looks like:</p>
+<p><img src="screenshot.png" class="img-fluid"></p>
 
 
-
-<div class="quarto-title-meta">
-
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>someone </p>
-          </div>
-  </div>
-    
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2024</p>
-    </div>
-  </div>
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p>This should hopefully have an interactive map generated with Python and with code from Stackoverflow. Well, no, actually it seems to give you a code block. It seems you need to use shiny to have some sort of non code block.</p>
-
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

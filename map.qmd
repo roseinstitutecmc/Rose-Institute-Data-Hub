@@ -8,7 +8,8 @@ jupyter: python3
 
 ## Description
 
-This should hopefully have an interactive map generated with Python and with code from Stackoverflow. Well, no, actually it seems to give you a code block. It seems you need to use shiny to have some sort of non code block. 
+The Goal is to use Plotly to create a different type of interactive map. If you run this in the codecell, it works, but, on here, it just gives the code block.... 
+
 
 ## Map
 

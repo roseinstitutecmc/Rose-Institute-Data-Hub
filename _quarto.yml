@@ -7,22 +7,21 @@ website:
     left:
       - href: index.qmd #you can use this to link to a separate pg, basically
         text: Home
-      - about.qmd
-      - href: other.qmd
-        text: Other
+      #- about.qmd #This is vestigial. 
+      - href: section.qmd
+        text: Test of Sections
       - href: map.qmd
-
-        text: graph without codecell
-      - href: testmap.qmd
-        text: testttt
-      - href: newtest.qmd
-        text: newtest
-      - href: 2-25test.qmd
-
-        text: 2-25
-      - href: 2-25 map.qmd
-
-        text: 2-25 map
+        text: Map in Progress
+      - href: penguin_test.qmd
+        text: Penguin Graphs in Progress
+      - href: workingmap.qmd
+        text: Working Map
+      - href: exact_penguin.qmd
+        text: Exact Copy of Penguin Site
+      - href: reportDraft.qmd #you can use this to link to a separate pg, basically
+        text: Draft of Bessett-Sinclair Report
+      - href: render_test.qmd
+        text: Render Test
 
 
 

@@ -1,0 +1,14 @@
+---
+title: "Demonstration of Sections"
+author: "someone"
+date: "12 February 2024"
+format: html
+---
+
+## Test
+
+In general, this is how you make sections. 
+
+## Section 2
+
+Here is another section. 

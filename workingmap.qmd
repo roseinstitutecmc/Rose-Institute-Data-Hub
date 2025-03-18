@@ -6,6 +6,10 @@ format: html
 jupyter: python3
 ---
 
+This gives a working map! 
+
+Thing is, it doesn't use plotly. 
+
 ```{python}
 from ipyleaflet import Map, Marker, basemaps, basemap_to_tiles
 m = Map(

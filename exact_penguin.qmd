@@ -6,9 +6,9 @@ format: html
 jupyter: python3
 ---
 
-Copied everything from this [guy] (https://www.jumpingrivers.com/blog/quarto-for-python-users/)
-
 ## Abstract
+
+This is an exact copy from the same penguine site, for reference. 
 
 Prepare yourself for a life-changing article about penguins...
 

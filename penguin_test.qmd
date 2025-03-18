@@ -3,8 +3,20 @@ title: "Reporting on the bill length of penguins"
 author: "Myles Mitchell & Parisa Gregg"
 date: "14 December 2022"
 format: html
+execute:
+  echo: false
+  enabled: true
+  cache: true
 jupyter: python3
+editor:
+  render-on-save: true #hm, kinda 100% forgot what this meant.... 
+  
 ---
+
+The goal here is to copy everything from a [site](https://www.jumpingrivers.com/blog/quarto-for-python-users/) where a bunch of graphs worked. Unfortunately, thus far, it has not worked. 
+
+Currently, the goal is to use this to test the Plotly rendering, so debugging, basically. 
+
 
 ## Abstract
 
@@ -48,31 +60,41 @@ data.head()
 The figure below shows the bill length plotted as a function of the body mass
 for three species across a 3-year period.
 
-```{python}
-#| echo: false
-#| fig-cap: "Bill length as a function of body mass"
-#| fig-width: 8
-import plotly.express as px
+## Plotly
 
-px.scatter(
-    data,
-    x="body_mass_g",
-    y="bill_length_mm",
-    color="species",
-    facet_col="year",
-    trendline="ols",
-)
+## NumPy
+```{python}
+import plotly.io as pio #Iirc Amy added this part to test if it was render
+import plotly.express as px
+pio.renderers.default = "browser"
+import plotly.graph_objects as go # or plotly.express 
+import plotly.graph_objects as go
+from IPython.display import Image
+import numpy as np
+#| eval: false
+import plotly.express as px
+#| eval: false
+EXPORT_PLOTLY = False
+fig = None # Define None to prevent code errors
+
+def export_plotly(fig, filepath: str):
+    if EXPORT_PLOTLY:
+        fig.write_json(filepath)
+
+gapminder = px.data.gapminder()
+gapminder2007 = gapminder.query("year == 2007")
+fig = px.scatter(gapminder2007, 
+                 x="gdpPercap", y="lifeExp", color="continent", 
+                 size="pop", size_max=60,
+                 hover_name="country")
+fig.show()
 ```
 
-```{python}
-#| echo: false
-from IPython.display import display, Markdown
 
-avg_length = data['bill_length_mm'].mean()
-display(Markdown(
-f"""
-According to our data, the average bill length is
-{round(avg_length, 1)} mm.
-"""
-))
+## NumPy
+
+## Plotly
+
+```{python}
+
 ```

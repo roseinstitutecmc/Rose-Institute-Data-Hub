@@ -22,5 +22,23 @@
   },
   "2-25 map.qmd": {
     "2-25 map.html": "9c5ff399"
+  },
+  "reportDraft.qmd": {
+    "reportDraft.html": "abbac9ce"
+  },
+  "workingmap.qmd": {
+    "workingmap.html": "58169469"
+  },
+  "exact_penguin.qmd": {
+    "exact_penguin.html": "8d08ad6b"
+  },
+  "section.qmd": {
+    "section.html": "91655a8e"
+  },
+  "penguin_test.qmd": {
+    "penguin_test.html": "4c3d331f"
+  },
+  "render_test.qmd": {
+    "render_test.html": "c5956fe7"
   }
 }

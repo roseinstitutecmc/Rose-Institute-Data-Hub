@@ -1,0 +1,68 @@
+---
+title: "Render Test"
+author: "someone"
+date: "12 February 2024"
+format: html
+jupyter: python3
+---
+
+The goal here is to try to get something, anything, to render with Plotly. So I just stole this code from Stackoverflow and am trying it out. Not really sure what it does. 
+
+Unfortunately, not doing anything yet.
+
+```{python}
+import plotly.io as pio
+import IPython
+
+
+def get_environment():
+    try:
+        # Check if running in Google Colab
+        if 'google.colab' in str(IPython.get_ipython()):
+            return 'colab'
+    except NameError:
+        pass
+    
+    try:
+        # Check if running in Quarto
+        if 'quarto' in IPython.get_ipython().config:
+            return 'quarto'
+    except:
+        pass
+    
+    # Default to Jupyter Notebook 
+    return 'notebook'
+
+env = get_environment()
+
+if env == 'colab':
+    pio.renderers.default = 'colab'
+elif env == 'quarto':
+    pio.renderers.default = 'notebook'
+else:
+    pio.renderers.default = 'notebook'
+```
+
+This is a total test. 
+
+```{python}
+import plotly.express as px
+import plotly.io as pio
+import IPython
+
+def is_colab():
+    try:
+        if 'google.colab' in str(IPython.get_ipython()):
+            return True
+    except NameError:
+        return False
+
+if is_colab():
+    pio.renderers.default = 'colab'
+else:
+    pio.renderers.default = 'png'  # Use static PNG for Quarto
+
+# Create the plot
+fig = px.line(x=[1, 2, 3], y=[1, 2, 3])
+fig.show()
+```

@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="someone">
-<meta name="dcterms.date" content="2024-02-12">
+<meta name="author" content="Myles Mitchell &amp; Parisa Gregg">
+<meta name="dcterms.date" content="2022-12-14">
 
-<title>Title – Test2</title>
+<title>Reporting on the bill length of penguins – Test2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,7 +25,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -68,6 +68,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
 
 
 <link rel="stylesheet" href="styles.css">
@@ -95,28 +101,24 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./other.html"> 
+    <a class="nav-link" href="./section.html"> 
 <span class="menu-text">Test of Sections</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./map.html"> 
-<span class="menu-text">graph without codecell</span></a>
+<span class="menu-text">Map in Progress</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./testmap.html" aria-current="page"> 
-<span class="menu-text">testttt</span></a>
+    <a class="nav-link active" href="./penguin_test.html" aria-current="page"> 
+<span class="menu-text">Penguin Graphs in Progress</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./newtest.html"> 
-<span class="menu-text">newtest</span></a>
+    <a class="nav-link" href="./workingmap.html"> 
+<span class="menu-text">Working Map</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./2-25test.html"> 
-<span class="menu-text">2-25</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./2-25 map.html"> 
-<span class="menu-text">2-25 map</span></a>
+    <a class="nav-link" href="./exact_penguin.html"> 
+<span class="menu-text">Exact Copy of Penguin Site</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./reportDraft.html"> 
@@ -138,7 +140,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description">Description</a></li>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  <li><a href="#plotly" id="toc-plotly" class="nav-link" data-scroll-target="#plotly">Plotly</a></li>
+  <li><a href="#numpy" id="toc-numpy" class="nav-link" data-scroll-target="#numpy">NumPy</a></li>
+  <li><a href="#numpy-1" id="toc-numpy-1" class="nav-link" data-scroll-target="#numpy-1">NumPy</a></li>
+  <li><a href="#plotly-1" id="toc-plotly-1" class="nav-link" data-scroll-target="#plotly-1">Plotly</a></li>
   </ul>
 </nav>
     </div>
@@ -147,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Title</h1>
+<h1 class="title">Reporting on the bill length of penguins</h1>
 </div>
 
 
@@ -157,14 +166,14 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Author</div>
     <div class="quarto-title-meta-contents">
-             <p>someone </p>
+             <p>Myles Mitchell &amp; Parisa Gregg </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2024</p>
+      <p class="date">December 14, 2022</p>
     </div>
   </div>
   
@@ -176,9 +185,128 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p>This should hopefully have an interactive map generated with Python and with code from Stackoverflow. Well, no, actually it seems to give you a code block. It seems you need to use shiny to have some sort of non code block.</p>
+<p>The goal here is to copy everything from a <a href="https://www.jumpingrivers.com/blog/quarto-for-python-users/">site</a> where a bunch of graphs worked. Unfortunately, thus far, it has not worked.</p>
+<p>Currently, the goal is to use this to test the Plotly rendering, so debugging, basically.</p>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>Prepare yourself for a life-changing article about penguins…</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><a href="https://en.wikipedia.org/wiki/Penguin">Penguins</a> are a family (<strong>Spheniscidae</strong>) of aquatic flightless <a href="https://en.wikipedia.org/wiki/Bird">birds</a> that live primarily in the <a href="https://en.wikipedia.org/wiki/Southern_Hemisphere">Southern Hemisphere</a>. Their diet consists of:</p>
+<ul>
+<li>Krill</li>
+<li>Fish</li>
+<li>Squid</li>
+<li>More fish</li>
+</ul>
+<p>There are 18 species of penguin, including:</p>
+<ol type="1">
+<li>Macaroni penguin (<em>Eudyptes chrysolophus</em>)</li>
+<li>Chinstrap penguin (<em>Pygoscelis antarcticus</em>)</li>
+<li>Gentoo penguin (<em>Pygoscelis papua</em>)</li>
+</ol>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<p>To determine whether a higher body mass implies a longer bill, we loaded a penguins dataset using pandas:</p>
+<div id="944531b6" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">island</th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.1</td>
+<td>18.7</td>
+<td>181.0</td>
+<td>3750.0</td>
+<td>male</td>
+<td>2007</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.5</td>
+<td>17.4</td>
+<td>186.0</td>
+<td>3800.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>40.3</td>
+<td>18.0</td>
+<td>195.0</td>
+<td>3250.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2007</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>36.7</td>
+<td>19.3</td>
+<td>193.0</td>
+<td>3450.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>The figure below shows the bill length plotted as a function of the body mass for three species across a 3-year period.</p>
+</section>
+<section id="plotly" class="level2">
+<h2 class="anchored" data-anchor-id="plotly">Plotly</h2>
+</section>
+<section id="numpy" class="level2">
+<h2 class="anchored" data-anchor-id="numpy">NumPy</h2>
+</section>
+<section id="numpy-1" class="level2">
+<h2 class="anchored" data-anchor-id="numpy-1">NumPy</h2>
+</section>
+<section id="plotly-1" class="level2">
+<h2 class="anchored" data-anchor-id="plotly-1">Plotly</h2>
 
 
 </section>
