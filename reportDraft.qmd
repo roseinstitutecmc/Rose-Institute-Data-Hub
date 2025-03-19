@@ -95,34 +95,213 @@ all of them opposed the death penalty for most or all types of murder (which, of
 unlikely), we would still have 70% favoring the death penalty for at least some murders.
 
 #### Table 1. Support for the death penalty for murder
-| Category | June 2019 - Respondents only | June 2019 - Including non-respondents | October 2020 - Respondents only | October 2020 - Including non-respondents |
-|----------|-----------------------------|---------------------------------------|---------------------------------|------------------------------------------|
-| Support for most or all types of murder | 38% | 35% | 32% | 32% |
-| Support only for the most aggravated murders | 38% | 35% | 40% | 40% |
-| Oppose for most or all types of murder | 24% | 22% | 28% | 28% |
-| Did not answer death penalty questions | — | 8% | — | <1% |
-| Number (unweighted) | 4,688 | 5,068 | 1,153 | 1,154 |
-| Survey margin of error | — | 2.0% | — | 3.9% |
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th rowspan="2">Category</th>
+            <th colspan="2">June 2019</th>
+            <th colspan="2">October 2020</th>
+        </tr>
+        <tr>
+            <th>Respondents only</th>
+            <th>Including non-respondents</th>
+            <th>Respondents only</th>
+            <th>Including non-respondents</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>Support for most or all types of murder</strong></td>
+            <td>38%</td>
+            <td>35%</td>
+            <td>32%</td>
+            <td>32%</td>
+        </tr>
+        <tr>
+            <td><strong>Support only for the most aggravated murders</strong></td>
+            <td>38%</td>
+            <td>35%</td>
+            <td>40%</td>
+            <td>40%</td>
+        </tr>
+        <tr>
+            <td><strong>Oppose for most or all types of murder</strong></td>
+            <td>24%</td>
+            <td>22%</td>
+            <td>28%</td>
+            <td>28%</td>
+        </tr>
+        <tr>
+            <td><strong>Did not answer death penalty questions</strong></td>
+            <td>—</td>
+            <td>8%</td>
+            <td>—</td>
+            <td>&lt;1%</td>
+        </tr>
+        <tr>
+            <td><strong>Number (unweighted)</strong></td>
+            <td>4,688</td>
+            <td>5,068</td>
+            <td>1,153</td>
+            <td>1,154</td>
+        </tr>
+        <tr>
+            <td><strong>Survey margin of error</strong></td>
+            <td>2.0%</td>
+            <td>2.0%</td>
+            <td>3.9%</td>
+            <td>3.9%</td>
+        </tr>
+    </tbody>
+</table>
 
-```{python}
-#| echo: false
-import pandas as pd
+## Impact of political and demographic characteristics
+The 2019 survey contained information on a variety of political and demographic characteristics
+of the respondents. The 2020 survey asked many similar questions and collected similar
+information about the respondents. The results were broadly consistent across the two surveys.
 
-data = pd.read_csv("Partial1.csv")
-data.head()
-```
+The relationship of the respondents’ personal characteristics to their positions on the death
+penalty is presented in Tables 2-5. In all the following tables, the percentages for 2019 are based
+on the 4,688 respondents who answered the death penalty questions, and the percentages for
+2020 are based on the 1,153 respondents — one-quarter of the entire sample — who were not
+part of the framing experiment and who were given the same three-part option for indicating
+their position on the death penalty as in the 2019 survey. Note that all the percentages are based
+on weighted data, using weights provided by YouGov, which take into account respondent
+gender, age, race, education, and region (from the Census Bureau’s American Community
+Survey) and 2016 presidential vote.[^6]
 
-As a note, I took it out for October, since the data must be tidy, else it looks like: 
+Unsurprisingly, Table 2 shows a very strong association between support for the death penalty
+and the two political variables: party identification and political ideology. What is equally
+interesting is the level of support within each category. In both surveys, about nine-tenths
+of Republicans[^7] recorded support for the death penalty for at least some types of murder (the
+total of the first two columns for each survey): 91% in 2019 and 89% in 2020. The figures
+for Democrats were considerably lower, though still a clear majority: 62% in 2019 and 57%
+in 2020. The relationship to political ideology was even more pronounced. Among those who
+considered themselves “very conservative,” 91% supported the death penalty in 2019 and 89% in
+2020. This compares to 43% of “very liberals” in 2019 and 44% in 2020. Death-penalty support
+for “conservatives,” “moderates,” and “liberals” fell in rank-order between these extremes.
+Note, however, that of all the categories in Table 2 only “very liberals” had more opponents than
+supporters of the death penalty, and that even a substantial proportion of very liberal respondents
+favored it. Every other category had a majority in favor, even “liberals” – at 63% in 2019 and
+60% in 2020. As we will see, none of the other personal characteristics made nearly as much a
+difference to support for capital punishment.
 
-![](screenshot.png)
+#### Table 2. Support for the death penalty: Party and Ideology
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th rowspan="2">Category</th>
+            <th colspan="3">June 2019</th>
+            <th colspan="3">October 2020</th>
+        </tr>
+        <tr>
+            <th>Support for most or all types of murder</th>
+            <th>Support only for the most aggravated murders</th>
+            <th>Oppose for most or all types of murder</th>
+            <th>Support for most or all types of murder</th>
+            <th>Support only for the most aggravated murders</th>
+            <th>Oppose for most or all types of murder</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>All respondents</strong></td>
+            <td>38%</td>
+            <td>38%</td>
+            <td>24%</td>
+            <td>32%</td>
+            <td>40%</td>
+            <td>28%</td>
+        </tr>
+        <tr>
+            <td><strong>Party ID</strong></td>
+            <td colspan="6"></td>
+        </tr>
+        <tr>
+            <td>Democrat</td>
+            <td>21%</td>
+            <td>41%</td>
+            <td>38%</td>
+            <td>19%</td>
+            <td>38%</td>
+            <td>43%</td>
+        </tr>
+        <tr>
+            <td>Independent</td>
+            <td>38%</td>
+            <td>39%</td>
+            <td>23%</td>
+            <td>29%</td>
+            <td>47%</td>
+            <td>24%</td>
+        </tr>
+        <tr>
+            <td>Republican</td>
+            <td>56%</td>
+            <td>35%</td>
+            <td>9%</td>
+            <td>47%</td>
+            <td>42%</td>
+            <td>11%</td>
+        </tr>
+        <tr>
+            <td><strong>Political ideology</strong></td>
+            <td colspan="6"></td>
+        </tr>
+        <tr>
+            <td>Very liberal</td>
+            <td>14%</td>
+            <td>29%</td>
+            <td>56%</td>
+            <td>17%</td>
+            <td>27%</td>
+            <td>56%</td>
+        </tr>
+        <tr>
+            <td>Liberal</td>
+            <td>19%</td>
+            <td>44%</td>
+            <td>37%</td>
+            <td>23%</td>
+            <td>37%</td>
+            <td>40%</td>
+        </tr>
+        <tr>
+            <td>Moderate</td>
+            <td>35%</td>
+            <td>44%</td>
+            <td>22%</td>
+            <td>27%</td>
+            <td>45%</td>
+            <td>28%</td>
+        </tr>
+        <tr>
+            <td>Conservative</td>
+            <td>52%</td>
+            <td>38%</td>
+            <td>10%</td>
+            <td>43%</td>
+            <td>46%</td>
+            <td>11%</td>
+        </tr>
+        <tr>
+            <td>Very conservative</td>
+            <td>65%</td>
+            <td>26%</td>
+            <td>9%</td>
+            <td>51%</td>
+            <td>38%</td>
+            <td>11%</td>
+        </tr>
+    </tbody>
+</table>
 
+#
 [^1]: Gallup, “U.S. Support for Death Penalty Holds Above Majority Level,” Nov. 19, 2020, at
-https://news.gallup.com/poll/325568/support-death-penalty-holds-above-majority-level.aspx.
+<https://news.gallup.com/poll/325568/support-death-penalty-holds-above-majority-level.aspx>.
 Pew Research Center, “Most Americans Favor the Death Penalty Despite
-Concerns About Its Administration,” June 2, 2021, at https://www.pewresearch.
-org/politics/2021/06/02/most-americans-favor-the-death-penalty-despiteconcerns-about-its-administration/?utm_source=AdaptiveMailer&utm_
-medium=email&utm_campaign=21-06-02%20Death%20Penalty%20GEN%20
-DISTRO&org=982&lvl=100&ite=8618&lea=1852192&ctr=0&par=1&trk=.
+Concerns About Its Administration,” June 2, 2021, at <https://www.pewresearch.
+org/politics/2021/06/02/most-americans-favor-the-death-penalty-despiteconcerns-about-its-administration/?utm_source=AdaptiveMailer&utm_medium=email&utm_campaign=21-06-02%20Death%20Penalty%20GEN%20DISTRO&org=982&lvl=100&ite=8618&lea=1852192&ctr=0&par=1&trk=>.
 [^2]: This observation is not original to our research. See, among others, Baumgartner, Frank R.,
 Marty Davidson, Kaneesha R. Johnson, Arvind Krishnamurthy, and Colin P. Wilson, Deadly
 Justice: A Statistical Portrait of the Death Penalty (New York: Oxford University Press, 2018),
@@ -146,8 +325,15 @@ on a variety of issues when derived from two kinds of samples: one based on rand
 dialing (which would include those not registered to vote) and another based on voter files. Pew
 found that for 56 of the 65 different questions, the results were “statistically indistinguishable.”
 This included the question on the death penalty. See Pew Research Center, “Comparing Survey
-Sampling Strategies: Random-Digit Dial vs. Voter Files,” October 9, 2018, at https://www.
-pewresearch.org/methods/2018/10/09/comparing-survey-sampling-strategies-random-digit-dialvs-voter-files/. PDF of full report at https://www.pewresearch.org/methods/wp-content/uploads/
-sites/10/2018/10/REPORT-Comparing-RDD-and-RBS-Surveys-Final-05.06.19-2.pdf.
+Sampling Strategies: Random-Digit Dial vs. Voter Files,” October 9, 2018, at <https://www.
+pewresearch.org/methods/2018/10/09/comparing-survey-sampling-strategies-random-digit-dialvs-voter-files/>. PDF of full report at <https://www.pewresearch.org/methods/wp-content/uploads/sites/10/2018/10/REPORT-Comparing-RDD-and-RBS-Surveys-Final-05.06.19-2.pdf.>
 [^5]: About 5.5% of the respondents (before weighting) in the 2020 survey had also been in the
 2019 survey. 
+[^6]: For a very readable explanation on why YouGov uses past presidential vote, see: Rivers,
+Doug, “Pew Research: YouGov consistently outperforms competitors on accuracy,” May 13.
+2016, at <https://tinyurl.com/dh9t1yu4>. 
+[^7]: For personal party identification, respondents who report being “independent” but that
+“lean” towards the Republican or Democratic Party are treated as partisans of that party. See
+Keith, Bruce E., David B. Magleby, Candice J. Nelson, Elizabeth A. Orr, Mark C. Westlye,
+and Raymond Wolfinger, The Myth of the Independent Voter (University of California Press,
+1992). 
