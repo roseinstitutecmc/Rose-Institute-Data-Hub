@@ -2,16 +2,20 @@
 title-block-banner: true
 title: "How Many Americans Support the Death Penalty?"
 subtitle: "Results of National Surveys in 2019 and 2020"
-author: "Joseph M. Bessette and J. Andrew Sinclair"
+author: 
+    - name: Joseph M. Bessette
+      affiliation: Claremont McKenna College
+    - name: J. Andrew Sinclair
+      affiliation: Claremont McKenna College
 date: "14 December 2022"
 format: html
 jupyter: python3
 ---
-
+## Introduction
 Do Americans favor the death penalty for the crime of murder? According to Gallup and the
 Pew Research Center, two major polling organizations that regularly ask Americans this
 question and whose findings are widely publicized, public support ranges between 55% (Gallup,
-September-October, 2020) and 60% (Pew, April 2021).2 These findings are generally accepted
+September-October, 2020) and 60% (Pew, April 2021).[^1] These findings are generally accepted
 as an accurate gauge of current public attitudes: a clear majority in favor of the death penalty for
 murder but well below the modern peak of 78-80% in the mid-1990s.
 
@@ -23,7 +27,7 @@ other polling organizations that have measured public opinion in the United Stat
 penalty in recent decades have asked essentially the same question. One problem is that these
 questions do not distinguish between most murders – or, what we might call the “typical” or
 ”average” murder — and the specific kinds of aggravated murders that make a killer eligible for
-the death penalty in the 27 American states with capital punishment. Someone, for example,
+the death penalty in the 27 American states with capital punishment.[^2] Someone, for example,
 might oppose the death penalty for most murders but support it for, say, raping and murdering
 a child, or killing people by setting off a bomb in a public place, or killing someone after
 intentionally torturing the victim. How should such a person respond when asked whether he
@@ -42,8 +46,64 @@ penalty for a particular offender — such as Timothy McVeigh, who killed 168 in
 bombing of the federal building in Oklahoma City and who was executed in 2001 (Gallup
 reported that 81% approved) — we can find no record in the past three decades of a national
 survey that polled Americans on their support for the death penalty for a variety of specific
-types of aggravated murder. To fill this gap in our knowledge of American public opinion on capital punishment, we devised a series of questions on the death penalty that were included in two national surveys (on several distinct topics) of approximately 5000 registered voters. The surveys were conducted online by YouGov in June of 2019.5
- 
+types of aggravated murder.[^3] To fill this gap in our knowledge of American public opinion on capital punishment, we devised a series of questions on the death penalty that were included in two national surveys (on several distinct topics) of approximately 5000 registered voters. The surveys were conducted online by YouGov in June of 2019.[^4]
+
+## Survey Design
+The first survey began the section on capital punishment by alerting respondents that we would
+be asking about the death penalty for “different kinds of aggravated murders,” indicating
+that they could skip these questions: 92% did not. We then asked whether the respondent
+“support[ed] the death penalty for the crime of murder” and gave three optional responses: 
+1. “I support the death penalty for most or all types of murder.”
+2. “I support the death penalty only for the most aggravated murders.”
+3. “I oppose the death penalty for most or all types of murder.” 
+
+In our view, these options rectified the deficiency in the Gallup/Pew generic question because
+they allowed us to distinguish between two types of death-penalty supporters: those who would
+use the ultimate punishment for most or all murders and those who would use it only for the most
+aggravated murders.
+
+The second survey had a more complex design. While it was also implemented by YouGov, it
+was a separate sample from the 2019 survey.[^5] The respondents were divided into four groups
+of equal size. The first two groups were asked to list everything that comes to mind when they
+think about the debate over the death penalty in the United States. Half of these individuals
+were then asked the standard Gallup question measuring death-penalty support, and half were
+asked the same question we posed in our 2019 survey. The third group was asked first to list
+what comes to mind when they think of murder victims and their families, and then they were
+asked the same death-penalty support question as in our 2019 survey. The fourth group was
+asked to list what comes to mind when they think about the possibility of an innocent person
+being executed, and then they were asked the same death-penalty support question as in our 2019
+survey. The purpose of this design was to test whether “framing” the debate in a certain way
+(the third and fourth groups) would affect the results. As the project’s future publications will
+demonstrate, the framing had a very small effect on our measurements of death-penalty support,
+and (as expected) our question yielded higher levels of support than the Gallup question. This
+report describes some of the key findings of the two surveys, using the second group (the control
+group) of respondents from the 2020 survey. This group had the most directly comparable
+survey to those who took our 2019 survey. As we detail here, the results of the 2020 survey were
+quite similar to those from the 2019 survey.
+
+## General support for the death penalty
+Table 1 presents the results of the two surveys on general support for the death penalty.
+
+By adding the first two rows for each survey, we see that large majorities supported the death
+penalty for at least some types of murder. For those who responded to this question in 2019, fully
+three-fourths — 76% — voiced support. In the 2020 survey, the figure was 72%. Both of these
+figures are much higher than the 55-60% measured by Gallup and Pew (and most other polling
+organizations) using the generic question. Because 8% of those surveyed in 2019 did not answer
+the death-penalty questions, we cannot know their position on capital punishment. Yet even if
+3 How Many Americans Support the Death Penalty? roseinstitute.org
+all of them opposed the death penalty for most or all types of murder (which, of course, is quite
+unlikely), we would still have 70% favoring the death penalty for at least some murders.
+
+#### Table 1. Support for the death penalty for murder
+| Category | June 2019 - Respondents only | June 2019 - Including non-respondents | October 2020 - Respondents only | October 2020 - Including non-respondents |
+|----------|-----------------------------|---------------------------------------|---------------------------------|------------------------------------------|
+| Support for most or all types of murder | 38% | 35% | 32% | 32% |
+| Support only for the most aggravated murders | 38% | 35% | 40% | 40% |
+| Oppose for most or all types of murder | 24% | 22% | 28% | 28% |
+| Did not answer death penalty questions | — | 8% | — | <1% |
+| Number (unweighted) | 4,688 | 5,068 | 1,153 | 1,154 |
+| Survey margin of error | — | 2.0% | — | 3.9% |
+
 ```{python}
 #| echo: false
 import pandas as pd
@@ -55,3 +115,39 @@ data.head()
 As a note, I took it out for October, since the data must be tidy, else it looks like: 
 
 ![](screenshot.png)
+
+[^1]: Gallup, “U.S. Support for Death Penalty Holds Above Majority Level,” Nov. 19, 2020, at
+https://news.gallup.com/poll/325568/support-death-penalty-holds-above-majority-level.aspx.
+Pew Research Center, “Most Americans Favor the Death Penalty Despite
+Concerns About Its Administration,” June 2, 2021, at https://www.pewresearch.
+org/politics/2021/06/02/most-americans-favor-the-death-penalty-despiteconcerns-about-its-administration/?utm_source=AdaptiveMailer&utm_
+medium=email&utm_campaign=21-06-02%20Death%20Penalty%20GEN%20
+DISTRO&org=982&lvl=100&ite=8618&lea=1852192&ctr=0&par=1&trk=.
+[^2]: This observation is not original to our research. See, among others, Baumgartner, Frank R.,
+Marty Davidson, Kaneesha R. Johnson, Arvind Krishnamurthy, and Colin P. Wilson, Deadly
+Justice: A Statistical Portrait of the Death Penalty (New York: Oxford University Press, 2018),
+pp. 267-269. Virginia became the twenty-third state to abolish the death penalty in February of
+2021.
+[^3]: The last such survey we have found was conducted by the Associated Press in 1985 and asked
+about six aggravated murders: “Murder especially brutal”; “Murder for hire”; “Victim is child”;
+“Victim is police officer”; “Victim is prison guard”; “Convicted of killing more than one.”
+See Philip W. Harris, “Over-Simplification and Error in Public Opinion Surveys on Capital
+Punishment,” Justice Quarterly, Vol. 3, No. 4 (December, 1986), Table 3, p. 446. For public
+opinion on the proper punishment for school shooters, including both those who only injure their
+victims and those who kill them, see Schutten et al., “Punishing Rampage: Public Opinion on
+Sanctions for School Shooters,” Justice Quarterly, December 2019.
+[^4]: Although many reputable and widely publicized surveys (including those published and
+analyzed in peer-reviewed social science journals) use voter registration lists to identify
+participants, there is always the possibility that the views of registered voters (67% of all
+American citizens of voting age in 2018, according to the Census Bureau) may differ from the
+views of those who do not register to vote. In 2018, the Pew Research Center (which has now
+moved most of its polling online), conducted a major study that compared Americans’ opinions
+on a variety of issues when derived from two kinds of samples: one based on random digit
+dialing (which would include those not registered to vote) and another based on voter files. Pew
+found that for 56 of the 65 different questions, the results were “statistically indistinguishable.”
+This included the question on the death penalty. See Pew Research Center, “Comparing Survey
+Sampling Strategies: Random-Digit Dial vs. Voter Files,” October 9, 2018, at https://www.
+pewresearch.org/methods/2018/10/09/comparing-survey-sampling-strategies-random-digit-dialvs-voter-files/. PDF of full report at https://www.pewresearch.org/methods/wp-content/uploads/
+sites/10/2018/10/REPORT-Comparing-RDD-and-RBS-Surveys-Final-05.06.19-2.pdf.
+[^5]: About 5.5% of the respondents (before weighting) in the 2020 survey had also been in the
+2019 survey. 
