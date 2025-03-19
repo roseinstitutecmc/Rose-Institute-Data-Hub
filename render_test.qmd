@@ -10,39 +10,6 @@ The goal here is to try to get something, anything, to render with Plotly. So I 
 
 Unfortunately, not doing anything yet.
 
-```{python}
-import plotly.io as pio
-import IPython
-
-
-def get_environment():
-    try:
-        # Check if running in Google Colab
-        if 'google.colab' in str(IPython.get_ipython()):
-            return 'colab'
-    except NameError:
-        pass
-    
-    try:
-        # Check if running in Quarto
-        if 'quarto' in IPython.get_ipython().config:
-            return 'quarto'
-    except:
-        pass
-    
-    # Default to Jupyter Notebook 
-    return 'notebook'
-
-env = get_environment()
-
-if env == 'colab':
-    pio.renderers.default = 'colab'
-elif env == 'quarto':
-    pio.renderers.default = 'notebook'
-else:
-    pio.renderers.default = 'notebook'
-```
-
 This is a total test. 
 
 ```{python}
@@ -50,19 +17,32 @@ import plotly.express as px
 import plotly.io as pio
 import IPython
 
-def is_colab():
+def detect_environment():
+    """Detects whether the code is running in Google Colab, Jupyter Notebook, or Quarto."""
     try:
-        if 'google.colab' in str(IPython.get_ipython()):
-            return True
+        shell = str(IPython.get_ipython())
+        if 'google.colab' in shell:
+            return "colab"
+        elif 'zmqshell' in shell:
+            return "notebook"  # Jupyter Notebook or Quarto
+        else:
+            return "script"  # Regular Python script
     except NameError:
-        return False
+        return "script"
 
-if is_colab():
-    pio.renderers.default = 'colab'
+# Automatically select the correct Plotly renderer
+env = detect_environment()  
+
+if env == "colab":
+    pio.renderers.default = "colab"
+elif env == "notebook":
+    pio.renderers.default = "notebook"  # Works for Jupyter Notebook & Quarto
 else:
-    pio.renderers.default = 'png'  # Use static PNG for Quarto
+    pio.renderers.default = "browser"  # Opens in web browser for scripts
 
 # Create the plot
 fig = px.line(x=[1, 2, 3], y=[1, 2, 3])
+
+# Show the figure
 fig.show()
 ```

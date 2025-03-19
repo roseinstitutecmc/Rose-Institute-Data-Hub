@@ -45,9 +45,10 @@ survey that polled Americans on their support for the death penalty for a variet
 types of aggravated murder. To fill this gap in our knowledge of American public opinion on capital punishment, we devised a series of questions on the death penalty that were included in two national surveys (on several distinct topics) of approximately 5000 registered voters. The surveys were conducted online by YouGov in June of 2019.5
  
 ```{python}
+#| echo: false
 import pandas as pd
 
-data = pd.read_csv(r"C:\Users\Maya\Documents\RoseData\Quarto\Test2\Partial1.csv")
+data = pd.read_csv("Partial1.csv")
 data.head()
 ```
 

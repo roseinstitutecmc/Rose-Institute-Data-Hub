@@ -65,6 +65,7 @@ for three species across a 3-year period.
 ## NumPy
 ```{python}
 import plotly.io as pio #Iirc Amy added this part to test if it was render
+pio.renderers.default = "notebook"
 import plotly.express as px
 pio.renderers.default = "browser"
 import plotly.graph_objects as go # or plotly.express 
