@@ -95,7 +95,7 @@ all of them opposed the death penalty for most or all types of murder (which, of
 unlikely), we would still have 70% favoring the death penalty for at least some murders.
 
 #### Table 1. Support for the death penalty for murder
-<table class="styled-table">
+<table id="surveyTable1" class="styled-table">
     <thead>
         <tr>
             <th rowspan="2">Category</th>
@@ -154,6 +154,18 @@ unlikely), we would still have 70% favoring the death penalty for at least some 
         </tr>
     </tbody>
 </table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+function downloadTableAsExcel(tableId, filename) {
+    let table = document.getElementById(tableId);
+    let wb = XLSX.utils.book_new();
+    let ws = XLSX.utils.table_to_sheet(table);
+    
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.writeFile(wb, filename);
+}
+</script>
+<button onclick="downloadTableAsExcel('surveyTable1', 'SurveyData1.xlsx')">Download Table 1</button>
 
 ## Impact of political and demographic characteristics
 The 2019 survey contained information on a variety of political and demographic characteristics
@@ -187,7 +199,7 @@ favored it. Every other category had a majority in favor, even “liberals” �
 difference to support for capital punishment.
 
 #### Table 2. Support for the death penalty: Party and Ideology
-<table class="styled-table">
+<table id="surveyTable2" class="styled-table">
     <thead>
         <tr>
             <th rowspan="2">Category</th>
@@ -295,6 +307,7 @@ difference to support for capital punishment.
         </tr>
     </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable2', 'SurveyData2.xlsx')">Download Table 2</button>
 <br>
 As Table 3 shows, in both surveys Christians indicated somewhat more support for the death
 penalty than did those with no religion. In 2019, 80% of Protestants and 82% of Catholics
@@ -314,7 +327,7 @@ those with a post-graduate education, the figures are closer to six in ten: 62% 
 in 2020.
 
 #### Table 3. Support for the death penalty: Religion and Education
-<table class="styled-table">
+<table id="surveyTable3" class="styled-table">
     <thead>
         <tr>
             <th rowspan="2">Category</th>
@@ -422,6 +435,7 @@ in 2020.
         </tr>
     </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable3', 'SurveyData3.xlsx')">Download Table 3</button>
 <br>
 Table 4 examines three demographic characteristics: gender, race/ethnicity, and age. In 2019,
 men and women supported the death penalty at nearly identical levels: 77% for men and 74%
@@ -437,7 +451,7 @@ Blacks and Hispanics were more likely than whites to support the death penalty �
 most aggravated murders.”
 
 #### Table 4. Support for the death penalty: Gender, Race/Ethnicity, and Age [^8]
-<table class="styled-table">
+<table id="surveyTable4" class="styled-table">
     <thead>
         <tr>
             <th rowspan="2">Category</th>
@@ -567,6 +581,7 @@ most aggravated murders.”
         </tr>
     </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable4', 'SurveyData4.xlsx')">Download Table 4</button>
 <br>
 The survey results for both years showed that older respondents were considerably more likely
 to support the death penalty than were younger respondents. While a solid majority (60%) of
@@ -587,7 +602,7 @@ the South, and it is the only region in which every state had the death penalty 
 of our two surveys.
 
 #### Table 5. Support for the death penalty: Residence
-<table class="styled-table">
+<table id="surveyTable5" class="styled-table">
     <thead>
         <tr>
             <th rowspan="2">Category</th>
@@ -677,6 +692,7 @@ of our two surveys.
         </tr>
     </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable5', 'SurveyData5.xlsx')">Download Table 5</button>
 <br>
 For the 2019 survey, we were also able to examine the urban/rural nature of the congressional
 districts in which the respondents lived. Although 68% of respondents in the most urban districts
@@ -715,7 +731,7 @@ eligible for the death penalty – killing multiple people while drunk driving a
 killing a rival gang-member.[^9] The results from the two surveys are in Table 6.
 
 #### Table 6. Support for the death penalty for specific types of murder (ranked by level of support in 2019)[^10]
-<table class="styled-table"><thead>
+<table id="surveyTable6" class="styled-table"><thead>
   <tr>
     <th></th>
     <th>June 2019</th>
@@ -823,6 +839,8 @@ killing a rival gang-member.[^9] The results from the two surveys are in Table 6
     <td>1,154</td>
   </tr>
 </tbody></table>
+<button onclick="downloadTableAsExcel('surveyTable6', 'SurveyData6.xlsx')">Download Table 6</button>
+<br>
 <br>
 As the table shows, 10 of the 15 murder types included in the 2019 survey garnered at least 60%
 support, five at least 70%, and one – raping and murdering a child — 80%. Altogether, 86% of
@@ -837,7 +855,7 @@ no matter how aggravated. (This result is broadly consistent with Gallup’s fin
 many Americans who normally oppose the death penalty supported it for Timothy McVeigh.)
 
 #### Table 7. Comparing general death penalty support and selection of specific types of murder
-<table class="styled-table">
+<table id="surveyTable7" class="styled-table">
     <thead>
         <tr>
             <th rowspan="2">Selected:</th>
@@ -880,6 +898,7 @@ many Americans who normally oppose the death penalty supported it for Timothy Mc
         </tr>
     </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable7', 'SurveyData7.xlsx')">Download Table 7</button>
 <br>
 Comparing the 2019 and 2020 survey responses, we got nearly identical results for the terrorist
 attack (75% and 74%) and the robbery murder (49% and 48%). Slightly fewer respondents
@@ -937,7 +956,7 @@ penalty in their state: 60% of the respondents in that same control group said t
 varying results from the national sample, California, and New York are summarized in Table 8.
 
 #### Table 8. Varying measures of death penalty support: 2019 and 2020 surveys
-<table class="styled-table">
+<table id="surveyTable8" class="styled-table">
     <thead>
         <tr>
             <th rowspan="2"></th>
@@ -1021,6 +1040,7 @@ varying results from the national sample, California, and New York are summarize
         </tr>
     </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable8', 'SurveyData8.xlsx')">Download Table 8</button>
 
 ## Conclusion
 Our research is focused on better understanding how the public thinks about capital punishment,
@@ -1046,6 +1066,8 @@ disagree about whether capital punishment should be public policy in the United 
 that the standard type of death penalty question, asked over and over again for more than half
 a century, leaves policymakers, scholars, and citizens with an incomplete picture of support, or
 potential support, for the death penalty.
+
+
 
 #
 [^1]: Gallup, “U.S. Support for Death Penalty Holds Above Majority Level,” Nov. 19, 2020, at
