@@ -215,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 <p>By adding the first two rows for each survey, we see that large majorities supported the death penalty for at least some types of murder. For those who responded to this question in 2019, fully three-fourths — 76% — voiced support. In the 2020 survey, the figure was 72%. Both of these figures are much higher than the 55-60% measured by Gallup and Pew (and most other polling organizations) using the generic question. Because 8% of those surveyed in 2019 did not answer the death-penalty questions, we cannot know their position on capital punishment. Yet even if 3 How Many Americans Support the Death Penalty? roseinstitute.org all of them opposed the death penalty for most or all types of murder (which, of course, is quite unlikely), we would still have 70% favoring the death penalty for at least some murders.</p>
 <section id="table-1.-support-for-the-death-penalty-for-murder" class="level4">
 <h4 class="anchored" data-anchor-id="table-1.-support-for-the-death-penalty-for-murder">Table 1. Support for the death penalty for murder</h4>
-<table class="styled-table">
+<table id="surveyTable1" class="styled-table">
 <thead>
 <tr>
 <th rowspan="2">
@@ -348,6 +348,20 @@ Including non-respondents
 </tr>
 </tbody>
 </table>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script>
+function downloadTableAsExcel(tableId, filename) {
+    let table = document.getElementById(tableId);
+    let wb = XLSX.utils.book_new();
+    let ws = XLSX.utils.table_to_sheet(table);
+    
+    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.writeFile(wb, filename);
+}
+</script>
+<button onclick="downloadTableAsExcel('surveyTable1', 'SurveyData1.xlsx')">
+Download Table 1
+</button>
 </section>
 </section>
 <section id="impact-of-political-and-demographic-characteristics" class="level2">
@@ -357,7 +371,7 @@ Including non-respondents
 <p>Unsurprisingly, Table 2 shows a very strong association between support for the death penalty and the two political variables: party identification and political ideology. What is equally interesting is the level of support within each category. In both surveys, about nine-tenths of Republicans<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> recorded support for the death penalty for at least some types of murder (the total of the first two columns for each survey): 91% in 2019 and 89% in 2020. The figures for Democrats were considerably lower, though still a clear majority: 62% in 2019 and 57% in 2020. The relationship to political ideology was even more pronounced. Among those who considered themselves “very conservative,” 91% supported the death penalty in 2019 and 89% in 2020. This compares to 43% of “very liberals” in 2019 and 44% in 2020. Death-penalty support for “conservatives,” “moderates,” and “liberals” fell in rank-order between these extremes. Note, however, that of all the categories in Table 2 only “very liberals” had more opponents than supporters of the death penalty, and that even a substantial proportion of very liberal respondents favored it. Every other category had a majority in favor, even “liberals” – at 63% in 2019 and 60% in 2020. As we will see, none of the other personal characteristics made nearly as much a difference to support for capital punishment.</p>
 <section id="table-2.-support-for-the-death-penalty-party-and-ideology" class="level4">
 <h4 class="anchored" data-anchor-id="table-2.-support-for-the-death-penalty-party-and-ideology">Table 2. Support for the death penalty: Party and Ideology</h4>
-<table class="styled-table">
+<table id="surveyTable2" class="styled-table">
 <thead>
 <tr>
 <th rowspan="2">
@@ -615,12 +629,15 @@ Very conservative
 </tr>
 </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable2', 'SurveyData2.xlsx')">
+Download Table 2
+</button>
 <p><br> As Table 3 shows, in both surveys Christians indicated somewhat more support for the death penalty than did those with no religion. In 2019, 80% of Protestants and 82% of Catholics voiced support, compared to 67% of the non-religious. In 2020, 81% of Protestants and 72% of Catholics supported the death penalty, compared to 62% of those with no religion. These differences are particularly interesting since the American Catholic bishops as well as the leaders of many Protestant denominations in the United States oppose the death penalty. Our results suggest that for whatever reasons, a secular worldview seems to incline individuals to oppose the death penalty compared to a religious worldview, even despite the rejection of capital punishment by many Christian leaders. Still, as noted, clear majorities of the non-religious in both surveys supported the death penalty for at least some murders.</p>
 <p>The table also shows that the higher the educational attainment of individuals, the less likely they are to support the death penalty. In both surveys about eight in ten of those with no more than a high-school education supported the death penalty: 83% in 2019 and 80% in 2020. For those with a post-graduate education, the figures are closer to six in ten: 62% in 2019 and 65% in 2020.</p>
 </section>
 <section id="table-3.-support-for-the-death-penalty-religion-and-education" class="level4">
 <h4 class="anchored" data-anchor-id="table-3.-support-for-the-death-penalty-religion-and-education">Table 3. Support for the death penalty: Religion and Education</h4>
-<table class="styled-table">
+<table id="surveyTable3" class="styled-table">
 <thead>
 <tr>
 <th rowspan="2">
@@ -878,12 +895,15 @@ Post-grad
 </tr>
 </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable3', 'SurveyData3.xlsx')">
+Download Table 3
+</button>
 <p><br> Table 4 examines three demographic characteristics: gender, race/ethnicity, and age. In 2019, men and women supported the death penalty at nearly identical levels: 77% for men and 74% for women. In 2020, the difference was more pronounced: 75% of men and 69% of women.</p>
 <p>Large majorities of all three racial/ethnic groups for which we had data supported the death penalty for at least some murders. In 2019, the figures were 77% for whites, 69% for Blacks, and 76% for Hispanics. In 2020, 75% of whites voiced support of the death penalty, compared to 67% of Blacks. Hispanic support in 2020 (64%), however, was twelve percentage points lower than in 2019 (76%). In both surveys, whites were considerably more likely than the other two groups to support the death penalty “for most or all types of murder.” Conversely, in 2019 Blacks and Hispanics were more likely than whites to support the death penalty “only for the most aggravated murders.”</p>
 </section>
 <section id="table-4.-support-for-the-death-penalty-gender-raceethnicity-and-age-8" class="level4">
 <h4 class="anchored" data-anchor-id="table-4.-support-for-the-death-penalty-gender-raceethnicity-and-age-8">Table 4. Support for the death penalty: Gender, Race/Ethnicity, and Age <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></h4>
-<table class="styled-table">
+<table id="surveyTable4" class="styled-table">
 <thead>
 <tr>
 <th rowspan="2">
@@ -1194,12 +1214,15 @@ Other
 </tr>
 </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable4', 'SurveyData4.xlsx')">
+Download Table 4
+</button>
 <p><br> The survey results for both years showed that older respondents were considerably more likely to support the death penalty than were younger respondents. While a solid majority (60%) of those 18-29 supported the death penalty in 2019, the figures for both those 45-64 and those 65 and older were 80%. For the sample in the 2020 survey, the difference was not quite as great: 65% for the youngest group, versus 74% and 77% for the two oldest groups. While the overall support for the death penalty among the youngest respondents was 5 percentage points higher in the 2020 survey, their support for the death penalty “for most or all types of murder” was lower: 11% instead of 21%. This drop was more than offset by a large increase in support for the death penalty “only for the most aggravated murders”: from 39% to 54%.</p>
 <p>As Table 5 shows, region made little difference to death penalty support in the 2019 survey, with support in all four regions ranging between 73% in the West and 79% in the South. Regional differences were somewhat more pronounced in 2020, with residents of the Northeast recording a low of 64% in favor and those of the South recording a high of 76%. Despite these small regional differences, a substantial majority of all executions in the modern era have occurred in the South, and it is the only region in which every state had the death penalty during the period of our two surveys.</p>
 </section>
 <section id="table-5.-support-for-the-death-penalty-residence" class="level4">
 <h4 class="anchored" data-anchor-id="table-5.-support-for-the-death-penalty-residence">Table 5. Support for the death penalty: Residence</h4>
-<table class="styled-table">
+<table id="surveyTable5" class="styled-table">
 <thead>
 <tr>
 <th rowspan="2">
@@ -1411,6 +1434,9 @@ Above 35% rural
 </tr>
 </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable5', 'SurveyData5.xlsx')">
+Download Table 5
+</button>
 <p><br> For the 2019 survey, we were also able to examine the urban/rural nature of the congressional districts in which the respondents lived. Although 68% of respondents in the most urban districts favored the death penalty for at least some murders, that number rose to 81% in the most rural districts. Conversely, a third (33%) of residents of the most urban districts opposed the death penalty “for most or all types of murder,” compared to only one-fifth (20%) of those living in the most rural districts.</p>
 <p>As Tables 2-5, show, there are larger differences across some types of personal characteristics than others. The differences are particularly noticeable for ideology, party, education, and age. There is, of course, overlap among the types of personal characteristics: liberals, for example, are more likely to be Democrats than Republicans and, conversely, conservatives are more likely to be Republicans than Democrats. In our ongoing research, we explore the independent effect of these variables (to be presented in future publications). Yet, the direction of the relationships shown in Tables 2-5 should not be surprising (for example, that conservatives are more likely to favor the death penalty).</p>
 <p>What may be more surprising is the level of support for the death penalty, for at least some aggravated murders, in categories that are frequently presumed to oppose it. For example, even among very liberal respondents, 43% in 2019 and 44% in 2020 expressed some support for the death penalty. Nor is this all. As we illustrate in the next section, when asked about specific types of murders, many of the respondents who indicated opposition on the first question then selected at least one type of murder as appropriate for the death penalty.</p>
@@ -1421,7 +1447,7 @@ Above 35% rural
 <p>After asking the general support question in the 2019 survey, we sought to identify the types of aggravated murder for which the respondents believed the death penalty was appropriate. Outside the context of any specific murder case, we presented a list of fifteen types of murder that are commonly specified in state death penalty statutes and/or frequently show up among those sentenced to death, and we asked whether the respondent supported the death penalty for any of these. Because we asked other new death-penalty questions in the 2020 survey, we did not present the respondents with the full list of fifteen aggravated murders. Instead, we chose three from the 2019 survey – raping and murdering a child, killing dozens of people as part of a terrorist attack, and killing someone to rob him or her — and two others that are not normally eligible for the death penalty – killing multiple people while drunk driving and a gang member killing a rival gang-member.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> The results from the two surveys are in Table 6.</p>
 <section id="table-6.-support-for-the-death-penalty-for-specific-types-of-murder-ranked-by-level-of-support-in-201910" class="level4">
 <h4 class="anchored" data-anchor-id="table-6.-support-for-the-death-penalty-for-specific-types-of-murder-ranked-by-level-of-support-in-201910">Table 6. Support for the death penalty for specific types of murder (ranked by level of support in 2019)<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></h4>
-<table class="styled-table">
+<table id="surveyTable6" class="styled-table">
 <thead>
 <tr>
 <th>
@@ -1673,7 +1699,10 @@ Number of respondents (unweighted)
 </tr>
 </tbody>
 </table>
-<br> As the table shows, 10 of the 15 murder types included in the 2019 survey garnered at least 60% support, five at least 70%, and one – raping and murdering a child — 80%. Altogether, 86% of respondents selected at least one aggravated murder. This 86% figure is ten percentage points higher than the 76% registered by our general support question (Table 1). This is because, as Table 7 shows, a substantial number of those who said that they “oppose the death penalty for most or all types of murder” (24% of all the respondents) actually supported the death penalty for one or more of the fifteen aggravated murders (11% of the respondents). Put another way, 46% of those who looked like opponents of the death penalty in their answer to the initial threepart question chose at least one type of murder as meriting a death sentence. It appears, then, that only 13% of the respondents in 2019 would oppose using the death penalty for any murder, no matter how aggravated. (This result is broadly consistent with Gallup’s finding in 2001 that many Americans who normally oppose the death penalty supported it for Timothy McVeigh.)
+<button onclick="downloadTableAsExcel('surveyTable6', 'SurveyData6.xlsx')">
+Download Table 6
+</button>
+<br> <br> As the table shows, 10 of the 15 murder types included in the 2019 survey garnered at least 60% support, five at least 70%, and one – raping and murdering a child — 80%. Altogether, 86% of respondents selected at least one aggravated murder. This 86% figure is ten percentage points higher than the 76% registered by our general support question (Table 1). This is because, as Table 7 shows, a substantial number of those who said that they “oppose the death penalty for most or all types of murder” (24% of all the respondents) actually supported the death penalty for one or more of the fifteen aggravated murders (11% of the respondents). Put another way, 46% of those who looked like opponents of the death penalty in their answer to the initial threepart question chose at least one type of murder as meriting a death sentence. It appears, then, that only 13% of the respondents in 2019 would oppose using the death penalty for any murder, no matter how aggravated. (This result is broadly consistent with Gallup’s finding in 2001 that many Americans who normally oppose the death penalty supported it for Timothy McVeigh.)
 
 
 
@@ -1693,7 +1722,7 @@ Number of respondents (unweighted)
 </section>
 <section id="table-7.-comparing-general-death-penalty-support-and-selection-of-specific-types-of-murder" class="level4">
 <h4 class="anchored" data-anchor-id="table-7.-comparing-general-death-penalty-support-and-selection-of-specific-types-of-murder">Table 7. Comparing general death penalty support and selection of specific types of murder</h4>
-<table class="styled-table">
+<table id="surveyTable7" class="styled-table">
 <thead>
 <tr>
 <th rowspan="2">
@@ -1786,6 +1815,9 @@ Oppose for most or all types of murder
 </tr>
 </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable7', 'SurveyData7.xlsx')">
+Download Table 7
+</button>
 <p><br> Comparing the 2019 and 2020 survey responses, we got nearly identical results for the terrorist attack (75% and 74%) and the robbery murder (49% and 48%). Slightly fewer respondents chose raping and murdering a child in 2020 (74%) than in 2019 (80%). Overall, 80% of the respondents in the second survey chose at least one of the five types of killing, compared to 86% in 2019 when we had a much longer list from which to choose (and, importantly, some respondents had opted-out of the death penalty questions in 2019). In the 2020 survey, a third of those who said they opposed the death penalty “for most or all types of murder” chose at least one of the five types of killings we listed.</p>
 </section>
 </section>
@@ -1799,7 +1831,7 @@ Oppose for most or all types of murder
 <p>As noted above, in 2020 we found that among the 1,154 respondents in the national control group, 72% supported the death penalty on the first question and 80% selected at least one specific crime. We also asked a general question that could apply in both death penalty and abolition states – inquiring whether the respondent wished to either retain or adopt the death penalty in their state: 60% of the respondents in that same control group said they did. These varying results from the national sample, California, and New York are summarized in Table 8.</p>
 <section id="table-8.-varying-measures-of-death-penalty-support-2019-and-2020-surveys" class="level4">
 <h4 class="anchored" data-anchor-id="table-8.-varying-measures-of-death-penalty-support-2019-and-2020-surveys">Table 8. Varying measures of death penalty support: 2019 and 2020 surveys</h4>
-<table class="styled-table">
+<table id="surveyTable8" class="styled-table">
 <thead>
 <tr>
 <th rowspan="2">
@@ -1962,6 +1994,9 @@ Supported retaining or adopting the death penalty in their state
 </tr>
 </tbody>
 </table>
+<button onclick="downloadTableAsExcel('surveyTable8', 'SurveyData8.xlsx')">
+Download Table 8
+</button>
 </section>
 </section>
 <section id="conclusion" class="level2">
