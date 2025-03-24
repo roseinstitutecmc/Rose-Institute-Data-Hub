@@ -8,7 +8,7 @@ jupyter: python3
 
 ## Description
 
-The Goal is to use Plotly to create a different type of interactive map. If you run this in the codecell, it works, but, on here, it just gives the code block.... 
+The Goal is to use Plotly to create a different type of interactive map using some sample code. 
 
 
 ## Map

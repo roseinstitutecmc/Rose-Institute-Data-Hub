@@ -12,8 +12,6 @@ website:
         text: Test of Sections
       - href: map.qmd
         text: Map in Progress
-      - href: penguin_test.qmd
-        text: Penguin Graphs in Progress
       - href: workingmap.qmd
         text: Working Map
       - href: exact_penguin.qmd
@@ -22,6 +20,8 @@ website:
         text: Draft of Bessett-Sinclair Report
       - href: render_test.qmd
         text: Render Test
+      - href: kosmontDraft.qmd
+        text: Kosmont Draft
 
 
 
