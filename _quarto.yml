@@ -26,6 +26,8 @@ website:
       - text: City Data Project
       - href: Calabasas Demographic Data.qmd
         text: Test City Demographic Data 
+      - href: City Data Map Draft.qmd
+        text: City Data Map Draft
       
 
 

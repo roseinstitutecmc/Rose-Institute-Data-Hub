@@ -1,0 +1,73 @@
+---
+title: "City Data Project: Maps"
+format: html
+jupyter: python3
+execute:
+  echo: false
+---
+
+The goal is that we write code that we can later use to make a Chloropleth map based on any variable, ones we get them. 
+
+```{python}
+import folium
+import geopandas as gpd
+import pandas as pd
+from folium import Choropleth
+
+```
+
+```{python}
+#read in data frame
+
+df = pd.read_csv('cleaned_citydatademoCSV.csv')
+
+df = df[['City Name','percentLatino', 'percentWhite', 'percentBlack', 'percentAsian', 'percentNative','percentPI','percentOther', 'percentMultiracial', 'TotalPopulation', 'MedianHouseholdIncome']]
+
+df.head
+
+```
+
+```{python}
+# # You can download a shapefile or GeoJSON for California cities (for example from https://www2.census.gov/geo/tiger/GENZ2021/shp/cd113/
+# california_shapefile = "california_cities.shp"  #REPLACE THIS WITH SOMETHING REAL
+
+# # Read the shapefile into a GeoDataFrame
+# gdf = gpd.read_file(california_shapefile)
+
+# # Example DataFrame with city names and values (e.g., population or another attribute)
+
+# # Replace this with your own dataset for choropleth coloring
+# # city_data = pd.DataFrame({
+# #     'City': ['Los Angeles', 'San Francisco', 'San Diego', 'Sacramento', 'Oakland'],
+# #     'Value': [100, 50, 70, 60, 40]  # Example values (e.g., population or another metric)
+# # })
+
+# # Merge the geographical data with the attribute data
+# gdf = gdf.merge(city_data, how="left", left_on="CITY_NAME", right_on="City")
+
+# # Create the base map centered around California (using latitude and longitude)
+# m = folium.Map(location=[36.7783, -119.4179], zoom_start=6)
+
+# # Create a choropleth map using the merged GeoDataFrame
+# choropleth = Choropleth(
+#     geo_data=gdf,
+#     name="choropleth",
+#     data=gdf,
+#     columns=["City", "Value"],
+#     key_on="feature.properties.CITY_NAME",  # Adjust based on the actual column name in your shapefile
+#     fill_color="YlGn",  # Color scheme
+#     fill_opacity=0.7,
+#     line_opacity=0.2,
+#     legend_name="City Value"
+# ).add_to(m)
+
+# # Add Layer Control
+# folium.LayerControl().add_to(m)
+
+# # Save the map to an HTML file
+# m.save("california_choropleth_map.html")
+
+# print("Map created successfully! Open the 'california_choropleth_map.html' file to view the map.")
+
+
+```
