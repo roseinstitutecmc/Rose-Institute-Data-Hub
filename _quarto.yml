@@ -22,10 +22,8 @@ website:
         text: Render Test
       - href: kosmontDraft.qmd
         text: Kosmont Draft
-      - href: cities.qmd
-      - text: City Data Project
-      - href: Calabasas Demographic Data.qmd
-        text: Test City Demographic Data 
+      - href: datahubstart.qmd
+        text: Data Hub
       - href: City Data Map Draft.qmd
         text: City Data Map Draft
       

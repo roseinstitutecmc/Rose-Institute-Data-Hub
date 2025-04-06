@@ -1,0 +1,96 @@
+---
+title: "Demographic Data"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  eval: true
+---
+
+## 🧬 Demographic Data
+
+This page presents demographic information for all incorporated cities in California, including:
+
+- Population totals  
+- Racial and ethnic composition  
+- Median household income  
+
+The data is drawn from public datasets and has been cleaned for clarity and consistency. Use the map, table, and charts below to explore.
+
+---
+
+## 📋 Demographic Table (Searchable + Downloadable)
+
+---
+
+```{python}
+import pandas as pd
+from IPython.display import HTML
+
+# Load your data (make sure it's in the same folder as this .qmd)
+df = pd.read_csv("cleaned_citydatademoCSV.csv")
+
+# Convert DataFrame to HTML with DataTables ID
+html = df.to_html(index=False, table_id="mytable", classes="display nowrap")
+
+HTML(html)  
+```
+
+<a href="cleaned_citydatademoCSV.csv" download>
+  <button style="padding: 8px 16px; background-color: #007acc; color: white; border: none; border-radius: 5px;">
+    ⬇ Download CSV
+  </button>
+</a>
+---
+
+## 🗺️ Interactive Map of Cities
+
+Use the map below to explore demographic data by city. Hover over a city to view population, income, and racial/ethnic breakdowns.
+
+```{python}
+#| python.reticulate: false
+
+import geopandas as gpd
+import pandas as pd
+import folium
+
+gdf = gpd.read_file("tl_2024_06_place.shp")
+city_data = pd.read_csv("cleaned_citydatademoCSV.csv")
+
+gdf["CITY_NAME"] = gdf["NAME"].str.upper()
+city_data["CITY_NAME"] = city_data["City Name"].str.upper()
+gdf = gdf[gdf["LSAD"] == "25"]
+merged = gdf.merge(city_data, on="CITY_NAME")
+
+m = folium.Map(
+    location=[36.7783, -119.4179],
+    zoom_start=6,
+    tiles='https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+    attr='&copy; <a href="https://carto.com/">Carto</a>'
+)
+
+for _, row in merged.iterrows():
+    geo = gpd.GeoSeries(row['geometry']).simplify(0.001)
+    tooltip = f"""
+    <b>{row['CITY_NAME'].title()}</b><br>
+    Pop: {row['TotalPopulation']}<br>
+    Income: ${row['MedianHouseholdIncome']}<br>
+    Latino: {row['percentLatino']}%<br>
+    White: {row['percentWhite']}%<br>
+    Black: {row['percentBlack']}%<br>
+    Asian: {row['percentAsian']}%
+    """
+    folium.GeoJson(
+        data=geo.__geo_interface__,
+        style_function=lambda x: {
+            'fillColor': 'blue',
+            'color': 'black',
+            'weight': 1,
+            'fillOpacity': 0.4
+        },
+        tooltip=tooltip
+    ).add_to(m)
+
+m
+```
+
