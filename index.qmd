@@ -1,13 +1,9 @@
 ---
-title: "Index"
+title: "Home"
 ---
 
-This is a Quarto website. This is basically just a test to see how useable Quarto is.
+Here is the landing page to the Data Hub for the Rose Institute of State and Local Government. 
 
-This is how you include an image and a link: 
+For more information, visit our [website](https://roseinstitute.org/). 
 
 ![](images/roseimage.jfif)
-
-here's a [link](https://roseinstitute.org/)
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

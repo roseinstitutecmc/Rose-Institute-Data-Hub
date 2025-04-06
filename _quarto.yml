@@ -4,28 +4,16 @@ project:
 website:
   title: "Test2"
   navbar:
-    left:
-      - href: index.qmd #you can use this to link to a separate pg, basically
-        text: Home
+    left: #This is just how you link everything. The href is the file it links to, and the text is what displays on the site.
       #- about.qmd #This is vestigial. 
-      - href: section.qmd
-        text: Test of Sections
-      - href: map.qmd
-        text: Map in Progress
-      - href: workingmap.qmd
-        text: Working Map
-      - href: exact_penguin.qmd
-        text: Exact Copy of Penguin Site
-      - href: reportDraft.qmd #you can use this to link to a separate pg, basically
-        text: Draft of Bessett-Sinclair Report
-      - href: render_test.qmd
-        text: Render Test
-      - href: kosmontDraft.qmd
-        text: Kosmont Draft
+      - href: index.qmd
+        text: Home
       - href: datahubstart.qmd
         text: Data Hub
-      - href: City Data Map Draft.qmd
-        text: City Data Map Draft
+      - href: reportDraft.qmd #you can use this to link to a separate pg, basically
+        text: Draft of Bessett-Sinclair Report
+      - href: Quarto Resource.qmd
+        text: Quarto Resources 
       
 
 

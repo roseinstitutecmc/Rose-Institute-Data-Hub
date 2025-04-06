@@ -7,7 +7,7 @@ format: html
 
 ## Test
 
-In general, this is how you make sections. 
+In general, this is how you make sections. You just put the two hashtags, and you're good. They automatically appear to the righthand side, too. 
 
 ## Section 2
 

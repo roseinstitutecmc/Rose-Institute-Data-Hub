@@ -1,0 +1,13 @@
+---
+title: "Index"
+---
+
+This is a Quarto website. This is basically just a test to see how useable Quarto is.
+
+This is how you include an image and a link: 
+
+![](images/roseimage.jfif)
+
+here's a [link](https://roseinstitute.org/)
+
+To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
