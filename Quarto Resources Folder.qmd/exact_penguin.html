@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Myles Mitchell &amp; Parisa Gregg">
+<meta name="dcterms.date" content="2022-12-14">
+
+<title>Reporting on the bill length of penguins – Test2</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Test2</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../section.html"> 
+<span class="menu-text">Test of Sections</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../map.html"> 
+<span class="menu-text">Map in Progress</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../workingmap.html"> 
+<span class="menu-text">Working Map</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../reportDraft.html"> 
+<span class="menu-text">Draft of Bessett-Sinclair Report</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../kosmontDraft.html"> 
+<span class="menu-text">Kosmont Draft</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../datahubstart.html"> 
+<span class="menu-text">Data Hub</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../Quarto Resource.html"> 
+<span class="menu-text">Quarto Resources</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Reporting on the bill length of penguins</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Myles Mitchell &amp; Parisa Gregg </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 14, 2022</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>This is an exact copy from the same penguine site, for reference.</p>
+<p>Prepare yourself for a life-changing article about penguins…</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p><a href="https://en.wikipedia.org/wiki/Penguin">Penguins</a> are a family (<strong>Spheniscidae</strong>) of aquatic flightless <a href="https://en.wikipedia.org/wiki/Bird">birds</a> that live primarily in the <a href="https://en.wikipedia.org/wiki/Southern_Hemisphere">Southern Hemisphere</a>. Their diet consists of:</p>
+<ul>
+<li>Krill</li>
+<li>Fish</li>
+<li>Squid</li>
+<li>More fish</li>
+</ul>
+<p>There are 18 species of penguin, including:</p>
+<ol type="1">
+<li>Macaroni penguin (<em>Eudyptes chrysolophus</em>)</li>
+<li>Chinstrap penguin (<em>Pygoscelis antarcticus</em>)</li>
+<li>Gentoo penguin (<em>Pygoscelis papua</em>)</li>
+</ol>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">Methods</h2>
+<p>To determine whether a higher body mass implies a longer bill, we loaded a penguins dataset using pandas:</p>
+<div id="1ee7d1d1" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-28/penguins.csv'</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>data.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">species</th>
+<th data-quarto-table-cell-role="th">island</th>
+<th data-quarto-table-cell-role="th">bill_length_mm</th>
+<th data-quarto-table-cell-role="th">bill_depth_mm</th>
+<th data-quarto-table-cell-role="th">flipper_length_mm</th>
+<th data-quarto-table-cell-role="th">body_mass_g</th>
+<th data-quarto-table-cell-role="th">sex</th>
+<th data-quarto-table-cell-role="th">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.1</td>
+<td>18.7</td>
+<td>181.0</td>
+<td>3750.0</td>
+<td>male</td>
+<td>2007</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>39.5</td>
+<td>17.4</td>
+<td>186.0</td>
+<td>3800.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>40.3</td>
+<td>18.0</td>
+<td>195.0</td>
+<td>3250.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2007</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Adelie</td>
+<td>Torgersen</td>
+<td>36.7</td>
+<td>19.3</td>
+<td>193.0</td>
+<td>3450.0</td>
+<td>female</td>
+<td>2007</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<p>The figure below shows the bill length plotted as a function of the body mass for three species across a 3-year period.</p>
+<div id="0e3847b9" class="cell" data-fig-width="8" data-execution_count="2">
+<div class="cell-output cell-output-display">
+        <script type="text/javascript">
+        window.PlotlyConfig = {MathJaxConfig: 'local'};
+        if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}
+        </script>
+        <script type="module">import "https://cdn.plot.ly/plotly-3.0.1.min"</script>
+        
+<p>Bill length as a function of body mass</p>
+</div>
+<div class="cell-output cell-output-display">
+<div>            <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_SVG"></script><script type="text/javascript">if (window.MathJax && window.MathJax.Hub && window.MathJax.Hub.Config) {window.MathJax.Hub.Config({SVG: {font: "STIX-Web"}});}</script>                <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>                <div id="ff1b4942-06f2-4723-8f58-aa13c832a514" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("ff1b4942-06f2-4723-8f58-aa13c832a514")) {                    Plotly.newPlot(                        "ff1b4942-06f2-4723-8f58-aa13c832a514",                        [{"hovertemplate":"species=Adelie\u003cbr\u003eyear=2007\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Adelie","marker":{"color":"#636efa","symbol":"circle"},"mode":"markers","name":"Adelie","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAABMrUAAAAAAALCtQAAAAAAAZKlAAAAAAAAA+H8AAAAAAPSqQAAAAAAAhKxAAAAAAABSrEAAAAAAAEOyQAAAAAAAJqtAAAAAAACasEAAAAAAAMipQAAAAAAA6KxAAAAAAAAAqUAAAAAAALCtQAAAAAAAMLFAAAAAAADorEAAAAAAAPSqQAAAAAAAlLFAAAAAAAD6qUAAAAAAAGiwQAAAAAAAkKpAAAAAAAAgrEAAAAAAALCtQAAAAAAA3K5AAAAAAACwrUAAAAAAALCtQAAAAAAAvKtAAAAAAAAAqUAAAAAAAJyoQAAAAAAA3K5AAAAAAABkqUAAAAAAAHiuQAAAAAAAyKlAAAAAAAB4rkAAAAAAAPqpQAAAAAAANrBAAAAAAADcrkAAAAAAALyrQAAAAAAAyKlAAAAAAAAqskAAAAAAAJyoQAAAAAAAeK5AAAAAAAA4qEAAAAAAADCxQAAAAAAAcKdAAAAAAAD4sUAAAAAAAMKqQAAAAAAAPqdAAAAAAAD0qkAAAAAAADawQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"zczMzMyMQ0AAAAAAAMBDQGZmZmZmJkRAAAAAAAAA+H+amZmZmVlCQGZmZmZmpkNAMzMzMzNzQ0CamZmZmZlDQM3MzMzMDEFAAAAAAAAARUBmZmZmZuZCQGZmZmZm5kJAzczMzMyMREDNzMzMzExDQM3MzMzMTEFAzczMzMxMQkCamZmZmVlDQAAAAAAAQEVAMzMzMzMzQUAAAAAAAABHQGZmZmZm5kJAmpmZmZnZQkAzMzMzM\u002fNBQJqZmZmZGUNAZmZmZmZmQ0BmZmZmZqZBQM3MzMzMTERAAAAAAABAREAzMzMzM\u002fNCQAAAAAAAQERAAAAAAADAQ0CamZmZmZlCQAAAAAAAwENAMzMzMzNzREAzMzMzMzNCQJqZmZmZmUNAZmZmZmZmQ0CamZmZmRlFQM3MzMzMzEJAZmZmZmbmQ0AAAAAAAEBCQGZmZmZmZkRAAAAAAAAAQkDNzMzMzAxGQAAAAAAAgEJAzczMzMzMQ0DNzMzMzIxEQAAAAAAAwEJAAAAAAAAAQkBmZmZmZiZFQA=="},"yaxis":"y","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00207791 * body_mass_g + 31.1436\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.143747\u003cbr\u003e\u003cbr\u003especies=Adelie\u003cbr\u003eyear=2007\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Adelie","marker":{"color":"#636efa","symbol":"circle"},"mode":"lines","name":"Adelie","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAA+p0AAAAAAAHCnQAAAAAAAOKhAAAAAAACcqEAAAAAAAJyoQAAAAAAAAKlAAAAAAAAAqUAAAAAAAGSpQAAAAAAAZKlAAAAAAADIqUAAAAAAAMipQAAAAAAAyKlAAAAAAAD6qUAAAAAAAPqpQAAAAAAAkKpAAAAAAADCqkAAAAAAAPSqQAAAAAAA9KpAAAAAAAD0qkAAAAAAACarQAAAAAAAvKtAAAAAAAC8q0AAAAAAACCsQAAAAAAAUqxAAAAAAACErEAAAAAAAOisQAAAAAAA6KxAAAAAAABMrUAAAAAAALCtQAAAAAAAsK1AAAAAAACwrUAAAAAAALCtQAAAAAAAsK1AAAAAAAB4rkAAAAAAAHiuQAAAAAAAeK5AAAAAAADcrkAAAAAAANyuQAAAAAAA3K5AAAAAAAA2sEAAAAAAADawQAAAAAAAaLBAAAAAAACasEAAAAAAADCxQAAAAAAAMLFAAAAAAACUsUAAAAAAAPixQAAAAAAAKrJAAAAAAABDskA="},"xaxis":"x","y":{"dtype":"f8","bdata":"gKg\u002fmKepQkAM+0nRTbBCQD5Fc7XmykJAVuqHJzPYQkBW6ocnM9hCQG6PnJl\u002f5UJAbo+cmX\u002flQkCHNLELzPJCQIc0sQvM8kJAn9nFfRgAQ0Cf2cV9GABDQJ\u002fZxX0YAENALCzQtr4GQ0AsLNC2vgZDQNAj72GxGkNAXHb5mlchQ0DpyAPU\u002fSdDQOnIA9T9J0NA6cgD1P0nQ0B1Gw4NpC5DQBoTLbiWQkNAGhMtuJZCQ0AyuEEq409DQL4KTGOJVkNASl1WnC9dQ0BjAmsOfGpDQGMCaw58akNAe6d\u002fgMh3Q0CUTJTyFIVDQJRMlPIUhUNAlEyU8hSFQ0CUTJTyFIVDQJRMlPIUhUNAxZa91q2fQ0DFlr3WrZ9DQMWWvdatn0NA3TvSSPqsQ0DdO9JI+qxDQN070kj6rENAP9AkESziQ0A\u002f0CQRLOJDQFh1OYN470NAcBpO9cT8Q0C6CYxLqiREQLoJjEuqJERA6lO1L0M\u002fREAbnt4T3FlEQDRD84UoZ0RAwJX9vs5tREA="},"yaxis":"y","type":"scatter"},{"hovertemplate":"species=Adelie\u003cbr\u003eyear=2008\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Adelie","marker":{"color":"#636efa","symbol":"circle"},"mode":"markers","name":"Adelie","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAABYq0AAAAAAAMywQAAAAAAA9KpAAAAAAACkr0AAAAAAAKimQAAAAAAA6KxAAAAAAAC8q0AAAAAAALCtQAAAAAAARKZAAAAAAABMrUAAAAAAAJyoQAAAAAAAMLFAAAAAAAAgrEAAAAAAAKSvQAAAAAAARKZAAAAAAADcrkAAAAAAACyqQAAAAAAABLBAAAAAAADUp0AAAAAAAGKxQAAAAAAAIKxAAAAAAAB4rkAAAAAAALyrQAAAAAAANrBAAAAAAADorEAAAAAAAJqwQAAAAAAA6KxAAAAAAAB4rkAAAAAAALyrQAAAAAAAQK9AAAAAAAAAqUAAAAAAAFyyQAAAAAAAsK1AAAAAAABosEAAAAAAACyqQAAAAAAAvKtAAAAAAACwrUAAAAAAAFirQAAAAAAA3K5AAAAAAAAgrEAAAAAAALyrQAAAAAAAzLBAAAAAAACQqkAAAAAAAGKxQAAAAAAAyKlAAAAAAADMsEAAAAAAAOisQAAAAAAA\u002frBAAAAAAACopkAAAAAAAASwQA=="},"xaxis":"x2","y":{"dtype":"f8","bdata":"zczMzMzMQ0DNzMzMzAxEQAAAAAAAgEFAAAAAAAAARUAAAAAAAEBBQDMzMzMzs0RAAAAAAACAQ0DNzMzMzExEQAAAAAAAQEJAzczMzMzMQkCamZmZmdlBQGZmZmZmpkRAzczMzMzMQkDNzMzMzIxEQDMzMzMzM0JAzczMzMzMREAAAAAAAMBBQM3MzMzMjERAMzMzMzPzQUBmZmZmZuZEQAAAAAAAwEBAmpmZmZnZQ0DNzMzMzMxDQGZmZmZm5kZAAAAAAADAQUBmZmZmZmZFQDMzMzMzc0RAmpmZmZmZQkCamZmZmRlCQM3MzMzMDEVAzczMzMxMQUAzMzMzM3NFQJqZmZmZWUJAzczMzMyMQUBmZmZmZqZCQGZmZmZmpkRAZmZmZmYmQkAzMzMzM3NCQGZmZmZmJkNAMzMzMzNzQ0CamZmZmdlBQM3MzMzMjERAAAAAAAAAQUDNzMzMzMxDQJqZmZmZGUJAZmZmZmZmREDNzMzMzAxDQGZmZmZmJkRAzczMzMyMQECamZmZmZlFQA=="},"yaxis":"y2","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00459928 * body_mass_g + 21.3495\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.494683\u003cbr\u003e\u003cbr\u003especies=Adelie\u003cbr\u003eyear=2008\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Adelie","marker":{"color":"#636efa","symbol":"circle"},"mode":"lines","name":"Adelie","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAABEpkAAAAAAAESmQAAAAAAAqKZAAAAAAACopkAAAAAAANSnQAAAAAAAnKhAAAAAAAAAqUAAAAAAAMipQAAAAAAALKpAAAAAAAAsqkAAAAAAAJCqQAAAAAAA9KpAAAAAAABYq0AAAAAAAFirQAAAAAAAvKtAAAAAAAC8q0AAAAAAALyrQAAAAAAAvKtAAAAAAAC8q0AAAAAAACCsQAAAAAAAIKxAAAAAAAAgrEAAAAAAAOisQAAAAAAA6KxAAAAAAADorEAAAAAAAOisQAAAAAAATK1AAAAAAACwrUAAAAAAALCtQAAAAAAAsK1AAAAAAAB4rkAAAAAAAHiuQAAAAAAA3K5AAAAAAADcrkAAAAAAAECvQAAAAAAApK9AAAAAAACkr0AAAAAAAASwQAAAAAAABLBAAAAAAAA2sEAAAAAAAGiwQAAAAAAAmrBAAAAAAADMsEAAAAAAAMywQAAAAAAAzLBAAAAAAAD+sEAAAAAAADCxQAAAAAAAYrFAAAAAAABisUAAAAAAAFyyQA=="},"xaxis":"x2","y":{"dtype":"f8","bdata":"nCxmX406QUCcLGZfjTpBQG2Rm9b8V0FAbZGb1vxXQUDivzs8S7BBQIaJpioq60FAV+7boZkIQkD6t0aQeENCQMwcfAfoYEJAzBx8B+hgQkCegbF+V35CQHDm5vXGm0JAQUscbTa5QkBBSxxtNrlCQBOwUeSl1kJAE7BR5KXWQkATsFHkpdZCQBOwUeSl1kJAE7BR5KXWQkDkFIdbFfRCQOQUh1sV9EJA5BSHWxX0QkCI3vFJ9C5DQIje8Un0LkNAiN7xSfQuQ0CI3vFJ9C5DQFpDJ8FjTENAK6hcONNpQ0ArqFw402lDQCuoXDjTaUNAznHHJrKkQ0DOcccmsqRDQKDW\u002fJ0hwkNAoNb8nSHCQ0ByOzIVkd9DQESgZ4wA\u002fUNARKBnjAD9Q0AVBZ0DcBpEQBUFnQNwGkRA5mnSet83REC4zgfyTlVEQIozPWm+ckRAXJhy4C2QREBcmHLgLZBEQFyYcuAtkERALv2nV52tRED\u002fYd3ODMtEQNDGEkZ86ERA0MYSRnzoREDpvh2aqXtFQA=="},"yaxis":"y2","type":"scatter"},{"hovertemplate":"species=Adelie\u003cbr\u003eyear=2009\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Adelie","marker":{"color":"#636efa","symbol":"circle"},"mode":"markers","name":"Adelie","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAAarUAAAAAAAHWyQAAAAAAABqhAAAAAAACasEAAAAAAANqmQAAAAAAAvKtAAAAAAABMrUAAAAAAAHiuQAAAAAAAzqhAAAAAAACnskAAAAAAAOKtQAAAAAAA+LFAAAAAAAAAqUAAAAAAALOwQAAAAAAAeK5AAAAAAADWr0AAAAAAAKimQAAAAAAAfq1AAAAAAAAsqkAAAAAAAPqpQAAAAAAAnKhAAAAAAABYq0AAAAAAAPSqQAAAAAAARq5AAAAAAADUp0AAAAAAAECvQAAAAAAAlqlAAAAAAADMsEAAAAAAANSnQAAAAAAAQK9AAAAAAAD6qUAAAAAAAFirQAAAAAAAWKtAAAAAAAB7sUAAAAAAAMKqQAAAAAAAeK5AAAAAAADOqEAAAAAAAA6vQAAAAAAAkKpAAAAAAACasEAAAAAAAJCqQAAAAAAAJqtAAAAAAADUp0AAAAAAABqtQAAAAAAAcKdAAAAAAACErEAAAAAAAJqwQAAAAAAAJqtAAAAAAAD0qkAAAAAAAEytQAAAAAAA6KxAAAAAAABAr0A="},"xaxis":"x3","y":{"dtype":"f8","bdata":"AAAAAACAQUAAAAAAAIBEQJqZmZmZ2UJAZmZmZmbmQkAzMzMzM\u002fNCQJqZmZmZ2UNAzczMzMxMQ0CamZmZmRlDQM3MzMzMDENAmpmZmZmZRUDNzMzMzAxDQM3MzMzMzEZAmpmZmZnZQ0CamZmZmRlFQM3MzMzMzENAmpmZmZlZRUDNzMzMzExDQGZmZmZmpkJAmpmZmZnZQUDNzMzMzIxEQJqZmZmZGUJAmpmZmZnZQkCamZmZmRlEQDMzMzMzs0RAmpmZmZmZQUDNzMzMzExEQGZmZmZmZkNAAAAAAADAREAAAAAAAIBDQM3MzMzMDEZAAAAAAABAQ0DNzMzMzIxFQGZmZmZmZkJAAAAAAADAQkDNzMzMzAxDQM3MzMzMjERAzczMzMzMQUCamZmZmRlEQAAAAAAAgEJAmpmZmZnZQ0CamZmZmRlEQM3MzMzMTERAzczMzMwMQECamZmZmVlEQGZmZmZmpkJAAAAAAACAQ0CamZmZmZlDQM3MzMzMTEJAAAAAAAAAQkBmZmZmZuZCQAAAAAAAAEJAAAAAAADAREA="},"yaxis":"y3","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00299468 * body_mass_g + 28.0075\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.309911\u003cbr\u003e\u003cbr\u003especies=Adelie\u003cbr\u003eyear=2009\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Adelie","marker":{"color":"#636efa","symbol":"circle"},"mode":"lines","name":"Adelie","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAACopkAAAAAAANqmQAAAAAAAcKdAAAAAAADUp0AAAAAAANSnQAAAAAAA1KdAAAAAAAAGqEAAAAAAAJyoQAAAAAAAzqhAAAAAAADOqEAAAAAAAACpQAAAAAAAlqlAAAAAAAD6qUAAAAAAAPqpQAAAAAAALKpAAAAAAACQqkAAAAAAAJCqQAAAAAAAwqpAAAAAAAD0qkAAAAAAAPSqQAAAAAAAJqtAAAAAAAAmq0AAAAAAAFirQAAAAAAAWKtAAAAAAABYq0AAAAAAALyrQAAAAAAAhKxAAAAAAADorEAAAAAAABqtQAAAAAAAGq1AAAAAAABMrUAAAAAAAEytQAAAAAAAfq1AAAAAAADirUAAAAAAAEauQAAAAAAAeK5AAAAAAAB4rkAAAAAAAHiuQAAAAAAADq9AAAAAAABAr0AAAAAAAECvQAAAAAAAQK9AAAAAAADWr0AAAAAAAJqwQAAAAAAAmrBAAAAAAACasEAAAAAAALOwQAAAAAAAzLBAAAAAAAB7sUAAAAAAAPixQAAAAAAAdbJAAAAAAACnskA="},"xaxis":"x3","y":{"dtype":"f8","bdata":"n6iXKJVYQkCWi\u002fxlKmJCQHo0Kx7qfkJAaPr0mBSSQkBo+vSYFJJCQGj69JgUkkJAXt1Z1qmbQkBChoiOabhCQDlp7cv+wUJAOWnty\u002f7BQkAwTFIJlMtCQBT1gMFT6EJAArtKPH77QkACu0o8fvtCQPidr3kTBUNA5mN59D0YQ0DmY3n0PRhDQNxG3jHTIUNA0ylDb2grQ0DTKUNvaCtDQMoMqKz9NENAygyorP00Q0DA7wzqkj5DQMDvDOqSPkNAwO8M6pI+Q0CutdZkvVFDQIlBaloSeENAdgc01TyLQ0Bt6pgS0pRDQG3qmBLSlENAZM39T2eeQ0Bkzf1PZ55DQFqwYo38p0NASHYsCCe7Q0A1PPaCUc5DQCwfW8Dm10NALB9bwObXQ0AsH1vA5tdDQBDIiXim9ENAB6vutTv+Q0AHq+61O\u002f5DQAer7rU7\u002fkNA61MdbvsaRECqiN8bEF5EQKqI3xsQXkRAqojfGxBeRECha0RZpWdEQJhOqZY6cURAVoNrRE+0REAo8mN3OeREQPpgXKojFEVA5yYmJU4nRUA="},"yaxis":"y3","type":"scatter"},{"hovertemplate":"species=Gentoo\u003cbr\u003eyear=2007\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Gentoo","marker":{"color":"#EF553B","symbol":"circle"},"mode":"markers","name":"Gentoo","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAACUsUAAAAAAAES2QAAAAAAAYrFAAAAAAABEtkAAAAAAABi1QAAAAAAAxrFAAAAAAADAskAAAAAAAFC0QAAAAAAAMLFAAAAAAAAetEAAAAAAACqyQAAAAAAArrVAAAAAAAAqskAAAAAAANq2QAAAAAAAaLBAAAAAAADatkAAAAAAADawQAAAAAAAnLhAAAAAAADAskAAAAAAAOa0QAAAAAAARLZAAAAAAACIs0AAAAAAADCxQAAAAAAAurNAAAAAAACIs0AAAAAAAOyzQAAAAAAABLBAAAAAAAAStkAAAAAAAPixQAAAAAAArrVAAAAAAACCtEAAAAAAAFyyQAAAAAAAurNAAAAAAACit0A="},"xaxis":"x","y":{"dtype":"f8","bdata":"zczMzMwMR0AAAAAAAABJQJqZmZmZWUhAAAAAAAAASUDNzMzMzMxHQAAAAAAAQEdAMzMzMzOzRkCamZmZmVlHQGZmZmZmpkVAZmZmZmZmR0AzMzMzM3NEQAAAAAAAgEhAAAAAAADARkAzMzMzMzNIQGZmZmZm5kZAZmZmZmamSEAAAAAAAABFQJqZmZmZmUhAmpmZmZkZR0CamZmZmVlIQJqZmZmZGUlAzczMzMyMRkAAAAAAAEBHQGZmZmZmJkdAMzMzMzNzRUDNzMzMzAxHQAAAAAAAQEZAZmZmZmbmR0CamZmZmRlIQAAAAAAAAElAZmZmZmamR0BmZmZmZmZFQM3MzMzMjEZAzczMzMzMTUA="},"yaxis":"y","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00384901 * body_mass_g + 27.4979\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.469372\u003cbr\u003e\u003cbr\u003especies=Gentoo\u003cbr\u003eyear=2007\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Gentoo","marker":{"color":"#EF553B","symbol":"circle"},"mode":"lines","name":"Gentoo","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAAEsEAAAAAAADawQAAAAAAAaLBAAAAAAAAwsUAAAAAAADCxQAAAAAAAYrFAAAAAAACUsUAAAAAAAMaxQAAAAAAA+LFAAAAAAAAqskAAAAAAACqyQAAAAAAAXLJAAAAAAADAskAAAAAAAMCyQAAAAAAAiLNAAAAAAACIs0AAAAAAALqzQAAAAAAAurNAAAAAAADss0AAAAAAAB60QAAAAAAAULRAAAAAAACCtEAAAAAAAOa0QAAAAAAAGLVAAAAAAACutUAAAAAAAK61QAAAAAAAErZAAAAAAABEtkAAAAAAAES2QAAAAAAARLZAAAAAAADatkAAAAAAANq2QAAAAAAAordAAAAAAACcuEA="},"xaxis":"x","y":{"dtype":"f8","bdata":"Jiw987KjRUA30oYsVbxFQEh40GX31EVAixD3SoA3RkCLEPdKgDdGQJy2QIQiUEZArFyKvcRoRkC9AtT2ZoFGQM6oHTAJmkZA3k5naauyRkDeTmdpq7JGQPD0sKJNy0ZAEUFEFZL8RkARQUQVkvxGQFTZavoaX0dAVNlq+hpfR0Bkf7QzvXdHQGR\u002ftDO9d0dAdiX+bF+QR0CGy0emAalHQJZxkd+jwUdAqBfbGEbaR0DJY26LigtIQNoJuMQsJEhADPyUcBNuSEAM\u002fJRwE25IQC5IKONXn0hAPu5xHPq3SEA+7nEc+rdIQD7ucRz6t0hAcOBOyOABSUBw4E7I4AFJQLR4da1pZElAB7fly5TfSUA="},"yaxis":"y","type":"scatter"},{"hovertemplate":"species=Gentoo\u003cbr\u003eyear=2008\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Gentoo","marker":{"color":"#EF553B","symbol":"circle"},"mode":"markers","name":"Gentoo","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAAetEAAAAAAABi1QAAAAAAAVrNAAAAAAACCtEAAAAAAAP6wQAAAAAAA5rRAAAAAAADcrkAAAAAAAES2QAAAAAAAzLBAAAAAAACOskAAAAAAAK61QAAAAAAAJLNAAAAAAABosEAAAAAAABi1QAAAAAAA7LNAAAAAAAC0tEAAAAAAAPKyQAAAAAAAtLRAAAAAAAAwsUAAAAAAAIizQAAAAAAAJLNAAAAAAAC6s0AAAAAAAMywQAAAAAAAiLNAAAAAAABisUAAAAAAAK61QAAAAAAAaLBAAAAAAAC0tEAAAAAAADCxQAAAAAAAErZAAAAAAABcskAAAAAAAES2QAAAAAAAKrJAAAAAAACotkAAAAAAAFyyQAAAAAAArrVAAAAAAACOskAAAAAAAIizQAAAAAAA7LNAAAAAAABQtEAAAAAAAFyyQAAAAAAAqLZAAAAAAAD4sUAAAAAAAHC3QAAAAAAAjrJAAAAAAAA+t0A="},"xaxis":"x2","y":{"dtype":"f8","bdata":"zczMzMyMSEAzMzMzMzNIQM3MzMzMTEVAMzMzMzMzRkAAAAAAAABGQJqZmZmZWUhAmpmZmZlZRUDNzMzMzMxIQGZmZmZmpkZAzczMzMzMSEAAAAAAAEBJQM3MzMzMzEVAAAAAAADARkAAAAAAAEBJQDMzMzMzc0ZAmpmZmZmZRkDNzMzMzExHQAAAAAAAQEhAzczMzMyMRkDNzMzMzAxJQAAAAAAAQEdAAAAAAACARkBmZmZmZuZFQAAAAAAAwEZAmpmZmZmZRUAzMzMzMzNJQGZmZmZmpkZAmpmZmZkZR0CamZmZmdlGQGZmZmZmJktAZmZmZmbmRkBmZmZmZuZIQJqZmZmZGUdAAAAAAADASEAAAAAAAMBFQJqZmZmZWUlAmpmZmZnZR0AzMzMzMzNHQJqZmZmZGUhAAAAAAABAR0AzMzMzMzNHQM3MzMzMTEhAAAAAAADAR0DNzMzMzIxJQJqZmZmZmUZAmpmZmZmZRkA="},"yaxis":"y2","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00336299 * body_mass_g + 30.0562\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.430911\u003cbr\u003e\u003cbr\u003especies=Gentoo\u003cbr\u003eyear=2008\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Gentoo","marker":{"color":"#EF553B","symbol":"circle"},"mode":"lines","name":"Gentoo","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAADcrkAAAAAAAGiwQAAAAAAAaLBAAAAAAADMsEAAAAAAAMywQAAAAAAA\u002frBAAAAAAAAwsUAAAAAAADCxQAAAAAAAYrFAAAAAAAD4sUAAAAAAACqyQAAAAAAAXLJAAAAAAABcskAAAAAAAFyyQAAAAAAAjrJAAAAAAACOskAAAAAAAI6yQAAAAAAA8rJAAAAAAAAks0AAAAAAACSzQAAAAAAAVrNAAAAAAACIs0AAAAAAAIizQAAAAAAAiLNAAAAAAAC6s0AAAAAAAOyzQAAAAAAA7LNAAAAAAAAetEAAAAAAAFC0QAAAAAAAgrRAAAAAAAC0tEAAAAAAALS0QAAAAAAAtLRAAAAAAADmtEAAAAAAABi1QAAAAAAAGLVAAAAAAACutUAAAAAAAK61QAAAAAAArrVAAAAAAAAStkAAAAAAAES2QAAAAAAARLZAAAAAAACotkAAAAAAAKi2QAAAAAAAPrdAAAAAAABwt0A="},"xaxis":"x2","y":{"dtype":"f8","bdata":"Rio1ooWrRUASJbNGIxdGQBIls0YjF0ZAlrwYIi9CRkCWvBgiL0JGQFiIyw+1V0ZAGlR+\u002fTptRkAaVH79Om1GQNwfMevAgkZAI4NJtFLDRkDlTvyh2NhGQKgar49e7kZAqBqvj17uRkCoGq+PXu5GQGrmYX3kA0dAauZhfeQDR0Bq5mF95ANHQO59x1jwLkdAsEl6RnZER0CwSXpGdkRHQHIVLTT8WUdANOHfIYJvR0A04d8hgm9HQDTh3yGCb0dA96ySDwiFR0C5eEX9jZpHQLl4Rf2NmkdAe0T46hOwR0A+EKvYmcVHQADcXcYf20dAwqcQtKXwR0DCpxC0pfBHQMKnELSl8EdAhHPDoSsGSEBGP3aPsRtIQEY\u002fdo+xG0hAjaKOWENcSECNoo5YQ1xIQI2ijlhDXEhAETr0M0+HSEDUBach1ZxIQNQFpyHVnEhAWJ0M\u002feDHSEBYnQz94MdIQJ4AJcZyCElAYMzXs\u002fgdSUA="},"yaxis":"y2","type":"scatter"},{"hovertemplate":"species=Gentoo\u003cbr\u003eyear=2009\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Gentoo","marker":{"color":"#EF553B","symbol":"circle"},"mode":"markers","name":"Gentoo","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAARskAAAAAAAEq1QAAAAAAAdbJAAAAAAADmtEAAAAAAAI6yQAAAAAAA4LVAAAAAAAD4sUAAAAAAALS0QAAAAAAAC7NAAAAAAACutUAAAAAAAFazQAAAAAAAGLVAAAAAAACOskAAAAAAABK2QAAAAAAA8rJAAAAAAABQtEAAAAAAAD2zQAAAAAAAC7NAAAAAAAARskAAAAAAAIK0QAAAAAAA8rJAAAAAAADgtUAAAAAAAG+zQAAAAAAAfLVAAAAAAAB1skAAAAAAAHy1QAAAAAAAXLJAAAAAAAB8tUAAAAAAAN+xQAAAAAAAfLVAAAAAAACIs0AAAAAAAD63QAAAAAAAKrJAAAAAAAB8tUAAAAAAABexQAAAAAAA2rZAAAAAAAALs0AAAAAAAHC3QAAAAAAAPbNAAAAAAAAA+H8AAAAAAPKyQAAAAAAAdrZAAAAAAABQtEAAAAAAABi1QA=="},"xaxis":"x3","y":{"dtype":"f8","bdata":"zczMzMyMSEAAAAAAAEBKQDMzMzMzs0dAAAAAAAAASUAzMzMzM3NGQGZmZmZmZklAMzMzMzOzRUBmZmZmZqZJQAAAAAAAwEdAzczMzMwMSkAAAAAAAMBHQJqZmZmZGUpAAAAAAADARkAAAAAAAMBIQAAAAAAAQEZAZmZmZmZmSUAzMzMzM7NIQDMzMzMzc0dAMzMzMzMzSEDNzMzMzIxJQAAAAAAAQEhAMzMzMzPzS0CamZmZmZlHQM3MzMzMjEhAZmZmZmamR0BmZmZmZmZHQJqZmZmZ2URAMzMzMzOzSkBmZmZmZqZFQM3MzMzMDEhAAAAAAABASUBmZmZmZuZIQAAAAAAAwEVAAAAAAADASUCamZmZmRlHQM3MzMzMjEtAAAAAAABARkBmZmZmZmZIQJqZmZmZmUdAAAAAAAAA+H9mZmZmZmZHQDMzMzMzM0lAmpmZmZmZRkAzMzMzM\u002fNIQA=="},"yaxis":"y3","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00520509 * body_mass_g + 21.7422\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.479162\u003cbr\u003e\u003cbr\u003especies=Gentoo\u003cbr\u003eyear=2009\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Gentoo","marker":{"color":"#EF553B","symbol":"circle"},"mode":"lines","name":"Gentoo","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAAXsUAAAAAAAN+xQAAAAAAA+LFAAAAAAAARskAAAAAAABGyQAAAAAAAKrJAAAAAAABcskAAAAAAAHWyQAAAAAAAdbJAAAAAAACOskAAAAAAAI6yQAAAAAAA8rJAAAAAAADyskAAAAAAAPKyQAAAAAAAC7NAAAAAAAALs0AAAAAAAAuzQAAAAAAAPbNAAAAAAAA9s0AAAAAAAFazQAAAAAAAb7NAAAAAAACIs0AAAAAAAFC0QAAAAAAAULRAAAAAAACCtEAAAAAAALS0QAAAAAAA5rRAAAAAAAAYtUAAAAAAABi1QAAAAAAASrVAAAAAAAB8tUAAAAAAAHy1QAAAAAAAfLVAAAAAAAB8tUAAAAAAAHy1QAAAAAAArrVAAAAAAADgtUAAAAAAAOC1QAAAAAAAErZAAAAAAAB2tkAAAAAAANq2QAAAAAAAPrdAAAAAAABwt0A="},"xaxis":"x3","y":{"dtype":"f8","bdata":"zFCUYtpBRkCTAUNxGsdGQKzXGHPC10ZAxK3udGroRkDEre50auhGQN6DxHYS+UZADzBwemIaR0AoBkZ8CitHQCgGRnwKK0dAQNwbfrI7R0BA3Bt+sjtHQKQ0c4VSfkdApDRzhVJ+R0CkNHOFUn5HQL0KSYf6jkdAvQpJh\u002fqOR0C9CkmH+o5HQO629IpKsEdA7rb0ikqwR0AIjcqM8sBHQCBjoI6a0UdAOTl2kELiR0AA6iSfgmdIQADqJJ+CZ0hAMpbQotKISEBjQnymIqpIQJTuJ6pyy0hAxprTrcLsSEDGmtOtwuxIQPhGf7ESDklAKvMqtWIvSUAq8yq1Yi9JQCrzKrViL0lAKvMqtWIvSUAq8yq1Yi9JQFyf1riyUElAjUuCvAJySUCNS4K8AnJJQL73LcBSk0lAIlCFx\u002fLVSUCGqNzOkhhKQOgANNYyW0pAGq3f2YJ8SkA="},"yaxis":"y3","type":"scatter"},{"hovertemplate":"species=Chinstrap\u003cbr\u003eyear=2007\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Chinstrap","marker":{"color":"#00cc96","symbol":"circle"},"mode":"markers","name":"Chinstrap","orientation":"v","showlegend":true,"x":{"dtype":"f8","bdata":"AAAAAABYq0AAAAAAAHiuQAAAAAAAhKxAAAAAAACKq0AAAAAAABqtQAAAAAAA3K5AAAAAAABkqUAAAAAAAEytQAAAAAAANrBAAAAAAADorEAAAAAAALCtQAAAAAAAfq1AAAAAAADorEAAAAAAAKSvQAAAAAAA7qtAAAAAAACkr0AAAAAAAMipQAAAAAAA6KxAAAAAAAD0qkAAAAAAADCxQAAAAAAAIKxAAAAAAACQqkAAAAAAAKimQAAAAAAAsK1AAAAAAADIqUAAAAAAADawQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"AAAAAABAR0AAAAAAAABJQGZmZmZmpklAMzMzMzOzRkCamZmZmVlKQJqZmZmZmUZAzczMzMwMR0BmZmZmZqZJQAAAAAAAAEdAZmZmZmamSUDNzMzMzExHQJqZmZmZ2UlAAAAAAACAR0AAAAAAAABKQDMzMzMz80ZAAAAAAABASUBmZmZmZiZJQAAAAAAAAE1AMzMzMzMzR0CamZmZmZlIQDMzMzMzM0VAAAAAAABASECamZmZmZlFQM3MzMzMTElAmpmZmZlZR0AAAAAAAABKQA=="},"yaxis":"y","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00389733 * body_mass_g + 34.3254\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.135301\u003cbr\u003e\u003cbr\u003especies=Chinstrap\u003cbr\u003eyear=2007\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Chinstrap","marker":{"color":"#00cc96","symbol":"circle"},"mode":"lines","name":"Chinstrap","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAACopkAAAAAAAGSpQAAAAAAAyKlAAAAAAADIqUAAAAAAAJCqQAAAAAAA9KpAAAAAAABYq0AAAAAAAIqrQAAAAAAA7qtAAAAAAAAgrEAAAAAAAISsQAAAAAAA6KxAAAAAAADorEAAAAAAAOisQAAAAAAAGq1AAAAAAABMrUAAAAAAAH6tQAAAAAAAsK1AAAAAAACwrUAAAAAAAHiuQAAAAAAA3K5AAAAAAACkr0AAAAAAAKSvQAAAAAAANrBAAAAAAAA2sEAAAAAAADCxQA=="},"xaxis":"x","y":{"dtype":"f8","bdata":"BhiLXFjQRkCBBskS8n5HQLhx9nXjl0dAuHH2deOXR0AkSFE8xslHQFqzfp+34kdAkB6sAqn7R0As1EK0IQhIQGI\u002fcBcTIUhA\u002ffQGyYstSEAzYDQsfUZIQGnLYY9uX0hAacthj25fSEBpy2GPbl9IQASB+EDna0hAoDaP8l94SEA67CWk2IRIQNahvFVRkUhA1qG8VVGRSEBCeBccNMNIQHjjRH8l3EhA5LmfRQgOSUDkuZ9FCA5JQFGQ+gvrP0lAUZD6C+s\u002fSUBgqN37obxJQA=="},"yaxis":"y","type":"scatter"},{"hovertemplate":"species=Chinstrap\u003cbr\u003eyear=2008\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Chinstrap","marker":{"color":"#00cc96","symbol":"circle"},"mode":"markers","name":"Chinstrap","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAACQqkAAAAAAALCtQAAAAAAA6KxAAAAAAADGsUAAAAAAAACpQAAAAAAAzLBAAAAAAAAsqkAAAAAAAASwQAAAAAAAIKxAAAAAAAB4rkAAAAAAABSuQAAAAAAAwLJAAAAAAAAYpUAAAAAAAJSxQAAAAAAA3K5AAAAAAACErEAAAAAAALyrQAAAAAAAWKtA"},"xaxis":"x2","y":{"dtype":"f8","bdata":"AAAAAABASUAAAAAAAMBIQDMzMzMzM0dAZmZmZmZmSkAzMzMzM3NEQJqZmZmZGUtAAAAAAABARUAAAAAAAIBJQJqZmZmZ2UhAAAAAAADAR0DNzMzMzMxHQAAAAAAAAEpAMzMzMzNzR0AAAAAAAMBKQAAAAAAAgEhAmpmZmZkZR0AzMzMzM3NJQAAAAAAAwEZA"},"yaxis":"y2","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00492694 * body_mass_g + 29.9776\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.499011\u003cbr\u003e\u003cbr\u003especies=Chinstrap\u003cbr\u003eyear=2008\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Chinstrap","marker":{"color":"#00cc96","symbol":"circle"},"mode":"lines","name":"Chinstrap","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAAYpUAAAAAAAACpQAAAAAAALKpAAAAAAACQqkAAAAAAAFirQAAAAAAAvKtAAAAAAAAgrEAAAAAAAISsQAAAAAAA6KxAAAAAAACwrUAAAAAAABSuQAAAAAAAeK5AAAAAAADcrkAAAAAAAASwQAAAAAAAzLBAAAAAAACUsUAAAAAAAMaxQAAAAAAAwLJA"},"xaxis":"x2","y":{"dtype":"f8","bdata":"3RuFMOOjRUB6JncaNt9GQELDP\u002frOPUdAhffXRFddR0AKYAjaZ5xHQE6UoCTwu0dAkMg4b3jbR0DT\u002fNC5APtHQBYxaQSJGkhAnJmZmZlZSEDezTHkIXlIQCICyi6qmEhAZDZieTK4SEAs0ypZyxZJQDiki4PslElARHXsrQ0TSkCGqYT4lTJKQNSufW0\u002f0EpA"},"yaxis":"y2","type":"scatter"},{"hovertemplate":"species=Chinstrap\u003cbr\u003eyear=2009\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Chinstrap","marker":{"color":"#00cc96","symbol":"circle"},"mode":"markers","name":"Chinstrap","orientation":"v","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAAC2rEAAAAAAAGKxQAAAAAAAkKpAAAAAAADMsEAAAAAAAGSpQAAAAAAAtqxAAAAAAAD6qUAAAAAAANyuQAAAAAAAIKxAAAAAAACkr0AAAAAAACyqQAAAAAAA9KpAAAAAAABkqUAAAAAAAKSvQAAAAAAAsK1AAAAAAACKq0AAAAAAANyuQAAAAAAAhKxAAAAAAACErEAAAAAAAECvQAAAAAAAkKpAAAAAAAB+rUAAAAAAAASwQAAAAAAAfq1A"},"xaxis":"x3","y":{"dtype":"f8","bdata":"MzMzMzNzSUBmZmZmZmZJQM3MzMzMDElAAAAAAACASEAAAAAAAMBJQGZmZmZm5khAzczMzMwMSEAzMzMzM7NJQJqZmZmZ2UZAmpmZmZlZSUAAAAAAAEBFQJqZmZmZGUpAmpmZmZmZRkBmZmZmZqZIQJqZmZmZGUlAzczMzMzMRkAzMzMzM\u002fNJQGZmZmZmZkdAmpmZmZnZRkBmZmZmZuZLQAAAAAAAwEVAzczMzMzMSEBmZmZmZmZJQJqZmZmZGUlA"},"yaxis":"y3","type":"scatter"},{"hovertemplate":"\u003cb\u003eOLS trendline\u003c\u002fb\u003e\u003cbr\u003ebill_length_mm = 0.00447182 * body_mass_g + 32.3966\u003cbr\u003eR\u003csup\u003e2\u003c\u002fsup\u003e=0.226861\u003cbr\u003e\u003cbr\u003especies=Chinstrap\u003cbr\u003eyear=2009\u003cbr\u003ebody_mass_g=%{x}\u003cbr\u003ebill_length_mm=%{y} \u003cb\u003e(trend)\u003c\u002fb\u003e\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"Chinstrap","marker":{"color":"#00cc96","symbol":"circle"},"mode":"lines","name":"Chinstrap","showlegend":false,"x":{"dtype":"f8","bdata":"AAAAAABkqUAAAAAAAGSpQAAAAAAA+qlAAAAAAAAsqkAAAAAAAJCqQAAAAAAAkKpAAAAAAAD0qkAAAAAAAIqrQAAAAAAAIKxAAAAAAACErEAAAAAAAISsQAAAAAAAtqxAAAAAAAC2rEAAAAAAAH6tQAAAAAAAfq1AAAAAAACwrUAAAAAAANyuQAAAAAAA3K5AAAAAAABAr0AAAAAAAKSvQAAAAAAApK9AAAAAAAAEsEAAAAAAAMywQAAAAAAAYrFA"},"xaxis":"x3","y":{"dtype":"f8","bdata":"3tJB8Qt3R0De0kHxC3dHQGehauP5oUdAP+YiNEmwR0Dwb5PV58xHQPBvk9XnzEdAofkDd4bpR0AqyCxpdBRIQLSWVVtiP0hAZCDG\u002fABcSEBkIMb8AFxIQDxlfk1QakhAPGV+TVBqSECeeF+QjaNIQJ54X5CNo0hAdr0X4dyxSECJWmnFuAdJQIlaacW4B0lAOuTZZlckSUDqbUoI9kBJQOptSgj2QElAm\u002fe6qZRdSUBeHn0vD9BJQHG7zhPrJUpA"},"yaxis":"y3","type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermap":[{"type":"scattermap","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"anchor":"y","domain":[0.0,0.31999999999999995],"title":{"text":"body_mass_g"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"bill_length_mm"}},"xaxis2":{"anchor":"y2","domain":[0.33999999999999997,0.6599999999999999],"matches":"x","title":{"text":"body_mass_g"}},"yaxis2":{"anchor":"x2","domain":[0.0,1.0],"matches":"y","showticklabels":false},"xaxis3":{"anchor":"y3","domain":[0.6799999999999999,0.9999999999999999],"matches":"x","title":{"text":"body_mass_g"}},"yaxis3":{"anchor":"x3","domain":[0.0,1.0],"matches":"y","showticklabels":false},"annotations":[{"font":{},"showarrow":false,"text":"year=2007","x":0.15999999999999998,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{},"showarrow":false,"text":"year=2008","x":0.49999999999999994,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{},"showarrow":false,"text":"year=2009","x":0.8399999999999999,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"}],"legend":{"title":{"text":"species"},"tracegroupgap":0}},                        {"responsive": true}                    ).then(function(){
+                            
+var gd = document.getElementById('ff1b4942-06f2-4723-8f58-aa13c832a514');
+var x = new MutationObserver(function (mutations, observer) {{
+        var display = window.getComputedStyle(gd).display;
+        if (!display || display === 'none') {{
+            console.log([gd, 'removed!']);
+            Plotly.purge(gd);
+            observer.disconnect();
+        }}
+}});
+
+// Listen for the removal of the full notebook cells
+var notebookContainer = gd.closest('#notebook-container');
+if (notebookContainer) {{
+    x.observe(notebookContainer, {childList: true});
+}}
+
+// Listen for the clearing of the current output cell
+var outputEl = gd.closest('.output');
+if (outputEl) {{
+    x.observe(outputEl, {childList: true});
+}}
+
+                        })                };            </script>        </div>
+</div>
+</div>
+<div id="ff5ea2e5" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p>According to our data, the average bill length is 43.9 mm.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

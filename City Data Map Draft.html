@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="someone">
-<meta name="dcterms.date" content="2024-02-12">
 
-<title>Demonstration of Sections – Test2</title>
+<title>City Data Project: Maps – Test2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,16 +93,49 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./datahubstart.html"> 
-<span class="menu-text">Data Hub</span></a>
+    <a class="nav-link" href="./section.html"> 
+<span class="menu-text">Test of Sections</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./map.html"> 
+<span class="menu-text">Map in Progress</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./workingmap.html"> 
+<span class="menu-text">Working Map</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./exact_penguin.html"> 
+<span class="menu-text">Exact Copy of Penguin Site</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./reportDraft.html"> 
 <span class="menu-text">Draft of Bessett-Sinclair Report</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Quarto Resource.html"> 
-<span class="menu-text">Quarto Resources</span></a>
+    <a class="nav-link" href="./render_test.html"> 
+<span class="menu-text">Render Test</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./kosmontDraft.html"> 
+<span class="menu-text">Kosmont Draft</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./cities.html"> 
+<span class="menu-text">City Data Project</span></a>
+  </li>  
+  <li class="nav-item">
+    <span class="nav-link">
+<span class="menu-text">City Data Project</span>
+    </span>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./Calabasas Demographic Data.html"> 
+<span class="menu-text">Test City Demographic Data</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./City Data Map Draft.html" aria-current="page"> 
+<span class="menu-text">City Data Map Draft</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -117,41 +148,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#test" id="toc-test" class="nav-link active" data-scroll-target="#test">Test</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">Section 2</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Demonstration of Sections</h1>
+<h1 class="title">City Data Project: Maps</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>someone </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -161,16 +173,93 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="test" class="level2">
-<h2 class="anchored" data-anchor-id="test">Test</h2>
-<p>In general, this is how you make sections. You just put the two hashtags, and you’re good. They automatically appear to the righthand side, too.</p>
-</section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">Section 2</h2>
-<p>Here is another section.</p>
+<p>The goal is that we write code that we can later use to make a Chloropleth map based on any variable, ones we get them.</p>
+<div id="284c6d80" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>&lt;bound method NDFrame.head of         City Name  percentLatino  percentWhite  percentBlack  percentAsian  \
+0    Agoura Hills      11.424208     72.634120      1.231588      8.571851   
+1        Alhambra      36.093546      8.377178      1.623063     51.349134   
+2         Arcadia      13.057286     17.586140      1.531377     64.586016   
+3         Artesia      35.529125     15.907289      3.824337     41.793230   
+4          Avalon      55.000000     39.479769      0.838150      0.838150   
+5           Azusa      64.040000     15.502000      3.178000     14.374000   
+6    Baldwin Park      74.377910      3.312736      0.843771     20.214476   
+7            Bell      93.542716      4.422063      0.369498      0.706219   
+8      Bellflower      57.141053     13.657027     12.793282     12.444753   
+9    Bell Gardens      96.184907      1.873370      0.556948      0.506316   
+10  Beverly Hills       6.782667     76.126112      2.024403      8.761200   
+11       Bradbury      19.978284     36.373507      1.845820     38.002172   
+12        Burbank      24.186441     56.224787      2.693386     11.442466   
+13      Calabasas       8.407556     73.899574      2.215912      9.397186   
+14         Carson      39.392829      6.874359     22.252454     26.173633   
+15       Cerritos      14.304732     12.787930      6.363710     62.144500   
+16      Claremont      25.266999     47.303172      4.784522     15.587935   
+17       Commerce      94.441751      2.367103      0.710939      1.316852   
+18        Compton      70.807395      0.894088     25.425110      0.381241   
+19         Covina      58.726691     19.604822      3.409534     14.767496   
+20         Cudahy      95.883565      1.757924      0.732103      0.688264   
+21    Culver City      21.412982     45.474386      7.707398     16.753721   
+22    Diamond Bar      19.616139     14.738887      3.117737     59.242446   
+23         Downey      75.087228     12.573128      3.436667      6.393249   
+24         Duarte      48.032402     22.515764      5.182492     20.743775   
+
+    percentNative  percentPI  percentOther  percentMultiracial  \
+0        0.113306   0.029558      0.640426            5.354944   
+1        0.165323   0.084472      0.369262            1.938022   
+2        0.093506   0.070570      0.421658            2.653446   
+3        0.158585   0.353766      0.396462            2.037206   
+4        0.115607   0.260116      0.317919            3.150289   
+5        0.226000   0.130000      0.468000            2.082000   
+6        0.127466   0.060962      0.368544            0.694137   
+7        0.104294   0.044697      0.300962            0.509550   
+8        0.231090   0.670539      0.474807            2.587448   
+9        0.248095   0.048100      0.268348            0.313916   
+10       0.039754   0.033638      0.798141            5.434085   
+11       0.108578   0.000000      0.434311            3.257329   
+12       0.206825   0.091301      0.575757            4.579036   
+13       0.133385   0.051633      0.731466            5.163289   
+14       0.193600   1.658678      0.506499            2.947948   
+15       0.123038   0.385252      0.484086            3.406753   
+16       0.241507   0.131487      0.729888            5.954489   
+17       0.306996   0.024237      0.355469            0.476652   
+18       0.137873   0.568206      0.459578            1.326509   
+19       0.304283   0.169696      0.522743            2.494734   
+20       0.162202   0.113980      0.280566            0.381395   
+21       0.115255   0.225606      0.929400            7.381250   
+22       0.101685   0.143449      0.325029            2.714628   
+23       0.219492   0.217743      0.604259            1.468235   
+24       0.271552   0.069039      0.464859            2.720118   
+
+    TotalPopulation  MedianHouseholdIncome  
+0             20299                 126956  
+1             82868                  66593  
+2             56681                  95736  
+3             16395                  74375  
+4              3460                  78529  
+5             50000                  65912  
+6             72176                  68741  
+7             33559                  47740  
+8             79190                  63848  
+9             39501                  45289  
+10            32701                 101241  
+11              921                 181875  
+12           107337                  79212  
+13            23241                 136138  
+14            95558                  86040  
+15            49578                 109229  
+16            37266                 101080  
+17            12378                  54639  
+18            95740                  58703  
+19            51268                  77913  
+20            22811                  46279  
+21            40779                  97540  
+22            55072                 100723  
+23           114355                  75974  
+24            21727                  82620  &gt;</code></pre>
+</div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -263,7 +352,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/roseinstitutecmc\.github\.io\/Test2\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
