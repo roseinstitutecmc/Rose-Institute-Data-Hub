@@ -136,52 +136,103 @@ HTML(df.to_html(index=False, table_id="mytable", classes="styled-table"))
 
 ## Interactive Map of Cities
 
-Use the map below to explore demographic data by city. Hover over a city to view population, income, and racial/ethnic breakdowns.
+Use the map below to explore demographic data by city. Select a variable and then hover a city to view population, income, and racial/ethnic breakdown.
 
 ```{python}
-
 import geopandas as gpd
 import pandas as pd
 import folium
+import ipywidgets as widgets
+import numpy as np
+from IPython.display import display, clear_output
 
+# Load spatial and demographic data.
 gdf = gpd.read_file("tl_2024_06_place.shp")
 city_data = pd.read_csv("cleaned_citydatademoCSV.csv")
 
+# Standardize city names.
 gdf["CITY_NAME"] = gdf["NAME"].str.upper()
 city_data["CITY_NAME"] = city_data["City Name"].str.upper()
+
+# Filter and merge datasets.
 gdf = gdf[gdf["LSAD"] == "25"]
 merged = gdf.merge(city_data, on="CITY_NAME")
 
-m = folium.Map(
-    location=[34.05, -117.75],
-    zoom_start=9,
-    tiles='https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
-    attr='&copy; <a href="https://carto.com/">Carto</a>'
+# Define a function to generate the updated map based on a selected variable.
+def update_map(selected_var):
+    # Create a base map.
+    m = folium.Map(
+        location=[34.0, -118.2],
+        zoom_start=9,
+        tiles='https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+        attr='&copy; <a href="https://carto.com/">Carto</a>'
+    )
+    
+    # Compute equal-width bins using np.linspace.
+    min_val = merged[selected_var].min()
+    max_val = merged[selected_var].max()
+    bins = np.linspace(min_val, max_val, num=6).tolist()  # 6 evenly spaced bins
+    
+    # Add a choropleth layer for the chosen variable.
+    folium.Choropleth(
+        geo_data=merged,
+        data=merged,
+        columns=["CITY_NAME", selected_var],
+        key_on="feature.properties.CITY_NAME",
+        fill_color="YlGnBu",  # Colors range from red (low) to green (high).
+        fill_opacity=0.7,
+        line_opacity=0.2,
+        legend_name="",  # Remove default legend text.
+        bins=bins,
+        smooth_factor=0,
+    ).add_to(m)
+    
+    # Overlay a transparent GeoJson layer with tooltips on hover.
+    tooltip = folium.GeoJsonTooltip(
+        fields=["CITY_NAME", selected_var],
+        aliases=["City: ", f"{selected_var}: "],
+        localize=True
+    )
+    folium.GeoJson(
+        merged,
+        name="City Info",
+        tooltip=tooltip,
+        style_function=lambda feature: {
+            'fillColor': 'transparent',
+            'color': 'transparent',
+            'weight': 0,
+            'fillOpacity': 0
+        }
+    ).add_to(m)
+    
+    return m
+
+# Create a dropdown widget for variable selection.
+dropdown = widgets.Dropdown(
+    options=["TotalPopulation", "MedianHouseholdIncome", "percentLatino", "percentWhite", "percentBlack", "percentAsian"],
+    description="Variable:"
 )
 
-for _, row in merged.iterrows():
-    geo = gpd.GeoSeries(row['geometry']).simplify(0.001)
-    tooltip = f"""
-    <b>{row['CITY_NAME'].title()}</b><br>
-    Pop: {row['TotalPopulation']}<br>
-    Income: ${row['MedianHouseholdIncome']}<br>
-    Latino: {row['percentLatino']}%<br>
-    White: {row['percentWhite']}%<br>
-    Black: {row['percentBlack']}%<br>
-    Asian: {row['percentAsian']}%
-    """
-    folium.GeoJson(
-        data=geo.__geo_interface__,
-        style_function=lambda x: {
-            'fillColor': 'blue',
-            'color': 'black',
-            'weight': 1,
-            'fillOpacity': 0.4
-        },
-        tooltip=tooltip
-    ).add_to(m)
+# Create an output widget to display the map.
+output = widgets.Output()
 
-m
+# Define an event handler for changes in the dropdown selection.
+def on_change(change):
+    if change['type'] == 'change' and change['name'] == 'value':
+        with output:
+            clear_output(wait=True)
+            updated_map = update_map(change['new'])
+            display(updated_map)
+
+dropdown.observe(on_change)
+
+# Display the dropdown and the output widget.
+display(dropdown, output)
+
+# Optionally, display the initial map using the default dropdown value.
+with output:
+    initial_map = update_map(dropdown.value)
+    display(initial_map)
 ```
 
 
