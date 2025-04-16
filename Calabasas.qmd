@@ -1,0 +1,152 @@
+---
+title: "City Dashboard: Calabasas"
+format:
+  html:
+    title-block: false
+    css: styles.css
+    toc: true
+jupyter: python3
+page-layout: full
+execute:
+  echo: false
+---
+
+<div style="position: relative; text-align: center; color: white; margin-bottom: 1.5rem;">
+  <img 
+    src="https://whiteluxuryhomes.com/wp-content/uploads/2021/03/Commons_Hero_1-1536x1024.jpg" 
+    alt="City Header" 
+    style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;">
+</div>
+
+```{python}
+import pandas as pd
+
+# Load data
+df = pd.read_csv("cleaned_citydatademoCSV.csv")
+
+# Filter one city — use your actual city name here
+city = df[df["City Name"].str.upper() == "CALABASAS"]
+
+# Store values
+demo = city.iloc[0]
+# Save the selected city to a new file
+city.to_csv("calabasas_data.csv", index=False)
+```
+
+## Overview 
+```{python}
+from IPython.display import Markdown, display
+
+display(Markdown(f"""
+**City:** {demo["City Name"]}  
+**County:** Los Angeles  
+**Total Population:** {demo["Total Population"]:,}  
+**Median Household Income:** ${demo["Median Household Income"]:,}
+"""))
+```
+<br>
+<a href="calabasas_data.csv" download="calabasas_data.csv">
+  <button class="city-button">
+    Download Calabasas Data
+  </button>
+</a>
+
+## Demographics
+``` {python}
+import matplotlib.pyplot as plt
+
+labels = [
+    "Latino", "White", "Black", "Asian",
+    "Native", "PI", "Other", "Multiracial"
+]
+values = [
+    demo["Latino %"], demo["White %"], demo["Black %"],
+    demo["Asian %"], demo["Native %"], demo["PI %"],
+    demo["Other %"], demo["Multiracial %"]
+]
+
+fig, ax = plt.subplots(figsize=(8, 5))
+
+# Bar chart instead of pie chart
+ax.barh(labels, values, color="#981A31")
+
+# Add value labels to the end of each bar
+for i, v in enumerate(values):
+    ax.text(v + 1, i, f"{v:.1f}%", va='center')
+
+ax.set_xlim(0, max(values) + 10)
+ax.set_xlabel("Percentage of Population")
+ax.set_title(f"Population by Race/Ethnicity in {demo['City Name']}")
+plt.tight_layout()
+plt.show()
+
+```
+
+## Economic Snapshot
+``` {python}
+fig, ax = plt.subplots(figsize=(8, 5))
+ax.bar(["Tech", "Retail", "Health"], [45, 30, 25], color='#981A31')
+ax.set_title("Top Employment Sectors (Placeholder)")
+plt.tight_layout()
+plt.show()
+```
+
+## Housing & Education
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Median Home Price</td>
+      <td>$1,285,000</td>
+    </tr>
+    <tr>
+      <td>% Owner-Occupied Housing</td>
+      <td>78%</td>
+    </tr>
+    <tr>
+      <td>% with Bachelor’s Degree</td>
+      <td>65%</td>
+    </tr>
+    <tr>
+      <td>School District Rating</td>
+      <td>★★★★☆</td>
+    </tr>
+  </tbody>
+</table>
+
+
+## Interactive Map
+```{python}
+import geopandas as gpd
+import folium
+
+# Load shapefile
+gdf = gpd.read_file("tl_2024_06_place.shp")
+gdf["geometry"] = gdf["geometry"].simplify(0.001)
+# Filter for Calabasas city boundary
+gdf["CITY_NAME"] = gdf["NAME"].str.upper()
+calabasas_shape = gdf[(gdf["CITY_NAME"] == "CALABASAS") & (gdf["LSAD"] == "25")]
+
+# Create map centered on Calabasas
+m = folium.Map(location=[34.136, -118.661], zoom_start=12, tiles='https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',attr='&copy; <a href="https://carto.com/">Carto</a>')
+
+# Add the city's true geometry
+folium.GeoJson(
+    calabasas_shape,
+    tooltip=folium.GeoJsonTooltip(fields=["NAME"], aliases=["City:"]),
+    style_function=lambda x: {
+        "fillColor": "#981A31",
+        "color": "red",
+        "weight": 1,
+        "fillOpacity": 0.4
+    }
+).add_to(m)
+
+m
+```

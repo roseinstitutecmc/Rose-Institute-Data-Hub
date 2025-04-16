@@ -1,12 +1,41 @@
 ---
-title: "Home"
+title: "California Cities Data Hub"
+format: html
+page-layout: full
 ---
 
-Here is the landing page to the Data Hub for the Rose Institute of State and Local Government. 
+Welcome to the **California Cities Data Hub**, your one-stop resource for exploring data across all incorporated cities in the state. This hub provides easy access to interactive visualizations, clean datasets, and insightful analyses of key city-level metrics.
 
-For more information, visit our [website](https://roseinstitute.org/). 
+---
 
-![](images/roseimage.jfif)
+## 📊 Explore City Data
 
+Choose a data category below to begin exploring:
 
-[Idk how to do UI stuff; this is just a placeholder. Feel free to rename datahubstart.qmd to index.qmd. Whatever's named index.qmd will be the landing page of the website.]
+- [**Demographic Data**](demographics.qmd)  
+  Population, racial/ethnic composition, and household characteristics.
+
+- _Economic Data_ *(coming soon)*  
+  Income, employment, and industry breakdowns by city.
+
+- _Housing Data_ *(coming soon)*  
+  Rent prices, ownership rates, and housing development trends.
+
+- _Education, Health, Environment_ *(coming soon)*
+
+- [**All Cities**](cities.qmd)
+
+---
+
+## 🔎 How to Use This Hub
+
+- Browse statewide data on each category page.
+- Interact with maps and charts.
+- Filter by county or city.
+- Download cleaned datasets for your own analysis.
+
+---
+
+## 🚧 In Progress
+
+This hub is still under development. More data and visualizations are being added regularly — stay tuned!

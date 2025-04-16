@@ -4,7 +4,7 @@ format: html
 jupyter: python3
 execute:
   echo: false
-  eval: true
+  output: false
 ---
 
 ## Overview
@@ -119,15 +119,7 @@ HTML(df.to_html(index=False, table_id="mytable", classes="styled-table"))
 
   <a href="cleaned_citydatademoCSV.csv" download="california_demographics.csv">
     <button
-      style="
-        padding: 8px 16px;
-        background-color: #007acc;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      "
-    >
+      class="city-button">
       Download CSV
     </button>
   </a>
@@ -179,7 +171,7 @@ def update_map(selected_var):
         data=merged,
         columns=["CITY_NAME", selected_var],
         key_on="feature.properties.CITY_NAME",
-        fill_color="YlGnBu",  # Colors range from red (low) to green (high).
+        fill_color="Reds",  # Colors range from red (low) to green (high).
         fill_opacity=0.7,
         line_opacity=0.2,
         legend_name="",  # Remove default legend text.
@@ -209,7 +201,17 @@ def update_map(selected_var):
 
 # Create a dropdown widget for variable selection.
 dropdown = widgets.Dropdown(
-    options=["TotalPopulation", "MedianHouseholdIncome", "percentLatino", "percentWhite", "percentBlack", "percentAsian"],
+    options=[
+    "Latino %",
+    "White %",
+    "Black %",
+    "Asian %",
+    "Native %",
+    "PI %",
+    "Other %",
+    "Multiracial %",
+    "Total Population",
+    "Median Household Income"],
     description="Variable:"
 )
 
@@ -248,20 +250,27 @@ df = pd.read_csv("cleaned_citydatademoCSV.csv")
 
 # ✅ Only keep demographic percentage columns (no income)
 cols_to_use = [
-    "percentLatino", "percentWhite", "percentBlack",
-    "percentAsian", "percentNative", "percentPI", "percentOther"
+    "Latino %",
+    "White %",
+    "Black %",
+    "Asian %",
+    "Native %",
+    "PI %",
+    "Other %",
+    "Multiracial %"
 ]
+
 
 # Set city names as index
 heatmap_df = df[["City Name"] + cols_to_use].set_index("City Name")
 
 # Optional: sort by a demographic column (e.g. Latino %)
-heatmap_df = heatmap_df.sort_values(by="percentLatino", ascending=False)
+heatmap_df = heatmap_df.sort_values(by="Latino %", ascending=False)
 
 # Create Plotly heatmap
 fig = px.imshow(
     heatmap_df,
-    color_continuous_scale="YlGnBu",
+    color_continuous_scale="Reds",
     aspect="auto",
     labels=dict(x="Demographic Variable", y="City", color="Percent"),
     title="Demographic Composition by City"

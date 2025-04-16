@@ -2,21 +2,16 @@ project:
   type: website
 
 website:
-  title: "Test2"
+  title: "Data Hub"
   navbar:
-    left: #This is just how you link everything. The href is the file it links to, and the text is what displays on the site.
-      #- about.qmd #This is vestigial. 
+    left: 
       - href: index.qmd
         text: Home
-      - href: datahubstart.qmd
-        text: Data Hub
       - href: reportDraft.qmd #you can use this to link to a separate pg, basically
-        text: Draft of Bessett-Sinclair Report
+        text: Bessett-Sinclair Report
       - href: Quarto Resource.qmd
         text: Quarto Resources 
       
-
-
 
 format:
   html:

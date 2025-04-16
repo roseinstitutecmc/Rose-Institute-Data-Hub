@@ -31,7 +31,7 @@
 #pagination button.active-page {
     font-weight: bold;
     text-decoration: underline;
-    background-color: #007acc;
+    background-color: #981A31;
     color: white;
     border: none;
     padding: 6px 10px;
@@ -53,3 +53,12 @@
 #pagination button:hover {
     background-color: #ccc;
 }
+
+.city-button {
+    padding: 8px 16px;
+    background-color: #981A31;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }  
