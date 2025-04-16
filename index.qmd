@@ -1,0 +1,8 @@
+---
+title: "Welcome"
+format: html
+---
+
+# Welcome to the Data Hub
+
+Use the navigation bar above to access city dashboards, reports, and more.

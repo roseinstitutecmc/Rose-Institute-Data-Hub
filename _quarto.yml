@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   title: "Data Hub"
@@ -7,7 +8,7 @@ website:
     left: 
       - href: index.qmd
         text: Home
-      - href: reportDraft.qmd #you can use this to link to a separate pg, basically
+      - href: reportDraft.qmd 
         text: Bessett-Sinclair Report
       - href: Quarto Resource.qmd
         text: Quarto Resources 
