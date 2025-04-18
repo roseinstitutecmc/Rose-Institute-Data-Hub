@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>City Data Project – Data Hub</title>
+<title>City Dashboard: Calabasas – Data Hub</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -66,11 +66,15 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -111,21 +115,33 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#demographics" id="toc-demographics" class="nav-link" data-scroll-target="#demographics">Demographics</a></li>
+  <li><a href="#economic-snapshot" id="toc-economic-snapshot" class="nav-link" data-scroll-target="#economic-snapshot">Economic Snapshot</a></li>
+  <li><a href="#housing-education" id="toc-housing-education" class="nav-link" data-scroll-target="#housing-education">Housing &amp; Education</a></li>
+  <li><a href="#interactive-map" id="toc-interactive-map" class="nav-link" data-scroll-target="#interactive-map">Interactive Map</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">City Data Project</h1>
+<h1 class="title">City Dashboard: Calabasas</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -137,13 +153,259 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="description" class="level2">
-<h2 class="anchored" data-anchor-id="description">Description</h2>
-<p>This should eventually link to all the cities. (I think it might need to link; there may be a search feature, but I haven’t yet figured out how to do it.)</p>
+<div style="position: relative; text-align: center; color: white; margin-bottom: 1.5rem;">
+<p><img src="https://whiteluxuryhomes.com/wp-content/uploads/2021/03/Commons_Hero_1-1536x1024.jpg" alt="City Header" style="width: 100%; height: auto; object-fit: cover; border-radius: 8px;"></p>
+</div>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<div id="c83a2ab0" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display cell-output-markdown">
+<p><strong>City:</strong> Calabasas<br>
+<strong>County:</strong> Los Angeles<br>
+<strong>Total Population:</strong> 23,241<br>
+<strong>Median Household Income:</strong> $136,138</p>
+</div>
+</div>
+<p><br> <a href="calabasas_data.csv" download="calabasas_data.csv"> <button class="city-button"> Download Calabasas Data </button> </a></p>
 </section>
-<section id="top-25-cities" class="level2">
-<h2 class="anchored" data-anchor-id="top-25-cities">Top 25 cities:</h2>
-<p><a href="./Calabasas.html">Calabasas</a></p>
+<section id="demographics" class="level2">
+<h2 class="anchored" data-anchor-id="demographics">Demographics</h2>
+<div id="d65cf8cc" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Calabasas_files/figure-html/cell-4-output-1.png" width="757" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="economic-snapshot" class="level2">
+<h2 class="anchored" data-anchor-id="economic-snapshot">Economic Snapshot</h2>
+<div id="cf172233" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Calabasas_files/figure-html/cell-5-output-1.png" width="758" height="470" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="housing-education" class="level2">
+<h2 class="anchored" data-anchor-id="housing-education">Housing &amp; Education</h2>
+<table class="styled-table">
+<thead>
+<tr>
+<th>
+Metric
+</th>
+<th>
+Value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Median Home Price
+</td>
+<td>
+$1,285,000
+</td>
+</tr>
+<tr>
+<td>
+% Owner-Occupied Housing
+</td>
+<td>
+78%
+</td>
+</tr>
+<tr>
+<td>
+% with Bachelor’s Degree
+</td>
+<td>
+65%
+</td>
+</tr>
+<tr>
+<td>
+School District Rating
+</td>
+<td>
+★★★★☆
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interactive-map" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-map">Interactive Map</h2>
+<div id="120787a1" class="cell" data-execution_count="5">
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=UTF-8&quot; />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js&quot;></script>
+    <script src=&quot;https://code.jquery.com/jquery-3.7.1.min.js&quot;></script>
+    <script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js&quot;></script>
+    <script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js&quot;></script>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css&quot;/>
+    <link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css&quot;/>
+    
+            <meta name=&quot;viewport&quot; content=&quot;width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
+            <style>
+                #map_065924710b25dc0d0e6c2824668e38bb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+            <div class=&quot;folium-map&quot; id=&quot;map_065924710b25dc0d0e6c2824668e38bb&quot; ></div>
+        
+</body>
+<script>
+    
+    
+            var map_065924710b25dc0d0e6c2824668e38bb = L.map(
+                &quot;map_065924710b25dc0d0e6c2824668e38bb&quot;,
+                {
+                    center: [34.136, -118.661],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  &quot;zoom&quot;: 12,
+  &quot;zoomControl&quot;: true,
+  &quot;preferCanvas&quot;: false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b15c077ce3e687b9f800147a9cfb8587 = L.tileLayer(
+                &quot;https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png&quot;,
+                {
+  &quot;minZoom&quot;: 0,
+  &quot;maxZoom&quot;: 18,
+  &quot;maxNativeZoom&quot;: 18,
+  &quot;noWrap&quot;: false,
+  &quot;attribution&quot;: &quot;\u0026copy; \u003ca href=\&quot;https://carto.com/\&quot;\u003eCarto\u003c/a\u003e&quot;,
+  &quot;subdomains&quot;: &quot;abc&quot;,
+  &quot;detectRetina&quot;: false,
+  &quot;tms&quot;: false,
+  &quot;opacity&quot;: 1,
+}
+
+            );
+        
+    
+            tile_layer_b15c077ce3e687b9f800147a9cfb8587.addTo(map_065924710b25dc0d0e6c2824668e38bb);
+        
+    
+        function geo_json_43a5d96015d886f0c954565331713be6_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {&quot;color&quot;: &quot;red&quot;, &quot;fillColor&quot;: &quot;#981A31&quot;, &quot;fillOpacity&quot;: 0.4, &quot;weight&quot;: 1};
+            }
+        }
+
+        function geo_json_43a5d96015d886f0c954565331713be6_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_43a5d96015d886f0c954565331713be6 = L.geoJson(null, {
+                onEachFeature: geo_json_43a5d96015d886f0c954565331713be6_onEachFeature,
+            
+                style: geo_json_43a5d96015d886f0c954565331713be6_styler,
+            ...{
+}
+        });
+
+        function geo_json_43a5d96015d886f0c954565331713be6_add (data) {
+            geo_json_43a5d96015d886f0c954565331713be6
+                .addData(data);
+        }
+            geo_json_43a5d96015d886f0c954565331713be6_add({&quot;bbox&quot;: [-118.719811, 34.103912, -118.6062, 34.168619], &quot;features&quot;: [{&quot;bbox&quot;: [-118.719811, 34.103912, -118.6062, 34.168619], &quot;geometry&quot;: {&quot;coordinates&quot;: [[[-118.719811, 34.133493], [-118.719809, 34.136279], [-118.715469, 34.136282], [-118.71666, 34.138522], [-118.715479, 34.139367], [-118.719805, 34.139845], [-118.716135, 34.139946], [-118.715595, 34.146909], [-118.711149, 34.147251], [-118.710329, 34.140626], [-118.706822, 34.14205], [-118.706806, 34.140005], [-118.703299, 34.141788], [-118.702381, 34.14275], [-118.703827, 34.143775], [-118.697803, 34.148468], [-118.697405, 34.153172], [-118.702491, 34.153127], [-118.702519, 34.154554], [-118.717884, 34.158214], [-118.716924, 34.168286], [-118.711994, 34.168619], [-118.693834, 34.168557], [-118.693827, 34.151063], [-118.665254, 34.149618], [-118.641269, 34.158136], [-118.641273, 34.156718], [-118.638536, 34.157655], [-118.632162, 34.150525], [-118.630255, 34.150381], [-118.628992, 34.147273], [-118.614971, 34.147277], [-118.614978, 34.149267], [-118.609648, 34.14724], [-118.61058, 34.143654], [-118.614294, 34.143658], [-118.614973, 34.141596], [-118.612661, 34.14005], [-118.6062, 34.140091], [-118.606245, 34.129001], [-118.610609, 34.129022], [-118.610629, 34.12533], [-118.644923, 34.12532], [-118.644955, 34.129054], [-118.650061, 34.12907], [-118.650247, 34.118098], [-118.689372, 34.118121], [-118.689346, 34.114434], [-118.706713, 34.114474], [-118.706725, 34.107178], [-118.711069, 34.107185], [-118.711343, 34.103912], [-118.711318, 34.1098], [-118.706158, 34.125432], [-118.719776, 34.125342], [-118.71979, 34.128972], [-118.715472, 34.12899], [-118.715463, 34.132563], [-118.719811, 34.133493]]], &quot;type&quot;: &quot;Polygon&quot;}, &quot;id&quot;: &quot;112&quot;, &quot;properties&quot;: {&quot;ALAND&quot;: 35503394, &quot;AWATER&quot;: 90645, &quot;CITY_NAME&quot;: &quot;CALABASAS&quot;, &quot;CLASSFP&quot;: &quot;C1&quot;, &quot;FUNCSTAT&quot;: &quot;A&quot;, &quot;GEOID&quot;: &quot;0609598&quot;, &quot;GEOIDFQ&quot;: &quot;1600000US0609598&quot;, &quot;INTPTLAT&quot;: &quot;+34.1342518&quot;, &quot;INTPTLON&quot;: &quot;-118.6664552&quot;, &quot;LSAD&quot;: &quot;25&quot;, &quot;MTFCC&quot;: &quot;G4110&quot;, &quot;NAME&quot;: &quot;Calabasas&quot;, &quot;NAMELSAD&quot;: &quot;Calabasas city&quot;, &quot;PCICBSA&quot;: &quot;N&quot;, &quot;PLACEFP&quot;: &quot;09598&quot;, &quot;PLACENS&quot;: &quot;02409955&quot;, &quot;STATEFP&quot;: &quot;06&quot;}, &quot;type&quot;: &quot;Feature&quot;}], &quot;type&quot;: &quot;FeatureCollection&quot;});
+
+        
+    
+    geo_json_43a5d96015d886f0c954565331713be6.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = [&quot;NAME&quot;];
+    let aliases = [&quot;City:&quot;];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  &quot;sticky&quot;: true,
+  &quot;className&quot;: &quot;foliumtooltip&quot;,
+});
+                     
+    
+            geo_json_43a5d96015d886f0c954565331713be6.addTo(map_065924710b25dc0d0e6c2824668e38bb);
+        
+</script>
+</html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
+</div>
+</div>
 
 
 </section>
