@@ -1,10 +1,12 @@
 ---
 title: "Demographic Data"
-format: html
+format:
+  html:
+    widget: true
 jupyter: python3
 execute:
   echo: false
-  output: false
+  output: true
 ---
 
 ## Overview
@@ -139,6 +141,7 @@ import ipywidgets as widgets
 from ipyleaflet import Map, GeoJSON, WidgetControl, basemaps
 from ipywidgets import HTML
 import branca
+from branca.colormap import linear
 
 # ─── 1) Load & filter CA places ─────────────────────────────────────────────
 gdf = gpd.read_file("tl_2024_06_place.shp")
@@ -181,9 +184,9 @@ legend_ctrl = None
 # ─── 5) Helper to make a branca colormap for a variable ────────────────────
 def make_colormap(var):
     vmin, vmax = merged[var].min(), merged[var].max()
-    return branca.colormap.LinearColormap(
-        ['#fee5d9','#a50f15'], vmin=vmin, vmax=vmax, caption=var
-    )
+    cmap = linear.Reds_09.scale(vmin, vmax)  # Reds with 9 levels
+    cmap.caption = var
+    return cmap
 
 # ─── 6) Style‐function factory ───────────────────────────────────────────────
 def style_fn_factory(var, cmap):

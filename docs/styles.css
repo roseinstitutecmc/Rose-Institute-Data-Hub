@@ -1,0 +1,64 @@
+/* ✅ Your existing styled table */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.styled-table th,
+.styled-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+.styled-table thead {
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* ✅ Additions for interactive functionality */
+
+/* Hide rows outside pagination */
+.styled-table .hidden {
+    display: none;
+}
+
+/* Highlight active page number */
+#pagination button.active-page {
+    font-weight: bold;
+    text-decoration: underline;
+    background-color: #981A31;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Pagination buttons (default) */
+#pagination button {
+    padding: 6px 10px;
+    margin-right: 5px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#pagination button:hover {
+    background-color: #ccc;
+}
+
+.city-button {
+    padding: 8px 16px;
+    background-color: #981A31;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }  
