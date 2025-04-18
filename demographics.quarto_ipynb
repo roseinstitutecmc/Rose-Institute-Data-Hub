@@ -113,7 +113,7 @@
         "});\n",
         "</script>\n"
       ],
-      "id": "e3bcacb1"
+      "id": "f37c8483"
     },
     {
       "cell_type": "code",
@@ -126,7 +126,7 @@
         "df = pd.read_csv(\"cleaned_citydatademoCSV.csv\")\n",
         "HTML(df.to_html(index=False, table_id=\"mytable\", classes=\"styled-table\"))"
       ],
-      "id": "555fe91d",
+      "id": "e8a211f2",
       "execution_count": null,
       "outputs": []
     },
@@ -150,7 +150,7 @@
         "\n",
         "Use the map below to explore demographic data by city. Select a variable and then hover a city to view population, income, and racial/ethnic breakdown.\n"
       ],
-      "id": "23edc94a"
+      "id": "c96ff8d3"
     },
     {
       "cell_type": "code",
@@ -170,6 +170,10 @@
         "gdf = gdf[(gdf.LSAD == \"25\") & (gdf.STATEFP == \"06\")]\n",
         "gdf[\"CITY_NAME\"] = gdf.NAME.str.upper()\n",
         "\n",
+        "# ─── 1.1) Simplify geometries to trim vertex count ──────────────────────────\n",
+        "# tolerance is in degrees (~0.001° ≈ 100 m); adjust coarser/finer as needed\n",
+        "gdf[\"geometry\"] = gdf[\"geometry\"].simplify(tolerance=0.001, preserve_topology=True)\n",
+        "\n",
         "# ─── 2) Merge with your city stats ──────────────────────────────────────────\n",
         "city_data = pd.read_csv(\"cleaned_citydatademoCSV.csv\")\n",
         "city_data[\"CITY_NAME\"] = city_data[\"City Name\"].str.upper()\n",
@@ -188,13 +192,6 @@
         "# ─── 3) Pre‑serialize to GeoJSON once ────────────────────────────────────────\n",
         "geojson_data = json.loads(merged.to_json())\n",
         "\n",
-        "# right after you filter gdf:\n",
-        "# choose a tolerance that preserves city‐shapes but drops lots of tiny vertices\n",
-        "gdf[\"geometry\"] = gdf[\"geometry\"].simplify(tolerance=0.001, preserve_topology=True)\n",
-        "\n",
-        "# then continue with your merge+to_json\n",
-        "geojson_data = json.loads(merged.to_json())\n",
-        "\n",
         "# ─── 4) Build base map with no‑street tiles ─────────────────────────────────\n",
         "m = Map(\n",
         "    center=(34.0, -118.2),\n",
@@ -203,10 +200,10 @@
         ")\n",
         "\n",
         "# placeholders\n",
-        "geo_layer     = None\n",
-        "legend_ctrl   = None\n",
+        "geo_layer   = None\n",
+        "legend_ctrl = None\n",
         "\n",
-        "# ─── 5) Helper to make a branca colormap for a variable ─────────────────────\n",
+        "# ─── 5) Helper to make a branca colormap for a variable ────────────────────\n",
         "def make_colormap(var):\n",
         "    vmin, vmax = merged[var].min(), merged[var].max()\n",
         "    return branca.colormap.LinearColormap(\n",
@@ -247,7 +244,6 @@
         "    var = change['new']\n",
         "    new_cmap = make_colormap(var)\n",
         "    geo_layer.style_callback = style_fn_factory(var, new_cmap)\n",
-        "    # update legend HTML\n",
         "    legend.value = new_cmap._repr_html_()\n",
         "\n",
         "dropdown.observe(on_var_change, names='value')\n",
@@ -255,7 +251,7 @@
         "# ─── 9) Display ────────────────────────────────────────────────────────────\n",
         "display(widgets.VBox([dropdown, m]))"
       ],
-      "id": "5cd53f9f",
+      "id": "9f459f0a",
       "execution_count": null,
       "outputs": []
     },
@@ -265,7 +261,7 @@
       "source": [
         "## Heatmap: Demographic Variables by City\n"
       ],
-      "id": "7d8fcf7e"
+      "id": "ce38b964"
     },
     {
       "cell_type": "code",
@@ -313,7 +309,7 @@
         "\n",
         "fig"
       ],
-      "id": "2c1f0b5a",
+      "id": "88f0939c",
       "execution_count": null,
       "outputs": []
     }

@@ -145,6 +145,10 @@ gdf = gpd.read_file("tl_2024_06_place.shp")
 gdf = gdf[(gdf.LSAD == "25") & (gdf.STATEFP == "06")]
 gdf["CITY_NAME"] = gdf.NAME.str.upper()
 
+# ─── 1.1) Simplify geometries to trim vertex count ──────────────────────────
+# tolerance is in degrees (~0.001° ≈ 100 m); adjust coarser/finer as needed
+gdf["geometry"] = gdf["geometry"].simplify(tolerance=0.001, preserve_topology=True)
+
 # ─── 2) Merge with your city stats ──────────────────────────────────────────
 city_data = pd.read_csv("cleaned_citydatademoCSV.csv")
 city_data["CITY_NAME"] = city_data["City Name"].str.upper()
@@ -163,13 +167,6 @@ merged = (
 # ─── 3) Pre‑serialize to GeoJSON once ────────────────────────────────────────
 geojson_data = json.loads(merged.to_json())
 
-# right after you filter gdf:
-# choose a tolerance that preserves city‐shapes but drops lots of tiny vertices
-gdf["geometry"] = gdf["geometry"].simplify(tolerance=0.001, preserve_topology=True)
-
-# then continue with your merge+to_json
-geojson_data = json.loads(merged.to_json())
-
 # ─── 4) Build base map with no‑street tiles ─────────────────────────────────
 m = Map(
     center=(34.0, -118.2),
@@ -178,10 +175,10 @@ m = Map(
 )
 
 # placeholders
-geo_layer     = None
-legend_ctrl   = None
+geo_layer   = None
+legend_ctrl = None
 
-# ─── 5) Helper to make a branca colormap for a variable ─────────────────────
+# ─── 5) Helper to make a branca colormap for a variable ────────────────────
 def make_colormap(var):
     vmin, vmax = merged[var].min(), merged[var].max()
     return branca.colormap.LinearColormap(
@@ -222,13 +219,13 @@ def on_var_change(change):
     var = change['new']
     new_cmap = make_colormap(var)
     geo_layer.style_callback = style_fn_factory(var, new_cmap)
-    # update legend HTML
     legend.value = new_cmap._repr_html_()
 
 dropdown.observe(on_var_change, names='value')
 
 # ─── 9) Display ────────────────────────────────────────────────────────────
 display(widgets.VBox([dropdown, m]))
+
 ```
 
 
