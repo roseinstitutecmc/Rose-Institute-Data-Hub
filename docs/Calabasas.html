@@ -68,10 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 
-
-
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-
 
 
 <link rel="stylesheet" href="styles.css">
@@ -161,7 +158,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<div id="cdef3066" class="cell" data-execution_count="2">
+<div id="2cd65919" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display cell-output-markdown">
 <p><strong>City:</strong> Calabasas<br>
 <strong>County:</strong> Los Angeles<br>
@@ -173,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="demographics" class="level2">
 <h2 class="anchored" data-anchor-id="demographics">Demographics</h2>
-<div id="a99a33e9" class="cell" data-execution_count="3">
+<div id="b9fdfc1b" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -185,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="economic-snapshot" class="level2">
 <h2 class="anchored" data-anchor-id="economic-snapshot">Economic Snapshot</h2>
-<div id="1c012fa8" class="cell" data-execution_count="4">
+<div id="b6f7523f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -246,7 +243,7 @@ School District Rating
 </section>
 <section id="interactive-map" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-map">Interactive Map</h2>
-<div id="96ae12d0" class="cell" data-execution_count="5">
+<div id="d50a1301" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display" data-execution_count="5">
 <div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><span style="color:#565656">Make this Notebook Trusted to load map: File -&gt; Trust Notebook</span><iframe srcdoc="<!DOCTYPE html>
 <html>
@@ -275,7 +272,7 @@ School District Rating
             <meta name=&quot;viewport&quot; content=&quot;width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no&quot; />
             <style>
-                #map_685be455a8d00799446e1aa40186d6e5 {
+                #map_994185fe579b069675e4bdd335cb98d0 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -305,14 +302,14 @@ School District Rating
 <body>
     
     
-            <div class=&quot;folium-map&quot; id=&quot;map_685be455a8d00799446e1aa40186d6e5&quot; ></div>
+            <div class=&quot;folium-map&quot; id=&quot;map_994185fe579b069675e4bdd335cb98d0&quot; ></div>
         
 </body>
 <script>
     
     
-            var map_685be455a8d00799446e1aa40186d6e5 = L.map(
-                &quot;map_685be455a8d00799446e1aa40186d6e5&quot;,
+            var map_994185fe579b069675e4bdd335cb98d0 = L.map(
+                &quot;map_994185fe579b069675e4bdd335cb98d0&quot;,
                 {
                     center: [34.136, -118.661],
                     crs: L.CRS.EPSG3857,
@@ -329,7 +326,7 @@ School District Rating
 
         
     
-            var tile_layer_05591f9b6077fdc650841394fbed592b = L.tileLayer(
+            var tile_layer_2a36c54cf21ec48379714d3560637f2f = L.tileLayer(
                 &quot;https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png&quot;,
                 {
   &quot;minZoom&quot;: 0,
@@ -346,37 +343,37 @@ School District Rating
             );
         
     
-            tile_layer_05591f9b6077fdc650841394fbed592b.addTo(map_685be455a8d00799446e1aa40186d6e5);
+            tile_layer_2a36c54cf21ec48379714d3560637f2f.addTo(map_994185fe579b069675e4bdd335cb98d0);
         
     
-        function geo_json_fb3ce7f1c0f0a43067a3772988aba8af_styler(feature) {
+        function geo_json_8f9860391518cb8517dfea3658c0d51c_styler(feature) {
             switch(feature.id) {
                 default:
                     return {&quot;color&quot;: &quot;red&quot;, &quot;fillColor&quot;: &quot;#981A31&quot;, &quot;fillOpacity&quot;: 0.4, &quot;weight&quot;: 1};
             }
         }
 
-        function geo_json_fb3ce7f1c0f0a43067a3772988aba8af_onEachFeature(feature, layer) {
+        function geo_json_8f9860391518cb8517dfea3658c0d51c_onEachFeature(feature, layer) {
             layer.on({
             });
         };
-        var geo_json_fb3ce7f1c0f0a43067a3772988aba8af = L.geoJson(null, {
-                onEachFeature: geo_json_fb3ce7f1c0f0a43067a3772988aba8af_onEachFeature,
+        var geo_json_8f9860391518cb8517dfea3658c0d51c = L.geoJson(null, {
+                onEachFeature: geo_json_8f9860391518cb8517dfea3658c0d51c_onEachFeature,
             
-                style: geo_json_fb3ce7f1c0f0a43067a3772988aba8af_styler,
+                style: geo_json_8f9860391518cb8517dfea3658c0d51c_styler,
             ...{
 }
         });
 
-        function geo_json_fb3ce7f1c0f0a43067a3772988aba8af_add (data) {
-            geo_json_fb3ce7f1c0f0a43067a3772988aba8af
+        function geo_json_8f9860391518cb8517dfea3658c0d51c_add (data) {
+            geo_json_8f9860391518cb8517dfea3658c0d51c
                 .addData(data);
         }
-            geo_json_fb3ce7f1c0f0a43067a3772988aba8af_add({&quot;bbox&quot;: [-118.719811, 34.103912, -118.6062, 34.168619], &quot;features&quot;: [{&quot;bbox&quot;: [-118.719811, 34.103912, -118.6062, 34.168619], &quot;geometry&quot;: {&quot;coordinates&quot;: [[[-118.719811, 34.133493], [-118.719809, 34.136279], [-118.715469, 34.136282], [-118.71666, 34.138522], [-118.715479, 34.139367], [-118.719805, 34.139845], [-118.716135, 34.139946], [-118.715595, 34.146909], [-118.711149, 34.147251], [-118.710329, 34.140626], [-118.706822, 34.14205], [-118.706806, 34.140005], [-118.703299, 34.141788], [-118.702381, 34.14275], [-118.703827, 34.143775], [-118.697803, 34.148468], [-118.697405, 34.153172], [-118.702491, 34.153127], [-118.702519, 34.154554], [-118.717884, 34.158214], [-118.716924, 34.168286], [-118.711994, 34.168619], [-118.693834, 34.168557], [-118.693827, 34.151063], [-118.665254, 34.149618], [-118.641269, 34.158136], [-118.641273, 34.156718], [-118.638536, 34.157655], [-118.632162, 34.150525], [-118.630255, 34.150381], [-118.628992, 34.147273], [-118.614971, 34.147277], [-118.614978, 34.149267], [-118.609648, 34.14724], [-118.61058, 34.143654], [-118.614294, 34.143658], [-118.614973, 34.141596], [-118.612661, 34.14005], [-118.6062, 34.140091], [-118.606245, 34.129001], [-118.610609, 34.129022], [-118.610629, 34.12533], [-118.644923, 34.12532], [-118.644955, 34.129054], [-118.650061, 34.12907], [-118.650247, 34.118098], [-118.689372, 34.118121], [-118.689346, 34.114434], [-118.706713, 34.114474], [-118.706725, 34.107178], [-118.711069, 34.107185], [-118.711343, 34.103912], [-118.711318, 34.1098], [-118.706158, 34.125432], [-118.719776, 34.125342], [-118.71979, 34.128972], [-118.715472, 34.12899], [-118.715463, 34.132563], [-118.719811, 34.133493]]], &quot;type&quot;: &quot;Polygon&quot;}, &quot;id&quot;: &quot;112&quot;, &quot;properties&quot;: {&quot;ALAND&quot;: 35503394, &quot;AWATER&quot;: 90645, &quot;CITY_NAME&quot;: &quot;CALABASAS&quot;, &quot;CLASSFP&quot;: &quot;C1&quot;, &quot;FUNCSTAT&quot;: &quot;A&quot;, &quot;GEOID&quot;: &quot;0609598&quot;, &quot;GEOIDFQ&quot;: &quot;1600000US0609598&quot;, &quot;INTPTLAT&quot;: &quot;+34.1342518&quot;, &quot;INTPTLON&quot;: &quot;-118.6664552&quot;, &quot;LSAD&quot;: &quot;25&quot;, &quot;MTFCC&quot;: &quot;G4110&quot;, &quot;NAME&quot;: &quot;Calabasas&quot;, &quot;NAMELSAD&quot;: &quot;Calabasas city&quot;, &quot;PCICBSA&quot;: &quot;N&quot;, &quot;PLACEFP&quot;: &quot;09598&quot;, &quot;PLACENS&quot;: &quot;02409955&quot;, &quot;STATEFP&quot;: &quot;06&quot;}, &quot;type&quot;: &quot;Feature&quot;}], &quot;type&quot;: &quot;FeatureCollection&quot;});
+            geo_json_8f9860391518cb8517dfea3658c0d51c_add({&quot;bbox&quot;: [-118.719811, 34.103912, -118.6062, 34.168619], &quot;features&quot;: [{&quot;bbox&quot;: [-118.719811, 34.103912, -118.6062, 34.168619], &quot;geometry&quot;: {&quot;coordinates&quot;: [[[-118.719811, 34.133493], [-118.719809, 34.136279], [-118.715469, 34.136282], [-118.71666, 34.138522], [-118.715479, 34.139367], [-118.719805, 34.139845], [-118.716135, 34.139946], [-118.715595, 34.146909], [-118.711149, 34.147251], [-118.710329, 34.140626], [-118.706822, 34.14205], [-118.706806, 34.140005], [-118.703299, 34.141788], [-118.702381, 34.14275], [-118.703827, 34.143775], [-118.697803, 34.148468], [-118.697405, 34.153172], [-118.702491, 34.153127], [-118.702519, 34.154554], [-118.717884, 34.158214], [-118.716924, 34.168286], [-118.711994, 34.168619], [-118.693834, 34.168557], [-118.693827, 34.151063], [-118.665254, 34.149618], [-118.641269, 34.158136], [-118.641273, 34.156718], [-118.638536, 34.157655], [-118.632162, 34.150525], [-118.630255, 34.150381], [-118.628992, 34.147273], [-118.614971, 34.147277], [-118.614978, 34.149267], [-118.609648, 34.14724], [-118.61058, 34.143654], [-118.614294, 34.143658], [-118.614973, 34.141596], [-118.612661, 34.14005], [-118.6062, 34.140091], [-118.606245, 34.129001], [-118.610609, 34.129022], [-118.610629, 34.12533], [-118.644923, 34.12532], [-118.644955, 34.129054], [-118.650061, 34.12907], [-118.650247, 34.118098], [-118.689372, 34.118121], [-118.689346, 34.114434], [-118.706713, 34.114474], [-118.706725, 34.107178], [-118.711069, 34.107185], [-118.711343, 34.103912], [-118.711318, 34.1098], [-118.706158, 34.125432], [-118.719776, 34.125342], [-118.71979, 34.128972], [-118.715472, 34.12899], [-118.715463, 34.132563], [-118.719811, 34.133493]]], &quot;type&quot;: &quot;Polygon&quot;}, &quot;id&quot;: &quot;112&quot;, &quot;properties&quot;: {&quot;ALAND&quot;: 35503394, &quot;AWATER&quot;: 90645, &quot;CITY_NAME&quot;: &quot;CALABASAS&quot;, &quot;CLASSFP&quot;: &quot;C1&quot;, &quot;FUNCSTAT&quot;: &quot;A&quot;, &quot;GEOID&quot;: &quot;0609598&quot;, &quot;GEOIDFQ&quot;: &quot;1600000US0609598&quot;, &quot;INTPTLAT&quot;: &quot;+34.1342518&quot;, &quot;INTPTLON&quot;: &quot;-118.6664552&quot;, &quot;LSAD&quot;: &quot;25&quot;, &quot;MTFCC&quot;: &quot;G4110&quot;, &quot;NAME&quot;: &quot;Calabasas&quot;, &quot;NAMELSAD&quot;: &quot;Calabasas city&quot;, &quot;PCICBSA&quot;: &quot;N&quot;, &quot;PLACEFP&quot;: &quot;09598&quot;, &quot;PLACENS&quot;: &quot;02409955&quot;, &quot;STATEFP&quot;: &quot;06&quot;}, &quot;type&quot;: &quot;Feature&quot;}], &quot;type&quot;: &quot;FeatureCollection&quot;});
 
         
     
-    geo_json_fb3ce7f1c0f0a43067a3772988aba8af.bindTooltip(
+    geo_json_8f9860391518cb8517dfea3658c0d51c.bindTooltip(
     function(layer){
     let div = L.DomUtil.create('div');
     
@@ -403,7 +400,7 @@ School District Rating
 });
                      
     
-            geo_json_fb3ce7f1c0f0a43067a3772988aba8af.addTo(map_685be455a8d00799446e1aa40186d6e5);
+            geo_json_8f9860391518cb8517dfea3658c0d51c.addTo(map_994185fe579b069675e4bdd335cb98d0);
         
 </script>
 </html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
