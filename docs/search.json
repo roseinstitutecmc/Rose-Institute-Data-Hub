@@ -201,5 +201,12 @@
     "title": "Quarto Resources",
     "section": "",
     "text": "This links to pages new members might find useful to have linked. These should all be in the Quarto Resources Folder.\nIncluding sections\nIncluding images\nBasic demo of integrating Python into Quarto with peguins\nHeatmap demo\nAnimation on map demo\nA cool map without Plotly\nTips: 1. Copy and paste the header into documents. Be sure to add echo: False if you have code! (That prevents the code block from showing)\n\nTo insert pictures, do like \nTo insert sections, do double hashtag\nto insert a code block, do #code\nOnly put things you want to appear in the website header in the _quart.yml file. If they aren’t in the yml file, though, at least make sure something else links to them!\nTo insert links, do it like so: word you want to use"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Welcome to the Data Hub\nUse the navigation bar above to access city dashboards, reports, and more."
   }
 ]
