@@ -130,106 +130,14 @@ HTML(df.to_html(index=False, table_id="mytable", classes="styled-table"))
 
 ## Interactive Map of Cities
 
-Use the map below to explore demographic data by city. Select a variable and then hover a city to view population, income, and racial/ethnic breakdown.
+Use the map below to explore demographic data by city. Select a variable and then hover a city to view population, income, and racial/ethnic breakdown. The darker the shape, the higher the value.
 
-```{python}
-import geopandas as gpd
-import pandas as pd
-import json
-import numpy as np
-import ipywidgets as widgets
-from ipyleaflet import Map, GeoJSON, WidgetControl, basemaps
-from ipywidgets import HTML
-import branca
-from branca.colormap import linear
-
-# ─── 1) Load & filter CA places ─────────────────────────────────────────────
-gdf = gpd.read_file("tl_2024_06_place.shp")
-gdf = gdf[(gdf.LSAD == "25") & (gdf.STATEFP == "06")]
-gdf["CITY_NAME"] = gdf.NAME.str.upper()
-
-# ─── 1.1) Simplify geometries to trim vertex count ──────────────────────────
-# tolerance is in degrees (~0.001° ≈ 100 m); adjust coarser/finer as needed
-gdf["geometry"] = gdf["geometry"].simplify(tolerance=0.001, preserve_topology=True)
-
-# ─── 2) Merge with your city stats ──────────────────────────────────────────
-city_data = pd.read_csv("cleaned_citydatademoCSV.csv")
-city_data["CITY_NAME"] = city_data["City Name"].str.upper()
-
-vars_to_plot = [
-    "Latino %","White %","Black %","Asian %",
-    "Native %","PI %","Other %","Multiracial %",
-    "Total Population","Median Household Income"
-]
-
-merged = (
-    gdf[["CITY_NAME","geometry"]]
-    .merge(city_data[["CITY_NAME"] + vars_to_plot], on="CITY_NAME")
-)
-
-# ─── 3) Pre‑serialize to GeoJSON once ────────────────────────────────────────
-geojson_data = json.loads(merged.to_json())
-
-# ─── 4) Build base map with no‑street tiles ─────────────────────────────────
-m = Map(
-    center=(34.0, -118.2),
-    zoom=9,
-    basemap=basemaps.CartoDB.PositronNoLabels
-)
-
-# placeholders
-geo_layer   = None
-legend_ctrl = None
-
-# ─── 5) Helper to make a branca colormap for a variable ────────────────────
-def make_colormap(var):
-    vmin, vmax = merged[var].min(), merged[var].max()
-    cmap = linear.Reds_09.scale(vmin, vmax)  # Reds with 9 levels
-    cmap.caption = var
-    return cmap
-
-# ─── 6) Style‐function factory ───────────────────────────────────────────────
-def style_fn_factory(var, cmap):
-    def style_fn(feature):
-        val = feature['properties'][var]
-        return {
-            'fillColor': cmap(val),
-            'color':   'black',
-            'weight':  0.3,
-            'fillOpacity': 0.7
-        }
-    return style_fn
-
-# ─── 7) Add one GeoJSON layer, initial var ─────────────────────────────────
-initial_var = vars_to_plot[0]
-cmap = make_colormap(initial_var)
-
-geo_layer = GeoJSON(
-    data=geojson_data,
-    style_callback=style_fn_factory(initial_var, cmap),
-    hover_style={'fillOpacity': 1.0}
-)
-m.add_layer(geo_layer)
-
-# legend via HTML widget
-legend = HTML(cmap._repr_html_())
-legend_ctrl = WidgetControl(widget=legend, position='bottomright')
-m.add_control(legend_ctrl)
-
-# ─── 8) Dropdown & callback ────────────────────────────────────────────────
-dropdown = widgets.Dropdown(options=vars_to_plot, value=initial_var, description='Variable:')
-def on_var_change(change):
-    var = change['new']
-    new_cmap = make_colormap(var)
-    geo_layer.style_callback = style_fn_factory(var, new_cmap)
-    legend.value = new_cmap._repr_html_()
-
-dropdown.observe(on_var_change, names='value')
-
-# ─── 9) Display ────────────────────────────────────────────────────────────
-display(widgets.VBox([dropdown, m]))
-
-```
+::: {=html}
+<iframe
+  src="city_map_tooltip.html"
+  style="width:100%; height:700px; border:none;"
+></iframe>
+:::
 
 
 ## Heatmap: Demographic Variables by City

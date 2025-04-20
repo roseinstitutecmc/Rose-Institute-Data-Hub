@@ -186,7 +186,7 @@
     "href": "demographics.html#interactive-map-of-cities",
     "title": "Demographic Data",
     "section": "Interactive Map of Cities",
-    "text": "Interactive Map of Cities\nUse the map below to explore demographic data by city. Select a variable and then hover a city to view population, income, and racial/ethnic breakdown."
+    "text": "Interactive Map of Cities\nUse the map below to explore demographic data by city. Select a variable and then hover a city to view population, income, and racial/ethnic breakdown. The darker the shape, the higher the value."
   },
   {
     "objectID": "demographics.html#heatmap-demographic-variables-by-city",
