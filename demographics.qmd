@@ -134,7 +134,7 @@ Use the map below to explore demographic data by city. Select a variable and the
 
 ::: {=html}
 <iframe
-  src="city_map_tooltip.html"
+  src="city_map.html"
   style="width:100%; height:700px; border:none;"
 ></iframe>
 :::
