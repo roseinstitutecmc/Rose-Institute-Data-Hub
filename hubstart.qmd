@@ -15,7 +15,7 @@ Choose a data category below to begin exploring:
 - [**Demographic Data**](demographics.qmd)  
   Population, racial/ethnic composition, and household characteristics.
 
-- [**Economic Data**](economic.qmd)*  
+- [**Economic Data**](economic.qmd)  
   Income, employment, and industry breakdowns by city.
 
 - [**Housing Data**](housing.qmd)  
