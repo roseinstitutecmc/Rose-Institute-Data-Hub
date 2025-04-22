@@ -10,7 +10,7 @@ gdf = gpd.read_file("tl_2024_06_place.shp")
 gdf = gdf[(gdf.LSAD == "25") & (gdf.STATEFP == "06")]
 gdf["CITY_NAME"] = gdf.NAME.str.upper()
 
-city_data = pd.read_csv("cleaned_citydatademoCSV.csv")
+city_data = pd.read_csv("demographics.csv")
 city_data["CITY_NAME"] = city_data["City Name"].str.upper()
 
 vars_to_plot = [
@@ -58,8 +58,8 @@ for var in vars_to_plot:
         merged.__geo_interface__,
         style_function=make_style_fn(var),
         tooltip=folium.GeoJsonTooltip(
-            fields=[var],
-            aliases=[f"{var}:"],
+            fields=["CITY_NAME", var],
+            aliases=["CITY_NAME", f"{var}:"],
             localize=True
         ),
         name=var,
@@ -69,6 +69,6 @@ for var in vars_to_plot:
 
 # ─── 5) Add radio‐button LayerControl & save ───────────────────────────────
 folium.LayerControl(collapsed=False).add_to(m)
-m.save("city_map_tooltip_reds.html")
+m.save("city_map.html")
 
-print("✅ city_map_tooltip_reds.html created. Open it to verify Folium Reds palette with hover tooltips.")
+print("✅ city_map.html created. Open it to verify Folium Reds palette with hover tooltips.")

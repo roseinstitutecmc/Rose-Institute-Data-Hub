@@ -22,7 +22,7 @@ execute:
 import pandas as pd
 
 # Load data
-df = pd.read_csv("cleaned_citydatademoCSV.csv")
+df = pd.read_csv("demographics.csv")
 
 # Filter one city — use your actual city name here
 city = df[df["City Name"].str.upper() == "CALABASAS"]

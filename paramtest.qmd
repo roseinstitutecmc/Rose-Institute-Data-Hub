@@ -1,0 +1,37 @@
+---
+title: "Quarto Env Var Test"
+format: html
+jupyter: python3
+execute:
+  echo: true
+  output: true
+  working-dir: .
+  env:
+    CSV_FILE: demographics.csv
+resources:
+  - demographics.csv
+---
+
+# Environment Variable in Markdown
+
+We set the env var **CSV_FILE** to: `$CSV_FILE`
+
+---
+
+# Environment Variable in Python
+
+```{python}
+import os, pandas as pd
+from IPython.display import HTML
+
+# Read from the environment, with a fallback
+csv_file = os.getenv("CSV_FILE", "demographics.csv")
+
+print("CSV_FILE env var:", csv_file)
+print("Working directory:", os.getcwd())
+print("Files here:", os.listdir())
+
+# Now load the CSV
+df = pd.read_csv(csv_file).round(3)
+HTML(df.head(5).to_html(index=False, table_id="mytable", classes="styled-table"))
+```
