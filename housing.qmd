@@ -140,7 +140,11 @@ import folium
 from branca.colormap import linear
 
 # ─── Data prep ──────────────────────────────────────────────────────────────
-gdf = gpd.read_file("tl_2024_06_place.shp")
+import warnings
+
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore", category=RuntimeWarning, message="Could not detect GDAL data files.*")
+    gdf = gpd.read_file("tl_2024_06_place.shp")
 gdf = gdf[(gdf.LSAD=="25") & (gdf.STATEFP=="06")]
 gdf["CITY_NAME"] = gdf.NAME.str.upper()
 
@@ -175,7 +179,7 @@ colormaps = {
 }
 
 # ─── Create Folium map ──────────────────────────────────────────────────────
-m = folium.Map(location=[34.0, -118.2], zoom_start=9, tiles=None)
+m = folium.Map(location=[34.0, -118.2], zoom_start=9, tiles=None);
 folium.TileLayer(
   tiles="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png",
   attr="&copy; CARTO",
