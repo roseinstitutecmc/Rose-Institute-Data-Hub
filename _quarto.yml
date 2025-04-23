@@ -14,6 +14,8 @@ website:
         text: Quarto Resources 
       - href: hubstart.qmd
         text: Data Hub
+      - href: nets_project.qmd
+        text: NETS Project
 
 format:
   html:

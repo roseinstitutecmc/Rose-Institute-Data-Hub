@@ -292,5 +292,33 @@
     "title": "Quarto Resources",
     "section": "",
     "text": "This links to pages new members might find useful to have linked. These should all be in the Quarto Resources Folder.\nIncluding sections\nIncluding images\nBasic demo of integrating Python into Quarto with peguins\nHeatmap demo\nAnimation on map demo\nA cool map without Plotly\nTips: 1. Copy and paste the header into documents. Be sure to add echo: False if you have code! (That prevents the code block from showing)\n\nTo insert pictures, do like \nTo insert sections, do double hashtag\nto insert a code block, do #code\nOnly put things you want to appear in the website header in the _quart.yml file. If they aren’t in the yml file, though, at least make sure something else links to them!\nTo insert links, do it like so: word you want to use"
+  },
+  {
+    "objectID": "nets_project.html",
+    "href": "nets_project.html",
+    "title": "NETS Project",
+    "section": "",
+    "text": "This page contains information about the NETS (National Establishment Time Series) Project."
+  },
+  {
+    "objectID": "nets_project.html#overview",
+    "href": "nets_project.html#overview",
+    "title": "NETS Project",
+    "section": "Overview",
+    "text": "Overview\nDetails about the NETS Project will be added here."
+  },
+  {
+    "objectID": "nets_project.html#data",
+    "href": "nets_project.html#data",
+    "title": "NETS Project",
+    "section": "Data",
+    "text": "Data\nThese maps are related to movement of businesses within SoCal, tracking establishment movement on a heatmap and net movement per county of establishments & sales.\n\n\n\n\n\n   \n\n\n\n\n\n\n\n\n   \n\n\n\n\n\n\n\n\n   \n\n\n\n\nThis map tracks changes in the number of Psychiatric Hospitals in CA and surrounding states between 1999-2004. CA had a bill (AB 88) chaptered in 1999 as well as OR with SB 267 in 2003 increasing support/funding for these institutions."
+  },
+  {
+    "objectID": "nets_project.html#resources",
+    "href": "nets_project.html#resources",
+    "title": "NETS Project",
+    "section": "Resources",
+    "text": "Resources\nAdditional resources and documentation for the NETS Project will be listed here."
   }
 ]
