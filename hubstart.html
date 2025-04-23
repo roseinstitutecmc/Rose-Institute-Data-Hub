@@ -38,7 +38,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d4be639c637f3db3c684c66cefad7e0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-ddd961a2510921635943dfbbd19534c4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -96,12 +97,12 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Bessett-Sinclair Report</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./Quarto Resource.html"> 
-<span class="menu-text">Quarto Resources</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link active" href="./hubstart.html" aria-current="page"> 
 <span class="menu-text">Data Hub</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./nets_project.html"> 
+<span class="menu-text">NETS Project</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -114,9 +115,19 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#explore-city-data" id="toc-explore-city-data" class="nav-link active" data-scroll-target="#explore-city-data">📊 Explore City Data</a></li>
+  <li><a href="#how-to-use-this-hub" id="toc-how-to-use-this-hub" class="nav-link" data-scroll-target="#how-to-use-this-hub">🔎 How to Use This Hub</a></li>
+  <li><a href="#in-progress" id="toc-in-progress" class="nav-link" data-scroll-target="#in-progress">🚧 In Progress</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -125,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -145,9 +156,9 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><a href="./demographics.html"><strong>Demographic Data</strong></a><br>
 Population, racial/ethnic composition, and household characteristics.</p></li>
-<li><p><em>Economic Data</em> <em>(coming soon)</em><br>
+<li><p><a href="./economic.html"><strong>Economic Data</strong></a><br>
 Income, employment, and industry breakdowns by city.</p></li>
-<li><p><em>Housing Data</em> <em>(coming soon)</em><br>
+<li><p><a href="./housing.html"><strong>Housing Data</strong></a><br>
 Rent prices, ownership rates, and housing development trends.</p></li>
 <li><p><em>Education, Health, Environment</em> <em>(coming soon)</em></p></li>
 <li><p><a href="./cities.html"><strong>All Cities</strong></a></p></li>
@@ -262,7 +273,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/roseinstitutecmc\.github\.io\/Test2\/");
+      var filterRegex = new RegExp("https:\/\/roseinstitutecmc\.github\.io\/Rose-Institute-Data-Hub\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

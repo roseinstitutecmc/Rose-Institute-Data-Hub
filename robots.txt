@@ -1,1 +1,1 @@
-Sitemap: https://roseinstitutecmc.github.io/Test2/sitemap.xml
+Sitemap: https://roseinstitutecmc.github.io/Rose-Institute-Data-Hub/sitemap.xml
