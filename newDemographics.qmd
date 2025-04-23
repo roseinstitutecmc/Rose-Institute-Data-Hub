@@ -1,0 +1,288 @@
+---
+title: "New Demographics"
+format:
+  html:
+    title-block: false
+    css: styles.css
+    toc: true
+jupyter: python3
+execute:
+  echo: false
+---
+
+## Overview
+
+This page presents demographic information for all incorporated cities in California, including:
+
+- Population totals  
+- Racial and ethnic composition  
+- Median household income  
+
+The data is drawn from public datasets and has been cleaned for clarity and consistency. Use the map, table, and charts below to explore.
+
+
+## Demographic Data: All Cities
+
+Use the table below to explore demographic data by city.
+
+<!-- 🔍 Search bar -->
+<input
+  type="text"
+  id="searchInput"
+  onkeyup="filterTable()"
+  placeholder="Search the table..."
+  style="margin-bottom: 4px; padding: 10px; width: 100%; max-width: 400px;"
+>
+
+<script>
+let currentPage = 1;
+const rowsPerPage = 10;
+
+function filterTable() {
+  currentPage = 1;
+  renderTable();
+}
+
+function sortTable(n) {
+  const table = document.getElementById("mytable");
+  const rows = Array.from(table.querySelectorAll("tbody tr"));
+  const dir = table.dataset.sortDir === "asc" ? "desc" : "asc";
+  table.dataset.sortDir = dir;
+  table.dataset.sortCol = n;
+
+  rows.sort((a, b) => {
+    const cellA = a.children[n].textContent.trim().toLowerCase();
+    const cellB = b.children[n].textContent.trim().toLowerCase();
+    if (!isNaN(cellA) && !isNaN(cellB)) {
+      return dir === "asc" ? cellA - cellB : cellB - cellA;
+    }
+    return dir === "asc"
+      ? cellA.localeCompare(cellB)
+      : cellB.localeCompare(cellA);
+  });
+
+  const tbody = table.querySelector("tbody");
+  tbody.innerHTML = "";
+  rows.forEach(row => tbody.appendChild(row));
+
+  renderTable();
+}
+
+function renderTable() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const table = document.getElementById("mytable");
+  const rows = Array.from(table.querySelectorAll("tbody tr"));
+
+  // Filter
+  let filteredRows = rows.filter(row =>
+    row.textContent.toLowerCase().includes(input)
+  );
+
+  // Paginate
+  rows.forEach(row => row.classList.add("hidden"));
+  const start = (currentPage - 1) * rowsPerPage;
+  const end = start + rowsPerPage;
+  filteredRows.slice(start, end).forEach(row => row.classList.remove("hidden"));
+
+  // Pagination Controls
+  const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
+  const paginationDiv = document.getElementById("pagination");
+  paginationDiv.innerHTML = "";
+  for (let i = 1; i <= totalPages; i++) {
+    let btn = document.createElement("button");
+    btn.innerText = i;
+    btn.style.marginRight = "5px";
+    if (i === currentPage) btn.classList.add("active-page");
+    btn.onclick = () => {
+      currentPage = i;
+      renderTable();
+    };
+    paginationDiv.appendChild(btn);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#mytable th").forEach((th, i) => {
+    th.onclick = () => sortTable(i);
+  });
+  renderTable();
+});
+</script>
+
+```{python}
+#| echo: false
+import pandas as pd
+from IPython.display import HTML
+
+df = pd.read_csv("cleaned_citydatademoCSV.csv")
+HTML(df.to_html(index=False, table_id="mytable", classes="styled-table"))
+```
+<div id="table-controls" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+  <div id="pagination"></div>
+
+  <a href="cleaned_citydatademoCSV.csv" download="california_demographics.csv">
+    <button
+      class="city-button">
+      Download CSV
+    </button>
+  </a>
+</div>
+
+
+## Interactive Map of Cities
+
+Use the map below to explore demographic data by city. Select a variable and then hover a city to view population, income, and racial/ethnic breakdown.
+
+```{python}
+import geopandas as gpd
+import pandas as pd
+import folium
+import ipywidgets as widgets
+import numpy as np
+from IPython.display import display, clear_output
+
+# Load spatial and demographic data.
+gdf = gpd.read_file("tl_2024_06_place.shp")
+city_data = pd.read_csv("cleaned_citydatademoCSV.csv")
+
+# Standardize city names.
+gdf["CITY_NAME"] = gdf["NAME"].str.upper()
+city_data["CITY_NAME"] = city_data["City Name"].str.upper()
+
+# Filter and merge datasets.
+gdf = gdf[gdf["LSAD"] == "25"]
+merged = gdf.merge(city_data, on="CITY_NAME")
+
+# Define a function to generate the updated map based on a selected variable.
+def update_map(selected_var):
+    # Create a base map.
+    m = folium.Map(
+        location=[34.0, -118.2],
+        zoom_start=9,
+        tiles='https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+        attr='&copy; <a href="https://carto.com/">Carto</a>'
+    )
+    
+    # Compute equal-width bins using np.linspace.
+    min_val = merged[selected_var].min()
+    max_val = merged[selected_var].max()
+    bins = np.linspace(min_val, max_val, num=6).tolist()  # 6 evenly spaced bins
+    
+    # Add a choropleth layer for the chosen variable.
+    folium.Choropleth(
+        geo_data=merged,
+        data=merged,
+        columns=["CITY_NAME", selected_var],
+        key_on="feature.properties.CITY_NAME",
+        fill_color="Reds",  # Colors range from red (low) to green (high).
+        fill_opacity=0.7,
+        line_opacity=0.2,
+        legend_name="",  # Remove default legend text.
+        bins=bins,
+        smooth_factor=0,
+    ).add_to(m)
+    
+    # Overlay a transparent GeoJson layer with tooltips on hover.
+    tooltip = folium.GeoJsonTooltip(
+        fields=["CITY_NAME", selected_var],
+        aliases=["City: ", f"{selected_var}: "],
+        localize=True
+    )
+    folium.GeoJson(
+        merged,
+        name="City Info",
+        tooltip=tooltip,
+        style_function=lambda feature: {
+            'fillColor': 'transparent',
+            'color': 'transparent',
+            'weight': 0,
+            'fillOpacity': 0
+        }
+    ).add_to(m)
+    
+    return m
+
+# Create a dropdown widget for variable selection.
+dropdown = widgets.Dropdown(
+    options=[
+    "Latino %",
+    "White %",
+    "Black %",
+    "Asian %",
+    "Native %",
+    "PI %",
+    "Other %",
+    "Multiracial %",
+    "Total Population",
+    "Median Household Income"],
+    description="Variable:"
+)
+
+# Create an output widget to display the map.
+output = widgets.Output()
+
+# Define an event handler for changes in the dropdown selection.
+def on_change(change):
+    if change['type'] == 'change' and change['name'] == 'value':
+        with output:
+            clear_output(wait=True)
+            updated_map = update_map(change['new'])
+            display(updated_map)
+
+dropdown.observe(on_change)
+
+# Display the dropdown and the output widget.
+display(dropdown, output)
+
+# Optionally, display the initial map using the default dropdown value.
+with output:
+    initial_map = update_map(dropdown.value)
+    display(initial_map)
+```
+
+
+## Heatmap: Demographic Variables by City
+
+```{python}
+#| echo: false
+import pandas as pd
+import plotly.express as px
+
+# Load your data
+df = pd.read_csv("cleaned_citydatademoCSV.csv")
+
+# ✅ Only keep demographic percentage columns (no income)
+cols_to_use = [
+    "Latino %",
+    "White %",
+    "Black %",
+    "Asian %",
+    "Native %",
+    "PI %",
+    "Other %",
+    "Multiracial %"
+]
+
+
+# Set city names as index
+heatmap_df = df[["City Name"] + cols_to_use].set_index("City Name")
+
+# Optional: sort by a demographic column (e.g. Latino %)
+heatmap_df = heatmap_df.sort_values(by="Latino %", ascending=False)
+
+# Create Plotly heatmap
+fig = px.imshow(
+    heatmap_df,
+    color_continuous_scale="Reds",
+    aspect="auto",
+    labels=dict(x="Demographic Variable", y="City", color="Percent"),
+    title="Demographic Composition by City"
+)
+
+fig.update_layout(
+    height=800,
+    margin=dict(l=100, r=20, t=60, b=20)
+)
+
+fig
+```
