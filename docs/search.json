@@ -102,7 +102,7 @@
     "href": "housing.html#interactive-map-of-cities",
     "title": "Housing Data",
     "section": "Interactive Map of Cities",
-    "text": "Interactive Map of Cities\nUse the map below to explore housing data by city. Select a variable and then hover over a city. The darker the shape, the higher the value.\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook"
+    "text": "Interactive Map of Cities\nUse the map below to explore housing data by city. Select a variable and then hover over a city. The darker the shape, the higher the value.\n\n\nC:\\anaconda3\\Lib\\site-packages\\pyogrio\\core.py:35: RuntimeWarning:\n\nCould not detect GDAL data files.  Set GDAL_DATA environment variable to the correct path.\n\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\nSources available upon request | Visualization: Deborah Aguirre CMC’28"
   },
   {
     "objectID": "housing.html#heatmap-housing-variables-by-city",
@@ -137,7 +137,7 @@
     "href": "demographics.html#interactive-map-of-cities",
     "title": "Demographic Data",
     "section": "Interactive Map of Cities",
-    "text": "Interactive Map of Cities\nUse the map below to explore demographic data by city. Select a variable and then hover over a city. The darker the shape, the higher the value.\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook"
+    "text": "Interactive Map of Cities\nUse the map below to explore demographic data by city. Select a variable and then hover over a city. The darker the shape, the higher the value.\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\nSources available upon request | Visualization: Deborah Aguirre CMC’28"
   },
   {
     "objectID": "demographics.html#heatmap-demographic-variables-by-city",
@@ -228,7 +228,7 @@
     "href": "economic.html#interactive-map-of-cities",
     "title": "Economic Data",
     "section": "Interactive Map of Cities",
-    "text": "Interactive Map of Cities\nUse the map below to explore economic data by city. Select a variable and then hover over a city. The darker the shape, the higher the value.\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook"
+    "text": "Interactive Map of Cities\nUse the map below to explore economic data by city. Select a variable and then hover over a city. The darker the shape, the higher the value.\n\n\nC:\\anaconda3\\Lib\\site-packages\\pyogrio\\core.py:35: RuntimeWarning:\n\nCould not detect GDAL data files.  Set GDAL_DATA environment variable to the correct path.\n\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\nSources available upon request | Visualization: Deborah Aguirre CMC’28"
   },
   {
     "objectID": "economic.html#distribution-of-top-3-industries-by-of-workforce",

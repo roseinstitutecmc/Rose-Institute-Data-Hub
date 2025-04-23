@@ -1,0 +1,127 @@
+---
+title: "Demographic Data TEST"
+format: html
+jupyter: python3
+execute:
+  echo: false
+  output: false
+---
+
+## Overview
+
+This page presents demographic information for all incorporated cities in California, including:
+
+- Population totals  
+- Racial and ethnic composition  
+- Median household income  
+
+The data is drawn from public datasets and has been cleaned for clarity and consistency. Use the map, table, and charts below to explore.
+
+
+## Demographic Data: All Cities
+
+Use the table below to explore demographic data by city.
+
+<!-- 🔍 Search bar -->
+<input
+  type="text"
+  id="searchInput"
+  onkeyup="filterTable()"
+  placeholder="Search the table..."
+  style="margin-bottom: 4px; padding: 10px; width: 100%; max-width: 400px;"
+>
+
+<script>
+let currentPage = 1;
+const rowsPerPage = 10;
+
+function filterTable() {
+  currentPage = 1;
+  renderTable();
+}
+
+function sortTable(n) {
+  const table = document.getElementById("mytable");
+  const rows = Array.from(table.querySelectorAll("tbody tr"));
+  const dir = table.dataset.sortDir === "asc" ? "desc" : "asc";
+  table.dataset.sortDir = dir;
+  table.dataset.sortCol = n;
+
+  rows.sort((a, b) => {
+    const cellA = a.children[n].textContent.trim().toLowerCase();
+    const cellB = b.children[n].textContent.trim().toLowerCase();
+    if (!isNaN(cellA) && !isNaN(cellB)) {
+      return dir === "asc" ? cellA - cellB : cellB - cellA;
+    }
+    return dir === "asc"
+      ? cellA.localeCompare(cellB)
+      : cellB.localeCompare(cellA);
+  });
+
+  const tbody = table.querySelector("tbody");
+  tbody.innerHTML = "";
+  rows.forEach(row => tbody.appendChild(row));
+
+  renderTable();
+}
+
+function renderTable() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const table = document.getElementById("mytable");
+  const rows = Array.from(table.querySelectorAll("tbody tr"));
+
+  // Filter
+  let filteredRows = rows.filter(row =>
+    row.textContent.toLowerCase().includes(input)
+  );
+
+  // Paginate
+  rows.forEach(row => row.classList.add("hidden"));
+  const start = (currentPage - 1) * rowsPerPage;
+  const end = start + rowsPerPage;
+  filteredRows.slice(start, end).forEach(row => row.classList.remove("hidden"));
+
+  // Pagination Controls
+  const totalPages = Math.ceil(filteredRows.length / rowsPerPage);
+  const paginationDiv = document.getElementById("pagination");
+  paginationDiv.innerHTML = "";
+  for (let i = 1; i <= totalPages; i++) {
+    let btn = document.createElement("button");
+    btn.innerText = i;
+    btn.style.marginRight = "5px";
+    if (i === currentPage) btn.classList.add("active-page");
+    btn.onclick = () => {
+      currentPage = i;
+      renderTable();
+    };
+    paginationDiv.appendChild(btn);
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("#mytable th").forEach((th, i) => {
+    th.onclick = () => sortTable(i);
+  });
+  renderTable();
+});
+</script>
+
+```{python}
+#| echo: false
+import pandas as pd
+from IPython.display import HTML
+
+df = pd.read_csv("cleaned_citydatademoCSV.csv")
+HTML(df.to_html(index=False, table_id="mytable", classes="styled-table"))
+```
+<div id="table-controls" style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px;">
+  <div id="pagination"></div>
+
+  <a href="cleaned_citydatademoCSV.csv" download="california_demographics.csv">
+    <button
+      class="city-button">
+      Download CSV
+    </button>
+  </a>
+</div>
+

@@ -222,6 +222,8 @@ folium.LayerControl(collapsed=False).add_to(m)
 m
 ```
 
+Sources available upon request | Visualization: Deborah Aguirre CMC’28
+
 ## Heatmap: Housing Variables by City
 
 ```{python}

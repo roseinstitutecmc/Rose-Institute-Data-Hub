@@ -219,6 +219,8 @@ folium.LayerControl(collapsed=False).add_to(m)
 m
 ```
 
+Sources available upon request | Visualization: Deborah Aguirre CMC’28
+
 ## Distribution of Top 3 Industries by % of Workforce
 
 Hover over each bar to see the industry.
