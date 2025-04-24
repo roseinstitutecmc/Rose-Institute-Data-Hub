@@ -74,14 +74,21 @@
     "href": "nets_project.html#overview",
     "title": "NETS Project",
     "section": "Overview",
-    "text": "Overview\nDetails about the NETS Project will be added here."
+    "text": "Overview\nThe National Establishment Time Series (NETS) Database tracks information of over 87.5 million businesses between 1990 and 2022. Data provided in the NETS Database includes active years of business, industry, number of employees, and sales. The Rose Institute seeks to leverage this database in order to track the economy over time and responses to particular policies or events, on a national, state, and local level. Below are visualizations made by the NETS team to demonstrate the capabilities and proposed use cases of this database."
   },
   {
-    "objectID": "nets_project.html#data",
-    "href": "nets_project.html#data",
+    "objectID": "nets_project.html#business-movement-data",
+    "href": "nets_project.html#business-movement-data",
     "title": "NETS Project",
-    "section": "Data",
-    "text": "Data\nThese maps are related to movement of businesses within SoCal, tracking establishment movement on a heatmap and net movement per county of establishments & sales.\n\n\n\n\n\n   \n\n\n\n\n\n\n\n\n   \n\n\n\n\n\n\n\n\n   \n\n\n\n\nThis map tracks changes in the number of Psychiatric Hospitals in CA and surrounding states between 1999-2004. CA had a bill (AB 88) chaptered in 1999 as well as OR with SB 267 in 2003 increasing support/funding for these institutions."
+    "section": "Business Movement Data",
+    "text": "Business Movement Data\nThe following three visualizations outline the movement of businesses within Southern California between the years of 2005-2021. The heatmap indicates the originating and terminating counties of businesses that relocated within SoCal. The two geographic maps detail the net flow of businesses and sales respectively organized by county, summed across the timeframe."
+  },
+  {
+    "objectID": "nets_project.html#psychiatric-and-substance-abuse-hospitals-data",
+    "href": "nets_project.html#psychiatric-and-substance-abuse-hospitals-data",
+    "title": "NETS Project",
+    "section": "Psychiatric and Substance Abuse Hospitals Data",
+    "text": "Psychiatric and Substance Abuse Hospitals Data\nThe following geographic map details the net change in the number of Psychiatric and Substance Abuse Hospitals in California and surrounding states between the years of 1999-2004. Two of these states, California in 1999 and Oregon in 2003, through AB 88 and SB 267 respectively, increased state investment into these institutions, while the other two, Nevada and Arizona, saw no dramatic policy changes targeting these institutions in the timeframe."
   },
   {
     "objectID": "nets_project.html#resources",

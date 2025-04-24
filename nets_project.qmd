@@ -9,12 +9,12 @@ This page contains information about the NETS (National Establishment Time Serie
 
 ## Overview
 
-Details about the NETS Project will be added here.
+The National Establishment Time Series (NETS) Database tracks information of over 87.5 million businesses between 1990 and 2022. Data provided in the NETS Database includes active years of business, industry, number of employees, and sales. The Rose Institute seeks to leverage this database in order to track the economy over time and responses to particular policies or events, on a national, state, and local level. Below are visualizations made by the NETS team to demonstrate the capabilities and proposed use cases of this database.
 
-## Data
+## Business Movement Data
 
+The following three visualizations outline the movement of businesses within Southern California between the years of 2005-2021. The heatmap indicates the originating and terminating counties of businesses that relocated within SoCal. The two geographic maps detail the net flow of businesses and sales respectively organized by county, summed across the timeframe.
 
-These maps are related to movement of businesses within SoCal, tracking establishment movement on a heatmap and net movement per county of establishments & sales.
 
 <div class='tableauPlaceholder' id='viz1745377074926' style='position: relative'><noscript><a href='#'><img alt='Establishment Movement Heat Map ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SoCalMovement2005-2021&#47;EstablishmentMovementHeatMap&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SoCalMovement2005-2021&#47;EstablishmentMovementHeatMap' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SoCalMovement2005-2021&#47;EstablishmentMovementHeatMap&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
 <script type='text/javascript'>
@@ -25,8 +25,7 @@ These maps are related to movement of businesses within SoCal, tracking establis
     scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
-
-
+<br>
 <div class='tableauPlaceholder' id='viz1745377334913' style='position: relative'><noscript><a href='#'><img alt='Net Establishment Movement ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SoCalMovement2005-2021&#47;NetEstablishmentMovement&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SoCalMovement2005-2021&#47;NetEstablishmentMovement' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SoCalMovement2005-2021&#47;NetEstablishmentMovement&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
 <script type='text/javascript'>
     var divElement = document.getElementById('viz1745377334913');
@@ -36,9 +35,7 @@ These maps are related to movement of businesses within SoCal, tracking establis
     scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
-
-
-
+<br>
 <div class='tableauPlaceholder' id='viz1745377457648' style='position: relative'><noscript><a href='#'><img alt='Net Sales Movement ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SoCalMovement2005-2021&#47;NetSalesMovement&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SoCalMovement2005-2021&#47;NetSalesMovement' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;So&#47;SoCalMovement2005-2021&#47;NetSalesMovement&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
 <script type='text/javascript'>
     var divElement = document.getElementById('viz1745377457648');
@@ -49,15 +46,9 @@ These maps are related to movement of businesses within SoCal, tracking establis
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
 
+## Psychiatric and Substance Abuse Hospitals Data
 
-
-
----
-
-
-
-This map tracks changes in the number of Psychiatric Hospitals in CA and surrounding states between 1999-2004. CA had a bill (AB 88) chaptered in 1999 as well as OR with SB 267 in 2003 increasing support/funding for these institutions.
-
+The following geographic map details the net change in the number of Psychiatric and Substance Abuse Hospitals in California and surrounding states between the years of 1999-2004. Two of these states, California in 1999 and Oregon in 2003, through AB 88 and SB 267 respectively, increased state investment into these institutions, while the other two, Nevada and Arizona, saw no dramatic policy changes targeting these institutions in the timeframe.
 
 <div class='tableauPlaceholder' id='viz1745377566598' style='position: relative'><noscript><a href='#'><img alt='Change in number of Psychiatric and Substance Abuse Hospitals Between 1999 and 2004 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ps&#47;PsychiatricSubstanceAbuseHospitals&#47;ChangeinnumberofPsychiatricandSubstanceAbuseHospitalsBetween1999and2004&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PsychiatricSubstanceAbuseHospitals&#47;ChangeinnumberofPsychiatricandSubstanceAbuseHospitalsBetween1999and2004' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ps&#47;PsychiatricSubstanceAbuseHospitals&#47;ChangeinnumberofPsychiatricandSubstanceAbuseHospitalsBetween1999and2004&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>
 <script type='text/javascript'>
@@ -68,9 +59,6 @@ This map tracks changes in the number of Psychiatric Hospitals in CA and surroun
     scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
 </script>
-
-
-
 
 ## Resources
 
