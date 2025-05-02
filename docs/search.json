@@ -221,7 +221,7 @@
     "href": "Calabasas.html#interactive-map",
     "title": "City Dashboard: Calabasas",
     "section": "Interactive Map",
-    "text": "Interactive Map\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook"
+    "text": "Interactive Map\n\n\nC:\\anaconda3\\Lib\\site-packages\\pyogrio\\core.py:35: RuntimeWarning:\n\nCould not detect GDAL data files.  Set GDAL_DATA environment variable to the correct path.\n\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook"
   },
   {
     "objectID": "demographics.html",
@@ -249,7 +249,7 @@
     "href": "demographics.html#interactive-map-of-cities",
     "title": "Demographic Data",
     "section": "Interactive Map of Cities",
-    "text": "Interactive Map of Cities\nUse the map below to explore demographic data by city. Select a variable and then hover over a city. The darker the shape, the higher the value.\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\nSources available upon request | Visualization: Deborah Aguirre CMC’28"
+    "text": "Interactive Map of Cities\nUse the map below to explore demographic data by city. Select a variable and then hover over a city. The darker the shape, the higher the value.\n\n\nC:\\anaconda3\\Lib\\site-packages\\pyogrio\\core.py:35: RuntimeWarning:\n\nCould not detect GDAL data files.  Set GDAL_DATA environment variable to the correct path.\n\n\n\nMake this Notebook Trusted to load map: File -&gt; Trust Notebook\n\n\nSources available upon request | Visualization: Deborah Aguirre CMC’28"
   },
   {
     "objectID": "demographics.html#heatmap-demographic-variables-by-city",

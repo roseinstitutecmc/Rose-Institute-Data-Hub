@@ -9,7 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - href: reportDraft.qmd 
-        text: Bessett-Sinclair Report
+        text: Bessette-Sinclair Report
       - href: hubstart.qmd
         text: Data Hub
       - href: nets_project.qmd
